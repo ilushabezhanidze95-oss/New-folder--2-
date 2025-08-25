@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html lang="ka">
+  <head>
+    </script>
+</body>
+</html>
+    
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ფონური სლაიდშოუ</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* სლაიდშოუს კონტეინერი */
+        .slideshow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width:40%;
+            height: 100%;
+            z-index: -1; /* ფონად განთავსება */
+            overflow: hidden;
+        }
+
+        /* სლაიდის სურათები */
+        .slide {
+            display: none;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* სურათი ერგება ეკრანს */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* ფეიდის ანიმაცია */
+        .fade {
+            animation: fade 1.5s ease-in-out;
+        }
+
+        @keyframes fade {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* წინა პლანის კონტენტი */
+        .content {
+            position: relative;
+            z-index: 1; /* სლაიდშოუს თავზე */
+            color: white;
+            text-align: center;
+            padding: 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <!-- სლაიდშოუს კონტეინერი -->
+    <div class="slideshow-container">
+        <img src="https://albadeelstore.com/wp-content/uploads/2024/11/frame-Mobile-5.png" class="slide fade">
+        <img src="https://assets.swappie.com/cdn-cgi/image/width=600,height=600,fit=contain,format=auto/swappie-iphone-16-pink.png?v=e7d16a21" class="slide fade">
+        <img src="https://xprostores.com/wp-content/uploads/2024/10/16pro.png" class="slide fade">
+        <img src="https://cdn.shopify.com/s/files/1/0557/9351/6695/files/iPhone16-Plus-Black_156aae98-5068-4a57-a244-78eeb55bc1df.png?v=1729782907&width=1454&height=1056" class="slide fade">
+         <img src="https://www.trikart.com/media/wysiwyg/honor_400_lite-1.png" class="slide fade">
+          <img src="https://i0.wp.com/thetechnologyexpress.com/wp-content/uploads/2025/05/KV.png?fit=1600%2C900&ssl=1" class="slide fade">
+          <img src="https://media.extra.com/s/aurora/100363973_800/INFINIX-GT-20-Pro%2C-%2C5G%2C-256GB%2C-Mecha-Orange?locale=en-GB,en-*,*" class="slide fade">
+    </div>
+
+    <!-- წინა პლანის კონტენტი -->
+    <div class="content">
+        <h1></h1>
+        <p></p>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            let slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) {
+                slideIndex = 1;
+            }
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 4000); // სურათის შეცვლა ყოველ 3 წამში
+        }
+    </script>
+</body>
+</html>
+    <!-- მარჯვენა ქვედა კუთხის ბანკის ლოგოები -->
+<div style="position:fixed; bottom:20px; right:20px; z-index:999; display:flex; gap:60სpx;">
+
+  <!-- TBC Bank -->
+  <a href="https://www.tbcbank.ge" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/TBC_Bank_logo.svg/2560px-TBC_Bank_logo.svg.png" 
+         alt="TBC Bank" 
+         style="width:100px; height:auto; border-radius:30px; background:white; padding:5px; box-shadow:0 5px 60px rgba(0,0,0,0.3);">
+  </a>
+  <!-- Bank of Georgia -->
+  <a href="https://bankofgeorgia.ge" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/ka/4/4c/Bank_of_Georgia_logo.png" 
+         alt="Bank of Georgia" 
+         style="width:100px; height:auto; border-radius:15px; background:white; padding:11px; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+  </a>
+
+  <!-- Credo Bank -->
+  <a href="https://credobank.ge" target="_blank">
+    <img src="https://imagedelivery.net/d_EE26O5eWcJDRYn-qMBOg/5e5ff2dd-85be-49b7-da19-5572c960d300/public" 
+         alt="Credo Bank" 
+         style="width:100px; height:auto; border-radius:8px; background:white; padding:5px; box-shadow:0 4px 60px rgba(0,0,0,0.3);">
+  </a>
+  <!-- მარჯვენა ქვედა კუთხის ბანკის სლაიდი -->
+<!-- ბანკების სლაიდერი -->
+ <!-- კატეგორიების მენიუ -->
+<!-- კატეგორიების ღილაკი -->
+<div class="category-btn">
+  
+
+
+</style>
+
+<script>
+function openMenu() {
+  document.getElementById("sidebarMenu").style.width = "260px"; // გახსნისას
+}
+
+function closeMenu() {
+  document.getElementById("sidebarMenu").style.width = "0"; // დახურვისას
+}
+</script>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ბანკის სლაიდერი</title>
+    <style>
+        .banks-slider {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #0f131b;
+            border-radius: 16px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            color: white;
+            font-size: 16px; /* გაზრდილი შრიფტის ზომა */
+            font-weight: 600; /* ოდნავ მსუბუქი წონა */
+            min-width: 350px; /* გაზრდილი სიგანე */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        .banks-slider .slide {
+            display: none;
+            align-items: center;
+            gap: 12px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out; /* გლუვი ანიმაცია */
+        }
+
+        .banks-slider .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .banks-slider img {
+            height: 28px;
+            object-fit: contain;
+        }
+
+        .banks-slider span {
+            white-space: nowrap; /* თავიდან ავიცილებთ ტექსტის გადატანას */
+        }
+    </style>
+</head>
+<body>
+    <div class="banks-slider">
+        <div class="slide active">
+            <span>💳 TBC Bank — გადანაწილება 4 თვემდე</span>
+            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/TBC_Bank_logo.svg/2560px-TBC_Bank_logo.svg.png" alt="TBC Bank">
+        </div>
+        <div class="slide">
+            <span>💳 Bank of Georgia — 0% განვადება</span>
+            <img src="https://upload.wikimedia.org/wikipedia/ka/4/4c/Bank_of_Georgia_logo.png" alt="BOG">
+        </div>
+        <div class="slide">
+            <span>💳 Credo Bank — მარტივი განვადება</span>
+            <img src="https://imagedelivery.net/d_EE26O5eWcJDRYn-qMBOg/5e5ff2dd-85be-49b7-da19-5572c960d300/public" alt="Credo Bank">
+        </div>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.banks-slider .slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+        }
+
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 3000); // ყოველ 3 წამში გადართვა
+    </script>
+</body>
+</html>
+
+
+  <!-- 🔥 პოპულარული მოდელების სლაიდერი — ქვედა მარცხენა კუთხე -->
+<style>
+  .hot-slider{position:fixed; left:12px; bottom:12px; width:200px; border:1px solid #232836;
+    border-radius:16px; overflow:hidden; background:#0f131b; box-shadow:0 10px 30px rgba(0,0,0,.45); z-index:2000}
+  .hot-head{display:flex; align-items:center; justify-content:space-between; padding:8px 10px;
+    font-size:12px; color:#cbd5e1; background:linear-gradient(180deg,#121826,#0e1420)}
+  .hot-track{display:flex; transition:transform .5s ease}
+  .hot-slide{position:relative; width:280px; height:150px; flex-shrink:0; background:#0b0f16}
+  .hot-slide img{width:100%; height:100%; object-fit:contain; display:block; filter:contrast(1.05) saturate(1.05)}
+  .hot-label{position:absolute; left:10px; bottom:10px; font-size:13px; font-weight:800; color:#e6ebf4;
+    background:rgba(0,0,0,.5); padding:4px 8px; border-radius:10px; border:1px solid #22324a}
+  .hot-controls{position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; pointer-events:none}
+  .hot-btn{pointer-events:auto; border:none; width:28px; height:28px; border-radius:999px; cursor:pointer;
+    background:#0f141f; color:#cbd5e1; border:1px solid #2a3345; display:grid; place-items:center; opacity:.9}
+  .hot-btn:hover{opacity:1}
+  .hot-prev{margin-left:6px} .hot-next{margin-right:6px}
+  .hot-dotbar{display:flex; gap:6px; justify-content:center; padding:6px 10px; background:#0e1420; border-top:1px solid #232836}
+  .hot-dot{width:8px; height:8px; border-radius:999px; background:#263044}
+  .hot-dot.active{background:#5eead4}
+  /* პატარა ეკრანებზე ავტომატურად დაიმალოს თუ ჩამოეფარება რამეს */
+  @media (max-width:480px){ .hot-slider{width:220px} .hot-slide{width:220px; height:140px} }
+</style>
+<!-- 🔥 პოპულარული მოდელების სლაიდერი — ქვედა მარცხენა კუთხე -->
+<style>
+  .hot-slider{position:fixed; left:12px; bottom:12px; width:280px; border:1px solid #e6ff01;
+    border-radius:16px; overflow:hidden; background:#0f131b; box-shadow:0 10px 30px rgba(0,0,0,.45); z-index:2000}
+  .hot-head{display:flex; align-items:center; justify-content:space-between; padding:8px 10px;
+    font-size:12px; color:#cbd5e1; background:linear-gradient(180deg,#121826,#0e1420)}
+  .hot-track{display:flex; transition:transform .5s ease}
+  .hot-slide{position:relative; width: 280px;px; height:150px; flex-shrink:0; background:#0b0f16}
+  .hot-slide img{width:100%; height:100%; object-fit:contain; display:block; filter:contrast(1.05) saturate(1.05)}
+  .hot-label{position:absolute; left:10px; bottom:10px; font-size:13px; font-weight:800; color:#e6ebf4;
+    background:rgba(0,0,0,.5); padding:4px 8px; border-radius:10px; border:1px solid #22324a}
+  .hot-controls{position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; pointer-events:none}
+  .hot-btn{pointer-events:auto; border:none; width:28px; height:28px; border-radius:999px; cursor:pointer;
+    background:#0f141f; color:#cbd5e1; border:1px solid #2a3345; display:grid; place-items:center; opacity:.9}
+  .hot-btn:hover{opacity:1}
+  .hot-prev{margin-left:6px} .hot-next{margin-right:6px}
+  .hot-dotbar{display:flex; gap:6px; justify-content:center; padding:6px 10px; background:#0e1420; border-top:1px solid #232836}
+  .hot-dot{width:8px; height:8px; border-radius:999px; background:#263044}
+  .hot-dot.active{background:#5eead4}
+  /* პატარა ეკრანებზე ავტომატურად დაიმალოს თუ ჩამოეფარება რამეს */
+  @media (max-width:480px){ .hot-slider{width:200px} .hot-slide{width:220px; height:140px} }
+</style>
+
+<div class="hot-slider" id="hotSlider">
+  <div class="hot-head">
+    <span>🔥 პოპულარული მოდელები</span>
+    <button id="hotClose" title="დახურვა" style="background:#0f141f;color:#cbd5e1;border:1px solid #2a3345;border-radius:8px;padding:2px 6px;cursor:pointer;">X</button>
+  </div>
+
+  <div class="hot-viewport" style="position:relative">
+    <div class="hot-track" id="hotTrack">
+      <!-- თითო სლაიდი -->
+      <div class="hot-slide">
+        <img src="https://theapplewiki.com/images/applewiki/thumb/0/06/IPhone_16_Pro_Max.png/800px-IPhone_16_Pro_Max.png" alt="iPhone 16 pro">
+        <div class="hot-label">iPhone 16 pro max · 256GB</div>
+      </div>
+      <div class="hot-slide">
+        <img src="https://pngimg.com/d/iphone16_PNG37.png" alt="iphone 16">
+        <div class="hot-label">iphone 16·128GB</div>
+        
+      </div>
+      <div class="hot-slide">
+        <img src="https://soundmachine.com.mt/wp-content/uploads/2024/10/Samsung-Galaxy-A16-5G-4GB-128GB-Blue-Black.png" alt="SAMSUNG A16 4/128">
+        <div class="hot-label">SAMSUNG A16 4/128</div>
+         </div>
+      <div class="hot-slide">
+        <img src="https://assets.swappie.com/cdn-cgi/image/width=600,height=600,fit=contain,format=auto/swappie-iphone-16-pro-natural-titanium.png?v=cf0efe3f" alt="iphone16pro ">
+        <div class="hot-label">IPHONE 16 PRO</div>
+      </div>
+      <div class="hot-slide">
+        <img src="https://pngimg.com/d/iphone_13_PNG22.png">
+        <div class="hot-label">IPHONE 13pro 128GB</div>
+      </div>
+      <div class="hot-slide">
+        <img src="https://ng.xpark.com/media/catalog/product/cache/7c9924b6276ad76a951c1e786fcf2062/2/0/20250218-114932.png" alt="infinix">
+        <div class="hot-label">infinix ZERO FLIP 12/512GB</div>
+      </div>
+    </div>
+
+    <!-- ხელით გადართვის ღილაკები -->
+    <div class="hot-controls">
+      <button class="hot-btn hot-prev" id="hotPrev" aria-label="Previous">‹</button>
+      <button class="hot-btn hot-next" id="hotNext" aria-label="Next">›</button>
+    </div>
+  </div>
+
+  <!-- წერტილები -->
+  <div class="hot-dotbar" id="hotDots"></div>
+</div>
+
+<script>
+  // === სლაიდერი: ქვედა-მარცხენა ===
+  (function(){
+    const track = document.getElementById('hotTrack');
+    const slides = Array.from(track.children);
+    const prev = document.getElementById('hotPrev');
+    const next = document.getElementById('hotNext');
+    const dotsWrap = document.getElementById('hotDots');
+    const closeBtn = document.getElementById('hotClose');
+    const slider = document.getElementById('hotSlider');
+
+    // დინამიკური წერტილები
+    slides.forEach((_,i)=>{
+      const d=document.createElement('span');
+      d.className='hot-dot'+(i===0?' active':'');
+      d.dataset.index=i;
+      d.style.cursor='pointer';
+      dotsWrap.appendChild(d);
+    });
+    const dots = Array.from(dotsWrap.children);
+
+    // ზომა (match CSS width)
+    function slideWidth(){ return slides[0].getBoundingClientRect().width; }
+
+    let i = 0, timer = null;
+    function go(idx){
+      i = (idx+slides.length)%slides.length;
+      track.style.transform = `translateX(-${slideWidth()*i}px)`;
+      dots.forEach((d,k)=>d.classList.toggle('active', k===i));
+    }
+
+    function play(){
+      stop(); timer = setInterval(()=>go(i+1), 3500);
+    }
+    function stop(){
+      if(timer){ clearInterval(timer); timer=null; }
+    }
+
+    next.onclick = ()=>{ go(i+1); play(); };
+    prev.onclick = ()=>{ go(i-1); play(); };
+    dots.forEach(d=>d.onclick=()=>{ go(+d.dataset.index); play(); });
+
+    // hover-ზე პაუზა
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', play);
+
+    // დახურვა
+    closeBtn.onclick = ()=> slider.style.display='none';
+
+    // რეზიდენტული resize
+    window.addEventListener('resize', ()=> go(i));
+
+    // სტარტი
+    go(0); play();
+  })();
+</script>
+<!-- 🔥/სლაიდერი დასრულდა -->
+
+
+
+ 
+</html>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ტექნო სითი 2022 — მობილურების კატალოგი</title>
+  <style>
+    
+ 
+    :root{
+      --bg:#0f1115; --card:#151822; --muted:#a7b0c0; --text:#e6ebf4; --accent:#5eead4; --accent2:#60a5fa; --danger:#f87171; --ok:#34d399;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#0c0f14,#11151d);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
+    .container{max-width:1200px;margin:0 auto;padding:20px}
+    header{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:12px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand .logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--accent2),var(--accent));display:grid;place-items:center;font-weight:800;color:#0b1020}
+    .brand h1{font-size:20px;margin:0}
+    .toolbar{display:grid;grid-template-columns:1.2fr .9fr .9fr .8fr;gap:10px}
+    .control{background:var(--card);border:1px solid #232836;border-radius:14px;padding:10px 12px;display:flex;align-items:center;gap:8px}
+    .control input,.control select{width:100%;background:transparent;border:none;outline:none;color:var(--text);font-size:14px}
+    .control label{font-size:12px;color:var(--muted)}
+    .filters{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+    .panel{background:var(--card);border:1px solid #232836;border-radius:16px;padding:12px}
+    .panel h3{margin:0 0 8px 0;font-size:14px;color:#cbd5e1}
+    .brands{display:flex;flex-wrap:wrap;gap:8px}
+    .chip{display:inline-flex;align-items:center;gap:6px;border:1px solid #232836;background:#121622;padding:6px 10px;border-radius:999px;font-size:12px;cursor:pointer;user-select:none}
+    .chip input{accent-color:#22d3ee}
+    .range{display:flex;gap:8px}
+    .range input{width:100%;background:#0e121a;border:1px solid #232836;border-radius:10px;padding:8px;color:var(--text)}
+    .grid{margin-top:14px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    @media (max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)} .toolbar{grid-template-columns:1fr 1fr}}
+    @media (max-width:720px){.grid{grid-template-columns:repeat(2,1fr)} .filters{grid-template-columns:1fr} .toolbar{grid-template-columns:1fr}}
+    @media (max-width:460px){.grid{grid-template-columns:1fr}}
+    .card{position:relative;background:linear-gradient(180deg,#121622,#0f131b);border:1px solid #232836;border-radius:18px;overflow:hidden}
+    .thumb{height:180px;background:#0b0f16;display:grid;place-items:center}
+    .thumb img{max-width:80%;max-height:160px;object-fit:contain;filter:drop-shadow(0 8px 18px rgba(0,0,0,.5))}
+    .pad{padding:12px}
+    .title{font-size:14px;line-height:1.3;margin:0 0 6px}
+    .meta{display:flex;gap:8px;flex-wrap:wrap}
+    .badge{font-size:11px;color:#cbd5e1;background:#0b1220;border:1px dashed #22324a;border-radius:8px;padding:4px 8px}
+    .price{display:flex;align-items:baseline;gap:8px;margin-top:8px}
+    .price .now{font-weight:800;font-size:18px;color:var(--accent)}
+    .price .old{font-size:12px;color:#94a3b8;text-decoration:line-through}
+    .cta{margin-top:10px;display:flex;gap:8px}
+    button.btn{flex:1;background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;color:#0b1020;font-weight:700;padding:10px 12px;border-radius:12px;cursor:pointer}
+    .ghost{background:transparent;border:1px solid #2a3345;color:#cbd5e1}
+    .ribbon{position:absolute;inset:auto 0 0 auto;background:linear-gradient(135deg,#22d3ee,#34d399);color:#07131a;font-size:11px;font-weight:800;padding:6px 10px;border-top-left-radius:12px}
+    .stock{position:absolute;left:8px;top:8px;font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid #2a3345;background:#0d1421}
+    .stock.ok{color:var(--ok)}
+    .stock.no{color:var(--danger)}
+    .topbar{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+    .count{font-size:13px;color:#cbd5e1}
+    .pagination{display:flex;gap:6px;align-items:center}
+    .pagination button{background:#0f141f;border:1px solid #2a3345;color:#cbd5e1;padding:8px 10px;border-radius:10px;cursor:pointer}
+    .pagination .active{background:linear-gradient(135deg,#1f2937,#0f141f);border-color:#3b4254}
+    footer{margin:30px 0 10px;color:#94a3b8;font-size:12px;text-align:center}
+    .muted{color:#94a3b8}
+    .small{font-size:12px}
+    /* მოკლე ინსტრუქცია ბლოკში (ჩანს ზედა ნაწილში) */
+    .help{margin:10px 0;padding:10px 12px;border:1px dashed #2a3345;border-radius:14px;background:#0e1420;color:#cbd5e1;font-size:13px}
+    .help code{background:#0b0f16;border:1px solid #232836;padding:2px 6px;border-radius:8px;color:#e2e8f0}
+  </style>
+</head>
+  </div>
+</div>
+<body>
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand" style="display: flex; align-items: center;">
+        <div class="logo">
+          <img
+            src="https://scontent.fkut1-1.fna.fbcdn.net/v/t39.30808-6/474112603_597413549707060_6555529623534572931_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=PGzLdpVeFXUQ7kNvwGwqvKl&_nc_oc=AdnSRpx63iDi0wVdOuUvGDoWgVHZLzuELL9jWtvA4gjMbigpLdMWC44AlJ9i9ta5i-v32Sgu7Vfrq7kl_QO4dqTB&_nc_zt=23&_nc_ht=scontent.fkut1-1.fna&_nc_gid=vrUx95S4KpDXr2GXF9tXbg&oh=00_AfW2dHcWqyeR0epH8_-8LhMezI2JwsJoQA4ltdgBIeS5RQ&oe=68AFDB0E"
+            alt="Techno-ს ლოგო"
+            style="height:60px; width:auto; margin-right:15px;"
+          >
+        </div>
+        <div>
+             <h1 style="margin-left:20px;">ტექნო სითი 2022 </h1>
+<div class="small muted" style="margin-left:20px;">
+  რუსთაველის 106 · ქობულეთი · ☎ 558 141 491 
+</div>
+    </header>
+
+
+
+
+
+
+   
+
+    <!-- ძიება / ფილტრები / სორტი -->
+    <div class="toolbar">
+      <div class="control"><label>ძიება</label><input id="q" type="search" placeholder="მაგ: iPhone 13, 128GB, შავი"></div>
+      <div class="control"><label>სორტირება</label>
+        <select id="sort">
+          <option value="default">ნაგულისხმევი</option>
+          <option value="price-asc">ფასი ↑</option>
+          <option value="price-desc">ფასი ↓</option>
+          <option value="rating-desc">რეიტინგი ↓</option>
+          <option value="newest">ახალი თავიდან</option>
+        </select>
+      </div>
+      <div class="control"><label>მინ. ფასი ₾</label><input id="minPrice" type="number" placeholder="0"></div>
+      <div class="control"><label>მაქс. ფასი ₾</label><input id="maxPrice" type="number" placeholder="5000"></div>
+    </div>
+
+     <div class="filters">
+      <div class="panel">
+        <h3>ბრენდები</h3>
+        <div id="brandList" class="brands"></div>
+        <div id="brandList" class="brands">
+  <span class="chip"><input type="checkbox" id="apple"
+  <span class="chip"><input type="checkbox" id="samsung"> <label for="samsung">Samsung</label></span>
+  <span class="chip"><input type="checkbox" id="xiaomi"> <label for="xiaomi">Xiaomi</label></span>
+  <span class="chip"><input type="checkbox" id="huawei"> <label for="infinix">infinix</label></span>
+</div>
+      </div>
+      <div class="panel">
+        <h3>საჩვენებელი რაოდენობა</h3>
+        <div class="range">
+          <input id="perPage" type="number" min="4" max="40" step="4" value="12" />
+          <button class="btn ghost" id="resetBtn">გასუფთავება</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="topbar">
+      <div class="count" id="count"></div>
+      <div class="pagination" id="pagination"></div>
+    </div>
+
+    <div id="grid" class="grid"></div>
+
+    <footer>
+      © <span id="year"></span> Techno City 2022 ·მარაგთან დაკავშირებით დაგვიკავშირდით მითითებულ ნომერზე პატივისცემით ტექნო სითი 2022 ადმინისტრაცია
+    </footer>
+  </div>
+  <div class="map" style="margin-top:15px; text-align:center;">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d808.7635413269099!2d41.77627339316694!3d41.81999460276767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x405d771b7c6b9e37%3A0x73ced40d78b6abf3!2sTechno%20City!5e0!3m2!1ska!2sge!4v1692357720000!5m2!1ska!2sge"
+    width="300"
+    height="200"
+    style="border:2px solid #4da3ff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+  <div style="margin-top:8px; font-size:14px; color:#555;">
+    📍 ქობულეთი, რუსთაველის 106
+  </div>
+</div>
+
+  <script>
+    // ===== პროდუქციის სია (ჩაასწორე აქ) =====
+    // შეგიძლია დაამატო/წაშლო ობიექტები. სურათად შეგიძლია გამოიყენო საკუთარი URL ან images/iphone13.png და ა.შ.
+    const PRODUCTS = [
+      {
+        id: 1,
+        title: "Apple iPhone 13 256GB (Midnight 91%)",
+        brand: "Apple",
+        price: 1290,
+        oldPrice: 1350,
+        storage: "256GB",
+        color: "შავი",
+        image: "https://myline.ge/image/cache/webp/catalog/easyphoto/63/img-1321-webp-1-456x456.webp",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+        
+      },
+      {
+        id: 99,
+        title: "INFINIX GT 2O PRO 5G(GAMING VERCION)",
+        brand: "INFINIX",
+        price: 920,
+        oldPrice: 1050,
+        storage: "256GB",
+        color: "5000 mAh",
+        image: "https://media.extra.com/s/aurora/100363973_800/INFINIX-GT-20-Pro%2C-%2C5G%2C-256GB%2C-Mecha-Orange?locale=en-GB,en-*,*",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 1წელი"]
+      },
+       {
+        id: 1,
+        title: "Apple iPhone 13 256GB (Midnight 91%)",
+        brand: "Apple",
+        price: 0,
+        oldPrice: 0,
+        storage: "256GB",
+        color: "შავი",
+        image: "https://myline.ge/image/cache/webp/catalog/easyphoto/63/img-1321-webp-1-456x456.webp",
+        rating: 4.8,
+        inStock: false,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+        id: 2,
+        title: "Apple iPhone 13 128GB (red 95%)",
+        brand: "Apple",
+        price: 1290,
+        oldPrice: 1350,
+        storage: "128GB",
+        ram: "6GB",
+        color: "წითელი",
+        image: "https://myline.ge/image/cache/webp/catalog/easyphoto/716/img-1324-webp-2-456x456.webp",
+        rating: 4.7,
+        inStock: true,
+        tags: ["ახალი","ჰიტი"]
+      },
+      {
+        id: 3,
+        title: "Apple iPhone 12 Pro 128GB 98% (white)",
+        brand: "Apple",
+        price: 1200,
+        oldPrice: 1280,
+        storage: "128GB",
+        ram: "4GB",
+        color: "შავი",
+        image: "https://pngimg.com/d/iphone_12_PNG36.png",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+   
+      {
+        id: 4,
+        title: "Apple iPhone 12 Pro 256GB (blue 93%%)",
+        brand: "Apple",
+        price: 1300,
+        oldPrice: 1380,
+        storage: "256GB",
+        ram: "4GB",
+        color: "შავი",
+        image: "https://myline.ge/image/cache/webp/catalog/easyphoto/63/img-1321-webp-1-456x456.webp",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+        id: 5,
+        title: "Apple iPhone 12pro 128GB (black 98%)",
+        brand: "Apple",
+        price: 1300,
+        oldPrice: 1380,
+        storage: "128GB",
+        ram: "4GB",
+        color: "black",
+        image: "https://refurbished.grademobile.co.uk/media/498/catalog/graphitei12pro-2.png?size=600",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      
+      
+      {
+        id: 6,
+        title: "Apple iPhone 13 Pro 128GB (Sierra Blue 87%)",
+        brand: "Apple",
+        price: 1500,
+        oldPrice: 1550,
+        storage: "128GB",
+        ram: "8GB",
+        color: "Sierra Blue",
+        image: "https://wefix.co.za/cdn/shop/files/image_1_6780b1c3-7d7d-4a83-945a-21b648c1bb44.png?v=1712916942&width=1900",
+        rating: 4.9,
+        inStock: true,
+        tags: ["პრემიუმი"]
+      },
+      {
+        id: 7,
+        title: "Apple iPhone 13 Pro 128GB (alpine green 94%)",
+        brand: "Apple",
+        price: 1500,
+        oldPrice: 1590,
+        storage: "128GB",
+        ram: "4GB",
+        color: "alpine green",
+        image: "https://dutchcell.nl/cdn/shop/products/2004968564_a5d0bb59-ded7-4e4a-bb73-1caa8ca0b04a.png?v=1676459843",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+        id: 8,
+        title: "Apple iPhone 11pro 64GB (Space Gray 92%)",
+        brand: "Apple",
+        price: 900,
+        oldPrice: 950,
+        storage: "128GB",
+        ram: "4GB",
+        color: "Space Gray",
+        image: "https://wefix.co.za/cdn/shop/products/iphone-11-pro-Max_33120953-308d-4c06-82a0-241e19b3bd71.png?v=1702541553&width=1900.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+    {
+        id: 9,
+        title: "Apple iPhone 11pro 64GB (black 95%)",
+        brand: "Apple",
+        price: 900,
+        oldPrice: 950,
+        storage: "64GB",
+        ram: "4GB",
+        color: "black",
+        image: "https://wefix.co.za/cdn/shop/products/iphone-11-pro-Max_33120953-308d-4c06-82a0-241e19b3bd71.png?v=1702541553&width=1900",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+    {
+        id: 8,
+        title: "Apple iPhone 11pro 256GB (black 100%)",
+        brand: "Apple",
+        price: 1000,
+        oldPrice: 1050,
+        storage: "256GB",
+        ram: "4GB",
+        color: "black",
+        image: "https://wefix.co.za/cdn/shop/products/iphone-11-pro-Max_33120953-308d-4c06-82a0-241e19b3bd71.png?v=1702541553&width=1900.",
+        rating: 4.6,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+    {
+        id: 8,
+        title: "Apple iPhone 11pro MAX 64GB (GOLD 94%)",
+        brand: "Apple",
+        price: 1050,
+        oldPrice: 1120,
+        storage: "64GB",
+        ram: "4GB",
+        color: "GOLD",
+        image: "https://refurbished.boost.com.au/cdn/shop/products/IP-11_pro_max_gold_70f58ebb-4b46-4ab7-82a0-5ea47e23a1f7_1024x.png?v=1754885253.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+    {
+        id: 8,
+        title: "Apple iPhone 11pro max 64GB (black 95%)",
+        brand: "Apple",
+        price: 1050,
+        oldPrice: 1130,
+        storage: "64GB",
+        ram: "4GB",
+        color: "gray",
+        image: "https://wefix.co.za/cdn/shop/products/iphone-11-pro-Max_33120953-308d-4c06-82a0-241e19b3bd71.png?v=1702541553&width=1900.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+       {
+        id: 113,
+        title: "Apple iPhone 15pro 128GB (titanium gray 89%)",
+        brand: "Apple",
+        price: 2390,
+        oldPrice: 2450,
+        storage: "128GB",
+        ram: "4GB",
+        color: "gray",
+        image: "https://assets.swappie.com/cdn-cgi/image/width=600,height=600,fit=contain,format=auto/swappie-iphone-15-pro-max-natural-titanium-back.png?v=cf0efe3f.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+        id: 114,
+        title: "Apple iPhone 16pro 128GB (titanium gray 100%)",
+        brand: "Apple",
+        price: 2730,
+        oldPrice: 2800,
+        storage: "128GB",
+        ram: "4GB",
+        color: "gray",
+        image: "https://assets.swappie.com/cdn-cgi/image/width=600,height=600,fit=contain,format=auto/swappie-iphone-16-pro-natural-titanium.png?v=cf0efe3f.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+  {
+        id: 120,
+        title: "Apple iPhone 16pro 128GB (titanium gray 100%)",
+        brand: "Apple",
+        price: 2730,
+        oldPrice: 2800,
+        storage: "128GB",
+        ram: "4GB",
+        color: "gray",
+        image: "https://assets.swappie.com/cdn-cgi/image/width=600,height=600,fit=contain,format=auto/swappie-iphone-16-pro-natural-titanium.png?v=cf0efe3f.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      
+    {
+        id: 8,
+        title: "Apple iPhone 13pro 128GB (alpine green 94%)",
+        brand: "Apple",
+        price: 1500,
+        oldPrice: 1590,
+        storage: "128GB",
+        ram: "4GB",
+        color: "gray",
+        image: "https://dutchcell.nl/cdn/shop/products/2004968564_a5d0bb59-ded7-4e4a-bb73-1caa8ca0b04a.png?v=1676459843.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+        id: 78,
+        title: "infinix zero flip 12/512GB(BLACK)",
+        brand: "INFINIX",
+        price: 1500,
+        oldPrice: 1580,
+        storage: "512GB",
+        ram: "12GB",
+        color: " BLACK",
+        image: "https://albadeelstore.com/wp-content/uploads/2024/11/frame-Mobile-5.png.",
+        rating: 5.0,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 1წ"]
+      },
+      {
+        id: 77,
+        title: "Apple iPhone 16 pro 256GB sim (BLACK)",
+        brand: "Apple",
+        price: 3450,
+        oldPrice: 3580,
+        storage: "256GB",
+        ram: "8GB",
+        color: " BLACK",
+        image: "https://shop.vodafone.qa/media/catalog/product/i/p/iphone_16_pro_max_black_titanium_pdp_image_position_2__en-me-copy_nhbfthjzfznpwnl7.webp?auto=webp&format=pjpg&fit=cover.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+        id:115,
+        title: "Apple iPhone 13 128GB ( Midnight 98%)",
+        brand: "Apple",
+        price: 1190,
+        oldPrice: 1250,
+        storage: "128GB",
+        ram: "4GB",
+        color: " Midnight",
+        image: "https://www.grphones.com.au/wp-content/uploads/iPhone-13-Midnight.png.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+    {
+        id: 8,
+        title: "Apple iPhone 13 128GB ( Midnight 94%)",
+        brand: "Apple",
+        price: 1150,
+        oldPrice: 1220,
+        storage: "128GB",
+        ram: "4GB",
+        color: " Midnight",
+        image: "https://www.grphones.com.au/wp-content/uploads/iPhone-13-Midnight.png.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+    {
+        id: 8,
+        title: "Apple iPhone 13 128GB (green 99%)",
+        brand: "Apple",
+        price: 1180,
+        oldPrice: 1290,
+        storage: "128GB",
+        ram: "4GB",
+        color: "gray",
+        image: "https://revendo.ch/cdn/shop/files/apple-iphone-13-mini-blau-guenstig-gebraucht-kaufen.png?v=1738154355.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+    {
+        id: 8,
+        title: "Apple iPhone se2020 (black 91%)",
+        brand: "Apple",
+        price: 320,
+        oldPrice: 370,
+        storage: "64GB",
+        ram: "4GB",
+        color: "gray",
+        image: "https://refurbished.boost.com.au/cdn/shop/products/BOOST_REFURB_iPhone_SE_2020_black_1000x.png?v=1754885207.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+    
+       
+      
+    {
+        id: 8,
+        title: "Apple iPhone 8 (black 100%)",
+        brand: "Apple",
+        price: 300,
+        oldPrice: 330,
+        storage: "64GB",
+        ram: "4GB",
+        color: "BLACK",
+        image: "https://refurbished.boost.com.au/cdn/shop/products/BOOST_REFURB_iPhone_SE_2020_black_1000x.png?v=1754885207.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+    {
+        id: 8,
+        title: "Apple iPhone 11 64GB (black 91%)",
+        brand: "Apple",
+        price: 750,
+        oldPrice: 790,
+        storage: "64GB",
+        ram: "4GB",
+        color: "gray",
+        image: "https://myline.ge/image/cache/catalog/easyphoto/61/img-1377-webp-1-800x800.png",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+    {
+        id: 8,
+        title: "Apple iPhone 11 64GB (BLACK 100%)",
+        brand: "Apple",
+        price: 800,
+        oldPrice: 850,
+        storage: "64GB",
+        ram: "4GB",
+        color: "black",
+        image: "https://assets.swappie.com/cdn-cgi/image/width=600,height=600,fit=contain,format=auto/swappie-iphone-11-black.png?v=e7d16a21.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+    {
+        id: 8,
+        title: "Apple iPhone 11 64gb (RED 91%)",
+        brand: "Apple",
+        price: 850,
+        oldPrice: 890,
+        storage: "64GB",
+        ram: "4GB",
+        color: "red",
+        image: "https://wefix.co.za/cdn/shop/files/iPhone-11-Red_7c78c0e0-24ed-4962-bc81-8ca096b27376.png?v=1693199873.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+    {
+        id: 8,
+        title: "Apple iPhone 12 64GB (black 89%)",
+        brand: "Apple",
+        price: 850,
+        oldPrice: 880,
+        storage: "64GB",
+        ram: "4GB",
+        color:  'black',
+        image: "https://www.nanotechmobile.ca/wp-content/uploads/2023/06/iphone_12_closeup_black.png.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+   {
+        id: 8,
+        title: "Apple iPhone 12 mini 256GB (blu 100%)",
+        brand: "Apple",
+        price: 940,
+        oldPrice: 999,
+        storage: "256GB",
+        ram: "4GB",
+        color:  'blu',
+        image: "https://phonefix.lt/wp-content/uploads/2021/09/iphone12mini.png.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+    {
+        id: 8,
+        title: "Apple iPhone 12 mini 64GB (black 93%)",
+        brand: "Apple",
+        price: 840,
+        oldPrice: 890,
+        storage: "64GB",
+        ram: "4GB",
+        color:  'black',
+        image: "https://pacific.com.ng/wp-content/uploads/2022/09/iphone-12-black-select-2020.png.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+     {
+        id: 8,
+        title: "Apple iPhone 12 mini 128GB (white 93%)",
+        brand: "Apple",
+        price: 1050,
+        oldPrice: 1,
+        storage: "128GB",
+        ram: "4GB",
+        color:  'white',
+        image: "https://wefix.co.za/cdn/shop/products/iPhone-12-White.png?v=1738836077.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+       {
+        id: 8,
+        title: "Apple iPhone 16 128GB (ultramarine)",
+        brand: "Apple",
+        price: 2350,
+        oldPrice: 2450,
+        storage: "128GB",
+        ram: "8GB",
+        color:  'ultramarine',
+        image: "https://cdn.shopify.com/s/files/1/0557/9351/6695/files/iPhone16-Plus-Ultramarine_a6b22abc-e990-4d89-9720-66d9eade1512.png?v=1729782907&width=1454&height=1056.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+        id: 8,
+        title: "Apple iPhone 16 128GB (black)",
+        brand: "Apple",
+        price: 2350,
+        oldPrice: 2450,
+        storage: "128GB",
+        ram: "8GB",
+        color:  'black',
+        image: "https://cdn.shopify.com/s/files/1/0557/9351/6695/files/iPhone16-Plus-Black_156aae98-5068-4a57-a244-78eeb55bc1df.png?v=1729782907&width=1454&height=1056.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+
+        id: 8,
+        title: "Apple iPhone 16 PRO MAX 256GB (black)",
+        brand: "Apple",
+        price: 3550,
+        oldPrice: 1690,
+        storage: "256GB",
+        ram: "8GB",
+        color:  'new',
+        image: "https://cdn.shopify.com/s/files/1/0557/9351/6695/files/iPhone16-Pro-Max-BlackTitanium_0494ecd7-be7d-47e0-8308-00d3762a39d6.png?v=1729784544&width=1454&height=1056.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 1წ"]
+      },
+      {
+
+        id: 8,
+        title: "Apple iPhone 14 pro 256GB (back 91%)",
+        brand: "Apple",
+        price: 1890,
+        oldPrice: 1960,
+        storage: "256GB",
+        ram: "8GB",
+        color:  'black',
+        image: "https://cdn.shopify.com/s/files/1/0557/9351/6695/files/iPhone14-Pro-SpaceBlack.png?v=1729813024&width=1454&height=1056.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+
+        id: 12,
+        title: "Apple iPhone 15 pro 256GB (blue titanium92%)",
+        brand: "Apple",
+        price: 2450,
+        oldPrice: 2550,
+        storage: "256GB",
+        ram: "8GB",
+        color:  'blue',
+        image: "https://cdn.shopify.com/s/files/1/0557/9351/6695/files/iPhone15Pro-BlueTianium.png?v=1729811482&width=1454&height=1056.",
+        rating: 5.0,
+        inStock: false,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+
+        id: 36,
+        title: "Apple iPhone 16 128GB (pink)",
+        brand: "Apple",
+        price: 2350,
+        oldPrice: 2450,
+        storage: "256GB",
+        ram: "8GB",
+        color:  'pink',
+        image: "https://assets.swappie.com/cdn-cgi/image/width=600,height=600,fit=contain,format=auto/swappie-iphone-16-pink.png?v=e7d16a21.",
+        rating: 4.0,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+       {
+
+        id: 35,
+        title: "Apple iPhone 16 pro 256GB (decert titanium)",
+        brand: "Apple",
+        price: 3450,
+        oldPrice: 3590,
+        storage: "256GB",
+        ram: "8GB",
+        color:  'decert titanium',
+        image: "https://xprostores.com/wp-content/uploads/2024/10/16pro.png.",
+        rating: 4.0,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+
+        id: 34,
+        title: "Apple iPhone 16 pro 128GB (gold)",
+        brand: "Apple",
+        price: 3090,
+        oldPrice: 3190,
+        storage: "128GB",
+        ram: "8GB",
+        color:  'decert titanium',
+        image: "https://xprostores.com/wp-content/uploads/2024/10/16pro.png.",
+        rating: 4.0,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+
+        id: 33,
+        title: "Apple iPhone 16 pro 256GB (BLACK)",
+        brand: "Apple",
+        price: 3450,
+        oldPrice: 3550,
+        storage: "256GB",
+        ram: "8GB",
+        color:  'BLACK',
+        image: "https://shop.vodafone.qa/media/catalog/product/i/p/iphone_16_pro_max_black_titanium_pdp_image_position_2__en-me-copy_nhbfthjzfznpwnl7.webp?auto=webp&format=pjpg&fit=cover.",
+        rating: 4.0,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+       {
+
+        id: 11,
+        title: "Apple iPhone 14 pro max 128GB (deep purple 94%)",
+        brand: "Apple",
+        price: 2290,
+        oldPrice: 2350,
+        storage: "128GB",
+        ram: "8GB",
+        color:  'deep purple',
+        image: "https://cdn.shopify.com/s/files/1/0557/9351/6695/files/iPhone14-ProMax-DeepPurple.png?v=1729813208&width=1454&height=1056.",
+        rating: 4.0,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+
+        id: 11,
+        title: "Apple iPhone 14 128GB (BLUE 100%)",
+        brand: "Apple",
+        price: 1430,
+        oldPrice: 1490,
+        storage: "128GB",
+        ram: "8GB",
+        color:  'blue',
+        image: "https://assets.swappie.com/cdn-cgi/image/width=600,height=600,fit=contain,format=auto/swappie-iphone-14-blue-back.png?v=cf0efe3f.",
+        rating: 4.0,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+
+        id: 10,
+        title: "Apple iPhone 14 pro max 256GB (black 97%)",
+        brand: "Apple",
+        price: 2250,
+        oldPrice: 2350,
+        storage: "256GB",
+        ram: "8GB",
+        color:  'black',
+        image: "https://cdn.shopify.com/s/files/1/0557/9351/6695/files/iPhone14-ProMax-SpaceBlack.png?v=1729813208&width=1454&height=1056.",
+        rating: 4.0,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+
+        id: 8,
+        title: "Apple iPhone 14 128GB (black 100%)",
+        brand: "Apple",
+        price: 1430,
+        oldPrice: 1490,
+        storage: "128GB",
+        ram: "8GB",
+        color:  'black',
+        image: "https://cdn.shopify.com/s/files/1/0557/9351/6695/files/iPhone14-Midnight.png?v=1729811838&width=1454&height=1056.",
+        rating: 4.0,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+       {
+
+        id: 16,
+        title: "SAMSUNG s22 128GB (black)",
+        brand: "SAMSUNG",
+        price: 850,
+        oldPrice: 890,
+        storage: "128GB",
+        ram: "8GB",
+        color:  'black',
+        image: "https://images.samsung.com/is/image/samsung/p6pim/latin_en/2202/gallery/latin-en-galaxy-s22-s901-412946-sm-s901ezkkeon-530964543?$684_547_PNG$.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+
+        id: 17,
+        title: "SAMSUNG s22 128GB (white)",
+        brand: "SAMSUNG",
+        price: 850,
+        oldPrice: 890,
+        storage: "128GB",
+        ram: "8GB",
+        color:  'white',
+        image: "https://images.samsung.com/is/image/samsung/assets/africa_en/support/mobile-devices/enjoy-the-epic-standard-of-smartphone-experiences-with-the-galaxy-s22-series/galaxy-s22-plus.png?$624_N_PNG$.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+
+        id: 15,
+        title: "SAMSUNG s22+ 128GB (black)",
+        brand: "SAMSUNG",
+        price: 940,
+        oldPrice: 990,
+        storage: "128GB",
+        ram: "8GB",
+        color:  'black',
+        image: "https://images.samsung.com/is/image/samsung/p6pim/latin_en/2202/gallery/latin-en-galaxy-s22-plus-s906-sm-s906ezkjgto-530981638?$684_547_PNG$.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+       {
+    
+        id: 18,
+        title: "SAMSUNG S23 128GB (black)",
+        brand: "SAMSUNG",
+        price: 1090,
+        oldPrice: 1150,
+        storage: "128GB",
+        ram: "8GB",
+        color:  'BLACK',
+        image: "https://digitecwireless.com/cdn/shop/files/f1e5b517-2851-42fa-9ddd-d7d3189a9d87.png?v=1698898187&width=2048.",
+        rating: 4.0,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+      {
+  id: 18,
+  title: "SAMSUNG S23 128GB (black)",
+  brand: "SAMSUNG",
+  price: 0,
+  oldPrice: 0,
+  storage: "256GB",
+  ram: "8GB",
+  color:  'BLACK',
+  image: "https://digitecwireless.com/cdn/shop/files/f1e5b517-2851-42fa-9ddd-d7d3189a9d87.png?v=1698898187&width=2048.",
+  rating: 4.0,
+  inStock: false,  // <- აქ მიუთითე, რომ ამოწურულია / ლოდინის რეჟიმშია
+  tags: ["ბესტსელერი","გარანტია 3თ"]
+  
+  
+},
+
+     
+
+      {
+
+        id: 8,
+        title: "Apple iPhone 14 pro 128GB (deep purple 93%)",
+        brand: "Apple",
+        price: 1830,
+        oldPrice: 1900,
+        storage: "128GB",
+        ram: "8GB",
+        color:  'deep purple',
+        image: "https://wefix.co.za/cdn/shop/files/1_f2f4da81-4730-4bc4-ad10-2a1efecee752.png?v=1712647968.",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 3თ"]
+      },
+
+  
+    ];
+
+  
+
+    // ===== კატალოგის ლოგიკა =====
+    const state = {
+      q: "",
+      sort: "default",
+      minPrice: "",
+      maxPrice: "",
+      brands: new Set(),
+      page: 1,
+      perPage: 12
+    };
+
+    const el = (id) => document.getElementById(id);
+    const grid = el('grid');
+    const countEl = el('count');
+    const paginationEl = el('pagination');
+
+    // UI listeners
+    el('q').addEventListener('input', (e)=>{state.q=e.target.value.toLowerCase(); state.page=1; render()});
+    el('sort').addEventListener('change', (e)=>{state.sort=e.target.value; render()});
+    el('minPrice').addEventListener('input', (e)=>{state.minPrice=e.target.value; state.page=1; render()});
+    el('maxPrice').addEventListener('input', (e)=>{state.maxPrice=e.target.value; state.page=1; render()});
+    el('perPage').addEventListener('input', (e)=>{const v=+e.target.value||12; state.perPage=Math.max(4,Math.min(48,v)); state.page=1; render()});
+    el('resetBtn').addEventListener('click',()=>{state.q=""; el('q').value=""; state.sort='default'; el('sort').value='default'; state.minPrice=""; el('minPrice').value=""; state.maxPrice=""; el('maxPrice').value=""; state.brands.clear(); document.querySelectorAll('.chip input').forEach(i=>i.checked=false); state.page=1; render();});
+
+    // დინამიურად ავაგოთ ბრენდები
+    const brands = [...new Set(PRODUCTS.map(p=>p.brand))].sort();
+    const brandList = el('brandList');
+    brands.forEach(b=>{
+      const id = 'b_' + b.replace(/\s+/g,'_');
+      const chip = document.createElement('label');
+      chip.className='chip';
+      chip.innerHTML = `<input type="checkbox" id="${id}"> ${b}`;
+      chip.querySelector('input').addEventListener('change',(e)=>{
+        if(e.target.checked) state.brands.add(b); else state.brands.delete(b); state.page=1; render();
+      });
+      brandList.appendChild(chip);
+    });
+
+    function formatPrice(n){return `₾${n.toLocaleString('ka-GE')}`}
+
+    function applyFilters(list){
+      let out = [...list];
+      if(state.q){ out = out.filter(p => (p.title+" "+p.brand+" "+p.storage+" "+(p.color||"")).toLowerCase().includes(state.q)); }
+      if(state.minPrice!=="") out = out.filter(p=>p.price >= +state.minPrice);
+      if(state.maxPrice!=="") out = out.filter(p=>p.price <= +state.maxPrice);
+      if(state.brands.size) out = out.filter(p=>state.brands.has(p.brand));
+      switch(state.sort){
+        case 'price-asc': out.sort((a,b)=>a.price-b.price); break;
+        case 'price-desc': out.sort((a,b)=>b.price-a.price); break;
+        case 'rating-desc': out.sort((a,b)=>b.rating-a.rating); break;
+        case 'newest': out.sort((a,b)=>b.id-a.id); break;
+        default: out.sort((a,b)=>a.brand.localeCompare(b.brand)||a.price-b.price); break;
+      }
+      return out;
+    }
+
+    function paginate(list){
+      const start = (state.page-1)*state.perPage;
+      return list.slice(start, start+state.perPage);
+    }
+
+    function render(){
+      const filtered = applyFilters(PRODUCTS);
+      const pageItems = paginate(filtered);
+      countEl.textContent = `${filtered.length} შედეგი • გვერდი ${state.page}/${Math.max(1,Math.ceil(filtered.length/state.perPage))}`;
+      grid.innerHTML = pageItems.map(cardHTML).join('');
+      renderPagination(Math.ceil(filtered.length/state.perPage));
+    }
+
+    function cardHTML(p){
+      const off = p.oldPrice && p.oldPrice>p.price ? Math.round((1 - p.price/p.oldPrice)*100) : 0;
+      return `
+        <div class="card">
+          <div class="stock ${p.inStock? 'ok':'no'}">${p.inStock? 'მარაგშია':'ჯერჯერობით აღარ არის'}</div>
+          ${off? `<div class="ribbon">-${off}%</div>`: ''}
+          <div class="thumb"><img src="${p.image}" alt="${escapeHtml(p.title)}"></div>
+          <div class="pad">
+            <h3 class="title">${escapeHtml(p.title)}</h3>
+            <div class="meta">
+              <span class="badge">${p.brand}</span>
+              ${p.storage? `<span class="badge">${p.storage}</span>`:''}
+              ${p.ram? `<span class="badge">${p.ram}</span>`:''}
+              ${p.color? `<span class="badge">${p.color}</span>`:''}
+              <span class="badge">⭐ ${p.rating.toFixed(1)}</span>
+            </div>
+            <div class="price">
+              <div class="now">${formatPrice(p.price)}</div>
+              ${p.oldPrice? `<div class="old">${formatPrice(p.oldPrice)}</div>`:''}
+            </div>
+            <div class="cta">
+              <button class="btn" onclick="callNow(${p.id})">დარეკვა</button>
+              <button class="btn ghost" onclick="shareItem(${p.id})">გაზიარება</button>
+            </div>
+          </div>
+        </div>`;
+    }
+
+    function renderPagination(pages){
+      paginationEl.innerHTML = '';
+      if(pages<=1){ return; }
+      const prev = document.createElement('button');
+      prev.textContent = '←';
+      prev.onclick = ()=>{ if(state.page>1){ state.page--; render(); } };
+      paginationEl.appendChild(prev);
+
+      for(let i=1;i<=pages;i++){
+        const b = document.createElement('button');
+        b.textContent = i;
+        if(i===state.page) b.classList.add('active');
+        b.onclick = ()=>{ state.page=i; render(); };
+        paginationEl.appendChild(b);
+      }
+
+      const next = document.createElement('button');
+      next.textContent = '→';
+      next.onclick = ()=>{ if(state.page<pages){ state.page++; render(); } };
+      paginationEl.appendChild(next);
+    }
+
+    function escapeHtml(str){
+      return String(str).replace(/[&<>"']/g, s=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[s]));
+    }
+
+    function callNow(id){
+      const p = PRODUCTS.find(x=>x.id===id);
+      window.location.href = 'tel:+995558141491';
+      console.log('Calling about', p?.title);
+    }
+
+    async function shareItem(id){
+      const p = PRODUCTS.find(x=>x.id===id);
+      const text = `${p.title} — ფასი: ₾${p.price}\nტექნო სითი 2022 · ქობულეთი, რუსთაველის 106 · 558 141 491`;
+      const shareData = { title: p.title, text, url: location.href };
+      try{
+        if(navigator.share){ await navigator.share(shareData); }
+        else{ await navigator.clipboard.writeText(text); alert('ტექსტი დაკოპირდა. ჩასვი ჩატში ან ფეისბუქში.'); }
+      }catch(e){ console.log(e); }
+    }
+
+    // footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // საწყისი რენდერი
+    render();
+  </script>
+</body>
+</html>
+
+
