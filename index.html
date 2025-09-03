@@ -2,109 +2,120 @@
 <html lang="ka">
   <head>
     
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>სიახლეების სლაიდშოუ</title>
+    <title>სლაიდშოუ</title>
     <style>
-        body {
-            margin: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-
         .slideshow-container {
+            max-width: 1000px;
             position: relative;
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            margin: auto;
         }
-
-        .slide {
-            width: 100%;
-            height: 100%;
+        .mySlides {
             display: none;
-            position: absolute;
-            top: 0;
-            left: 0;
-            object-fit: cover; /* ავტომატური დაბალანსება ზომებისთვის */
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
         }
-        .slide.active {
-            display: block;
-            opacity: 1;
+        .mySlides img {
+            width: 100%;
+            height: auto;
         }
-
-        .headline {
+        .prev, .next {
+            cursor: pointer;
             position: absolute;
             top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
             color: white;
-            font-size: 2.5em;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            padding: 10px 20px;
-            background: rgba(0, 0, 0, 0.3);
-            border-radius: 8px;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.5);
         }
-
-        @media (max-width: 768px) {
-            .headline {
-                font-size: 1.8em;
-                padding: 8px 15px;
-            }
-            .slideshow-container {
-                height: 300px;
-            }
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+        .fade {
+            animation: fade 1.5s;
+        }
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
         }
     </style>
 </head>
 <body>
-    <div class="slideshow-container" id="slideshow">
-        <div class="headline">სიახლე</div>
-        
+    <div class="slideshow-container">
+        <div class="mySlides fade">
+            <img src="https://www.apple.com/ecc-shared/iphone-16/images/overview/welcome/hero_endframe__dtznvlokjeeu_xlarge.png" alt="Image 1">
+        </div>
+        <div class="mySlides fade">
+            <img src="https://static-images.vnncdn.net/vps_images_publish/000001/00000Q/2025/8/1/apples-iphone-17-brings-long-awaited-innovation-d6e0fec3fcdf487282e0225961c1064d-579.png?width=0&s=-eKQmjWB51JGmh2zKlK0_A" alt="Image 2">
+        </div>
+        <div class="mySlides fade">
+            <img src="https://cdn.shopify.com/s/files/1/0557/9351/6695/files/iPhone16-Plus-Black_156aae98-5068-4a57-a244-78eeb55bc1df.png?v=1729782907&width=1454&height=1056" alt="Image 3">
+          </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <br>
+    <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
     </div>
 
     <script>
-        let slideIndex = 0;
-        const slideshow = document.getElementById("slideshow");
+        let slideIndex = 1;
+        showSlides(slideIndex);
 
-        // მაგალითად, ფოტოების მასივი (თქვენ შეგიძლიათ აიტვირთოთ ფოტოები ან URL-ები)
-        const images = [
-            "https://www.notebookcheck-cn.com/typo3temp/_processed_/b/e/csm_Honor_400_Lite_c970eb792c.jpg",
-            "https://media.extra.com/i/aurora/100438792_100_08?fmt=auto&w=720",
-            "https://images.everyeye.it/img-notizie/iphone-16-pro-domanda-inferiore-aspettative-pesa-assenza-apple-intelligence-v3-742383.jpg"
-
-        ];
-
-        // ფოტოების დინამიური დამატება
-        images.forEach(src => {
-            const img = document.createElement("img");
-            img.src = src;
-            img.className = "slide";
-            if (images.indexOf(src) === 0) img.classList.add("active"); // პირველი სურათი აქტიური
-            slideshow.insertBefore(img, slideshow.firstChild);
-        });
-
-        const slides = document.getElementsByClassName("slide");
-
-        function showSlides() {
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].classList.remove("active");
-            }
-            slideIndex++;
-            if (slideIndex > slides.length) {
-                slideIndex = 1;
-            }
-            slides[slideIndex - 1].classList.add("active");
-            setTimeout(showSlides, 5000);
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
         }
 
-        showSlides();
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+    </script>
+</body>
+</html>
+    
+  
     </script>
 </body>
 </html>
@@ -149,84 +160,12 @@ function closeMenu() {
   document.getElementById("sidebarMenu").style.width = "0"; // დახურვისას
 }
 </script>
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ბანკის სლაიდერი</title>
-    <style>
-        .banks-slider {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #0f131b;
-            border-radius: 16px;
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            color: white;
-            font-size: 16px; /* გაზრდილი შრიფტის ზომა */
-            font-weight: 600; /* ოდნავ მსუბუქი წონა */
-            min-width: 350px; /* გაზრდილი სიგანე */
-            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-            z-index: 9999;
-            overflow: hidden;
-        }
 
-        .banks-slider .slide {
-            display: none;
-            align-items: center;
-            gap: 12px;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out; /* გლუვი ანიმაცია */
-        }
 
-        .banks-slider .slide.active {
-            display: flex;
-            opacity: 1;
-        }
-
-        .banks-slider img {
-            height: 28px;
-            object-fit: contain;
-        }
-
-        .banks-slider span {
-            white-space: nowrap; /* თავიდან ავიცილებთ ტექსტის გადატანას */
-        }
-    </style>
-</head>
-<body>
-    <div class="banks-slider">
-        <div class="slide active">
-            <span>💳 TBC Bank — გადანაწილება 4 თვემდე</span>
-            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/TBC_Bank_logo.svg/2560px-TBC_Bank_logo.svg.png" alt="TBC Bank">
-        </div>
-        <div class="slide">
-            <span>💳 Bank of Georgia — 0% განვადება</span>
-            <img src="https://upload.wikimedia.org/wikipedia/ka/4/4c/Bank_of_Georgia_logo.png" alt="BOG">
-        </div>
-        <div class="slide">
-            <span>💳 Credo Bank — მარტივი განვადება</span>
-            <img src="https://imagedelivery.net/d_EE26O5eWcJDRYn-qMBOg/5e5ff2dd-85be-49b7-da19-5572c960d300/public" alt="Credo Bank">
-        </div>
     </div>
 
     <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.banks-slider .slide');
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-        }
-
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }, 3000); // ყოველ 3 წამში გადართვა
+   
     </script>
 </body>
 </html>
@@ -567,6 +506,32 @@ function closeMenu() {
         storage: "256GB",
         color: "5000 mAh",
         image: "https://media.extra.com/s/aurora/100363973_800/INFINIX-GT-20-Pro%2C-%2C5G%2C-256GB%2C-Mecha-Orange?locale=en-GB,en-*,*",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 1წელი"]
+      },
+       {
+        id: 105,
+        title: "SAMSUNG A56 5G(NEW)",
+        brand: "SAMSUNG",
+        price: 0,
+        oldPrice: 0,
+        storage: "256GB",
+        color: "5000 mAh",
+        image: "https://bsimg.nl/images/samsung-galaxy-a56-5g-256gb-a566-lichtgrijs-eu_9.png/sgVBhiJgPujpt12lDMIWxWeJR0w%3D/fit-in/0x0/filters%3Aupscale%28%29",
+        rating: 4.8,
+        inStock: true,
+        tags: ["ბესტსელერი","გარანტია 1წელი"]
+      },
+      {
+        id: 105,
+        title: "SAMSUNG A26 8/256GB (NEW)",
+        brand: "SAMSUNG",
+        price: 0,
+        oldPrice: 0,
+        storage: "256GB",
+        color: "5000 mAh",
+        image: "https://images.samsung.com/is/image/samsung/p6pim/ph/sm-a266blgdphl/gallery/ph-galaxy-a26-5g-sm-a266-sm-a266blgdphl-545517520?$684_547_PNG$",
         rating: 4.8,
         inStock: true,
         tags: ["ბესტსელერი","გარანტია 1წელი"]
@@ -1124,6 +1089,7 @@ function closeMenu() {
         rating: 4.8,
         inStock: true,
         tags: ["ბესტსელერი","გარანტია 3თ"]
+        
       },
       {
         id: 8,
@@ -1477,7 +1443,7 @@ function closeMenu() {
       const off = p.oldPrice && p.oldPrice>p.price ? Math.round((1 - p.price/p.oldPrice)*100) : 0;
       return `
         <div class="card">
-          <div class="stock ${p.inStock? 'ok':'no'}">${p.inStock? 'მარაგშია':'ჯერჯერობით აღარ არის'}</div>
+          <div class="stock ${p.inStock? 'ok':'no'}">${p.inStock? 'მარაგშია':'გაყიდულია'}</div>
           ${off? `<div class="ribbon">-${off}%</div>`: ''}
           <div class="thumb"><img src="${p.image}" alt="${escapeHtml(p.title)}"></div>
           <div class="pad">
