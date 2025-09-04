@@ -2,83 +2,180 @@
 <html lang="ka">
   <head>
     
+    <!DOCTYPE html>
+<html lang="ka">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>სლაიდშოუ</title>
+    <title>თანამედროვე სლაიდშოუ</title>
     <style>
-        .slideshow-container {
-            max-width: 1000px;
-            position: relative;
-            margin: auto;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        .slideshow-container {
+            max-width: 1350px;
+            position: relative;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
         .mySlides {
             display: none;
+            position: relative;
+            width: 100%;
+            height: 600px;
+            overflow: hidden;
         }
+
         .mySlides img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
+
+        .mySlides:hover img {
+            transform: scale(1.05);
+        }
+
+        .text-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: rgb(252, 248, 9);
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.7), transparent);
+            padding: 15px 25px;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+        }
+
+        .mySlides.active .text-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         .prev, .next {
             cursor: pointer;
             position: absolute;
             top: 50%;
-            width: auto;
-            padding: 16px;
-            margin-top: -22px;
+            transform: translateY(-50%);
+            padding: 15px;
             color: white;
+            font-size: 24px;
             font-weight: bold;
-            font-size: 18px;
-            transition: 0.6s ease;
-            border-radius: 0 3px 3px 0;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            transition: all 0.3s ease;
             user-select: none;
-            background-color: rgba(0,0,0,0.5);
         }
+
+        .prev {
+            left: 20px;
+        }
+
         .next {
-            right: 0;
-            border-radius: 3px 0 0 3px;
+            right: 20px;
         }
+
         .prev:hover, .next:hover {
-            background-color: rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.9);
+            transform: translateY(-50%) scale(1.1);
         }
+
+        .dots-container {
+            text-align: center;
+            padding: 10px 0;
+        }
+
         .dot {
             cursor: pointer;
-            height: 15px;
-            width: 15px;
-            margin: 0 2px;
-            background-color: #bbb;
+            height: 12px;
+            width: 12px;
+            margin: 0 5px;
+            background-color: #e7e7e6;
             border-radius: 50%;
             display: inline-block;
-            transition: background-color 0.6s ease;
+            transition: all 0.3s ease;
         }
-        .active, .dot:hover {
-            background-color: #717171;
+
+        .dot.active, .dot:hover {
+            background-color: #007bff;
+            transform: scale(1.3);
         }
+
         .fade {
-            animation: fade 1.5s;
+            animation: fade 1s ease-in-out;
         }
+
         @keyframes fade {
-            from {opacity: .4}
-            to {opacity: 1}
+            from { opacity: 0.3; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .mySlides {
+                height: 400px;
+            }
+
+            .text-overlay {
+                font-size: 1.2rem;
+                padding: 10px 15px;
+            }
+
+            .prev, .next {
+                font-size: 18px;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .mySlides {
+                height: 300px;
+            }
+
+            .text-overlay {
+                font-size: 1rem;
+                padding: 8px 12px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="slideshow-container">
         <div class="mySlides fade">
-            <img src="https://images.macrumors.com/t/IdxvPOl_lEpJmPR9tMOjLizjK3g=/2500x/article-new/2024/05/iPhone-17-Generic-Feature.jpg" alt="Image 1">
+            <img src="https://images.macrumors.com/t/IdxvPOl_lEpJmPR9tMOjLizjK3g=/2500x/article-new/2024/05/iPhone-17-Generic-Feature.jpg" alt="Slide 1">
+            <div class="text-overlay">IPHONE 17 მალე ტექნო სითი-ში</div>
         </div>
         <div class="mySlides fade">
-            <img src="https://tomindia.s3.ap-south-1.amazonaws.com/prod/uploads/banner/cTFC8oTqLKn713Hl1Zs8_Apple-iphone-17-air-tomorrowsindia.jpg">
+            <img src="https://tomindia.s3.ap-south-1.amazonaws.com/prod/uploads/banner/cTFC8oTqLKn713Hl1Zs8_Apple-iphone-17-air-tomorrowsindia.jpg" alt="Slide 2">
+            <div class="text-overlay">ინოვაცია</div>
         </div>
         <div class="mySlides fade">
-            <img src="https://gsmpro.cl/cdn/shop/articles/Disena_un_icono_minimalista_y_moderno_estilo_boton_de_aplicacion._El_icono_debe_tener_fondo_azul_oscuro_0033A0_con_un_recuadro_interior_mas_oscuro_y_sombras_suaves._Dentro_del_cuadro.jpg?v=1753201126&width=1472">
-          </div>
-
+            <img src="https://gsmpro.cl/cdn/shop/articles/Disena_un_icono_minimalista_y_moderno_estilo_boton_de_aplicacion._El_icono_debe_tener_fondo_azul_oscuro_0033A0_con_un_recuadro_interior_mas_oscuro_y_sombras_suaves._Dentro_del_cuadro.jpg?v=1753201126&width=1472" alt="Slide 3">
+            <div class="text-overlay">მომავალი</div>
+            
+        </div>
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
         <a class="next" onclick="plusSlides(1)">&#10095;</a>
     </div>
-    <br>
-    <div style="text-align:center">
+    <div class="dots-container">
         <span class="dot" onclick="currentSlide(1)"></span>
         <span class="dot" onclick="currentSlide(2)"></span>
         <span class="dot" onclick="currentSlide(3)"></span>
@@ -100,17 +197,28 @@
             let i;
             let slides = document.getElementsByClassName("mySlides");
             let dots = document.getElementsByClassName("dot");
-            if (n > slides.length) {slideIndex = 1}
-            if (n < 1) {slideIndex = slides.length}
+
+            if (n > slides.length) { slideIndex = 1; }
+            if (n < 1) { slideIndex = slides.length; }
+
             for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
+                slides[i].classList.remove("active");
             }
+
             for (i = 0; i < dots.length; i++) {
                 dots[i].className = dots[i].className.replace(" active", "");
             }
-            slides[slideIndex-1].style.display = "block";
-            dots[slideIndex-1].className += " active";
+
+            slides[slideIndex - 1].style.display = "block";
+            slides[slideIndex - 1].classList.add("active");
+            dots[slideIndex - 1].className += " active";
         }
+
+        // Auto slideshow
+        setInterval(() => {
+            plusSlides(1);
+        }, 5000);
     </script>
 </body>
 </html>
@@ -440,7 +548,7 @@ function closeMenu() {
         <div id="brandList" class="brands">
   <span class="chip"><input type="checkbox" id="apple"
   <span class="chip"><input type="checkbox" id="samsung"> <label for="samsung">Samsung</label></span>
-  <span class="chip"><input type="checkbox" id="xiaomi"> <label for="xiaomi">Xiaomi</label></span>
+  <span class="chip"><input type="checkbox" id="ნოუთბუქი"> <label for="ნოუთბუქი">ნოუთბუქი</label></span>
   <span class="chip"><input type="checkbox" id="huawei"> <label for="infinix">infinix</label></span>
 </div>
       </div>
@@ -576,6 +684,7 @@ function closeMenu() {
         inStock: true,
         tags: ["ახალი","ჰიტი"]
       },
+      
       {
         id: 3,
         title: "Apple iPhone 12 Pro 128GB 98% (white)",
@@ -605,6 +714,7 @@ function closeMenu() {
         inStock: true,
         tags: ["ბესტსელერი","გარანტია 3თ"]
       },
+      
       {
         id: 5,
         title: "Apple iPhone 12pro 128GB (black 98%)",
@@ -1364,6 +1474,21 @@ function closeMenu() {
         inStock: true,
         tags: ["ბესტსელერი","გარანტია 3თ"]
       },
+      {
+  "id": 3,
+  "title": "NEW ASUS VivoBook 15 F1504Z 15.6 FHD i3-1215U  ",
+  "brand": "ნოუთბუქი",
+  "price": 1350,
+  "oldPrice": 1550,
+  "storage": "512GB",
+  "ram": "8GB",
+  "color": "ვერცხლისფერი",
+  "image": "https://unicom.ge/files/products/W2eWFnMFcIGXnNMbhPRXXM6CwnXkdq.png",
+  "rating": 4.8,
+  "inStock": true,
+  "tags": ["ახალი", "ჰიტი"],
+  "category": "i3-1215U"
+}
 
   
     ];
