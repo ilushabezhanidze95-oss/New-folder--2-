@@ -1,7 +1,88 @@
 
 <!DOCTYPE html>
 <html lang="ka">
-  <head>
+  <head><!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ფასდაკლების ბანერები</title>
+    <style>
+        .banner-container {
+            display: flex;
+            gap: 20px; /* მანძილი ბანერებს შორის */
+            justify-content: center;
+            flex-wrap: wrap; /* თუ ეკრანი პატარაა, ბანერები ქვემოთ გადავა */
+        }
+        .discount-banner {
+            width: 300px;
+            height: 100px;
+            background: linear-gradient(135deg, #ff4d4d, #ff8080);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+            color: white;
+            overflow: hidden;
+        }
+        .banner-text {
+            flex: 1;
+            padding-left: 10px;
+        }
+        .banner-text h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .banner-text p {
+            margin: 5px 0 0;
+            font-size: 14px;
+        }
+        .banner-text .price {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .banner-image img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+        /* მეორე ბანერისთვის განსხვავებული ფერი (სურვილისამებრ) */
+        .discount-banner:nth-child(2) {
+            background: linear-gradient(135deg, #4d79ff, #80aaff);
+        }
+    </style>
+</head>
+<body>
+    <div class="banner-container">
+        <!-- პირველი ბანერი (Samsung S22) -->
+        <div class="discount-banner">
+            <div class="banner-text">
+                <h3>SAMSUNG S22 128GB</h3>
+                <p>ძველი ფასი: <s>950₾</s></p>
+                <p class="price">ახალი ფასი: 900₾</p>
+            </div>
+            <div class="banner-image">
+                <img src="https://assets.products-live.ao.com/Images/bb0543fc-d203-401c-a376-c565f10d9e49/1280x1280/SM-S901BI_samsung_mobile_01a.png" alt="Samsung S22">
+            </div>
+        </div>
+        <!-- მეორე ბანერი (iPhone 16 pro) -->
+        <div class="discount-banner">
+            <div class="banner-text">
+                <h3>iPhone 16 256GB</h3>
+                <p>ძველი ფასი: <s>2750₾</s></p>
+                <p class="price">ახალი ფასი: 2600₾</p>
+            </div>
+            <div class="banner-image">
+                <img src="https://xprostores.com/wp-content/uploads/2024/10/16pro.png" alt="iPhone 14">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
     
     
     
@@ -1344,7 +1425,7 @@ function closeMenu() {
       {
 
         id: 34,
-        title: "Apple iPhone 16 pro 128GB (100%gold)",
+        title: "Apple iPhone 16 pro 128GB (100%)",
         brand: "Apple",
         price: 2600,
         oldPrice: 2700,
