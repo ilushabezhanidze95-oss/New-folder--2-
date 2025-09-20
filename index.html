@@ -486,6 +486,20 @@ function closeMenu() {
     .stock{position:absolute;left:8px;top:8px;font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid #2a3345;background:#0d1421}
     .stock.ok{color:var(--ok)}
     .stock.no{color:var(--danger)}
+      .sale-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: #e11d48;
+        color: #fff;
+        padding: 5px 14px;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: bold;
+        z-index: 10;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+        letter-spacing: 1px;
+      }
     .topbar{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
     .count{font-size:13px;color:#cbd5e1}
     .pagination{display:flex;gap:6px;align-items:center}
@@ -1937,30 +1951,34 @@ function closeMenu() {
 
     function cardHTML(p){
       const off = p.oldPrice && p.oldPrice>p.price ? Math.round((1 - p.price/p.oldPrice)*100) : 0;
-      return `
-        <div class="card">
-          <div class="stock ${p.inStock? 'ok':'no'}">${p.inStock? 'მარაგშია':'გაყიდულია'}</div>
-          ${off? `<div class="ribbon">-${off}%</div>`: ''}
-          <div class="thumb"><img src="${p.image}" alt="${escapeHtml(p.title)}"></div>
-          <div class="pad">
-            <h3 class="title">${escapeHtml(p.title)}</h3>
-            <div class="meta">
-              <span class="badge">${p.brand}</span>
-              ${p.storage? `<span class="badge">${p.storage}</span>`:''}
-              ${p.ram? `<span class="badge">${p.ram}</span>`:''}
-              ${p.color? `<span class="badge">${p.color}</span>`:''}
-              <span class="badge">⭐ ${p.rating.toFixed(1)}</span>
+        // მობილურის ბრენდები
+        const mobileBrands = ["SAMSUNG", "APPLE", "INFINIX", "XIAOMI", "HUAWEI", "OPPO", "VIVO", "REALME"];
+        const isMobile = mobileBrands.includes((p.brand||'').toUpperCase()) || (p.category && p.category.toLowerCase().includes('მობილ'));
+        return `
+          <div class="card">
+            <div class="stock ${p.inStock? 'ok':'no'}">${p.inStock? 'მარაგშია':'გაყიდულია'}</div>
+            ${off? `<div class="ribbon">-${off}%</div>`: ''}
+            ${isMobile && off ? `<span class="sale-badge">SALE</span>` : ''}
+            <div class="thumb"><img src="${p.image}" alt="${escapeHtml(p.title)}"></div>
+            <div class="pad">
+              <h3 class="title">${escapeHtml(p.title)}</h3>
+              <div class="meta">
+                <span class="badge">${p.brand}</span>
+                ${p.storage? `<span class="badge">${p.storage}</span>`:''}
+                ${p.ram? `<span class="badge">${p.ram}</span>`:''}
+                ${p.color? `<span class="badge">${p.color}</span>`:''}
+                <span class="badge">⭐ ${p.rating.toFixed(1)}</span>
+              </div>
+              <div class="price">
+                <div class="now">${formatPrice(p.price)}</div>
+                ${p.oldPrice? `<div class="old">${formatPrice(p.oldPrice)}</div>`:''}
+              </div>
+              <div class="cta">
+                <button class="btn" onclick="callNow(${p.id})">დარეკვა</button>
+                <button class="btn ghost" onclick="shareItem(${p.id})">გაზიარება</button>
+              </div>
             </div>
-            <div class="price">
-              <div class="now">${formatPrice(p.price)}</div>
-              ${p.oldPrice? `<div class="old">${formatPrice(p.oldPrice)}</div>`:''}
-            </div>
-            <div class="cta">
-              <button class="btn" onclick="callNow(${p.id})">დარეკვა</button>
-              <button class="btn ghost" onclick="shareItem(${p.id})">გაზიარება</button>
-            </div>
-          </div>
-        </div>`;
+          </div>`;
     }
 
     function renderPagination(pages){
