@@ -4,9 +4,78 @@
   <head><!DOCTYPE html>
 <html lang="ka">
 <head>
-   
-    <!DOCTYPE html>
-<html lang="ka">
+  // მოთხოვნის პარამეტრები
+const loanData = {
+  amount: 1000, // თანხა (GEL)
+  term: 12,     // ვადა (თვეები)
+  customer_id: "USER123"
+};
+
+// API გასაღები (უნდა მიიღოთ ბანკისგან)
+const apiKey = "YOUR_API_KEY";
+
+// ენდპოინტი (მაგალითი)
+const apiUrl = "https://api.bog.ge/v1/loans";
+
+// მოთხოვნის გაგზავნა
+fetch(apiUrl, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization": `Bearer ${apiKey}`
+  },
+  body: JSON.stringify(loanData)
+})
+.then(response => response.json())
+.then(data => {
+  console.log("განვადება შეიქმნა:", data);
+})
+.catch(error => {
+  console.error("შეცდომა:", error);
+});store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-13-midnight-select-2021?wid=940&hei=1112&fmt=png-alpha&.v=1645572315935",
+        rating: 4.5,
+        inStock: true,
+        isNew: false,
+        isOnSale: true
+      },
+      {
+        id: 2,
+        title: "Samsung Galaxy S21 128GB (Phantom Gray)",
+        brand: "Samsung",
+        price: 1150,
+        oldPrice: null,
+        storage: "128GB",
+        color: "საშუალო ნაცრისფერი",
+        image: "https://images.samsung.com/is/image/samsung/p6pim/levant/sm-g991bzadegy/gallery/levant-galaxy-s21-5g-g991-sm-g991bzadegy-368462-sm-g991bzadegy-368462-frontphantomgray-368462-thumb-368462.jpg?$320_320_PNG$",
+        rating: 4.7,
+        inStock: true,
+        isNew: true,
+        isOnSale: false
+      },
+      {
+        id: 3,
+        title: "Apple MacBook Air M1 256GB (Gold)",
+        brand: "Apple",
+        price: 2200,
+        oldPrice: 2300,
+        storage: "256GB",
+        color: "ოქროსფერი",
+        image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-gold-select-202011_GEO_EMEA?wid=904&hei=840&fmt=jpeg&qlt=80&.v=1633027804000",
+        rating: 4.8,
+        inStock: false,
+        isNew: false,
+        isOnSale: true
+      },
+      
+        id: 4,
+        title: "Infinix Zero Flip 12/512GB (Cosmic Black)",
+        brand: "Infinix",
+        price: 850,
+        oldPrice: null,
+        storage: "512GB",
+        color: "კოსმიური შავი",
+        image: "https://ng.xpark.com/media/catalog/product/cache/7c9924b6276ad76a951c1e786fcf2062
+  
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -1557,7 +1626,7 @@ function closeMenu() {
   id: 18,
   title: "Apple AirPods(gen3)",
   brand: "აქსესუარები",
-  price: 60,
+  price: 50,
   oldPrice:100,
   storage: "",
   ram: "",
