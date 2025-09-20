@@ -163,16 +163,17 @@
 <body>
     <div class="slideshow-container">
         <div class="mySlides fade">
-            <img src="https://www.apple.com/newsroom/images/2025/09/apple-unveils-iphone-17-pro-and-iphone-17-pro-max/article/Apple-iPhone-17-Pro-camera-close-up-250909_big.jpg.large.jpg" alt="Slide 1">
-            <div class="text-overlay">25-სექტემბერი iphone 17 შემოსვლა ტექნო სითი-ში </div>
+            <img src="https://bankofgeorgia.ge/images/fc7f65ee-9605-4cc1-9b89-55989ff37aa4.jpg" alt="Slide 1">
+            <div class="text-overlay"></div>
         </div>
         <div class="mySlides fade">
             <img src="https://i.ytimg.com/vi/LNpoRSuPwfM/maxresdefault.jpg" alt="Slide 2">
             <div class="text-overlay">IPHONE AIR 256GB 25-სექტემბერი</div>
         </div>
         <div class="mySlides fade">
-            <img src="https://gsmpro.cl/cdn/shop/articles/Disena_un_icono_minimalista_y_moderno_estilo_boton_de_aplicacion._El_icono_debe_tener_fondo_azul_oscuro_0033A0_con_un_recuadro_interior_mas_oscuro_y_sombras_suaves._Dentro_del_cuadro.jpg?v=1753201126&width=1472" alt="Slide 3">
-            <div class="text-overlay">მომავალი</div>
+            <img src="https://imagedelivery.net/d_EE26O5eWcJDRYn-qMBOg/7a0843e9-37f6-4b0a-52e8-05d233d3f600/public" alt="Slide 3">
+            <div class="text-overlay">8 თვემდე უპროცენტო 0%</div>
+            
             
         </div>
         <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -573,6 +574,7 @@ function closeMenu() {
 <div class="panel">
       <span class="chip"><input type="checkbox" id="accessories"> <label for="accessories">აქსესუარები</label></span>
       <span class="chip"><input type="checkbox" id="tablets"> <label for="tablets">ტაბლეტები</label></span>
+  <span class="chip"><input type="checkbox" id="inStockOnly"> <label for="inStockOnly">მხოლოდ მარაგში</label></span>
     </div>
       </div>
       <div class="panel">
@@ -1926,6 +1928,7 @@ function closeMenu() {
       if(state.minPrice!=="") out = out.filter(p=>p.price >= +state.minPrice);
       if(state.maxPrice!=="") out = out.filter(p=>p.price <= +state.maxPrice);
       if(state.brands.size) out = out.filter(p=>state.brands.has(p.brand));
+      if(state.inStockOnly) out = out.filter(p=>p.inStock);
       switch(state.sort){
         case 'price-asc': out.sort((a,b)=>a.price-b.price); break;
         case 'price-desc': out.sort((a,b)=>b.price-a.price); break;
