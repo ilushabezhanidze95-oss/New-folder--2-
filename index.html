@@ -1,3 +1,184 @@
+</body>
+<script>
+// ნოუთბუქების სექციის გამოჩენა მხოლოდ მენიუდან
+document.addEventListener('DOMContentLoaded', function() {
+  // ტელევიზორის დეტალების მოდალი
+  function showTvModal(tv) {
+    if (!tv) return;
+    let modal = document.createElement('div');
+    modal.style = 'position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:9999;';
+    const hasSale = tv.tags && tv.tags.some(t => t.toLowerCase().includes('sale') || t.includes('სეილი'));
+    modal.innerHTML = `<div style='background:#232836;padding:32px 24px 24px 24px;border-radius:18px;max-width:400px;width:90vw;text-align:center;position:relative;'>
+      <button id='closeTvModal' style='position:absolute;top:10px;right:10px;background:#e11d48;color:#fff;border:none;border-radius:50%;width:32px;height:32px;font-size:20px;cursor:pointer;'>&times;</button>
+      ${hasSale ? `<div style='position:absolute;left:10px;top:10px;background:#e11d48;color:#fff;font-weight:700;padding:4px 14px;border-radius:8px;font-size:15px;z-index:2;'>SALE</div>` : ''}
+      <img src='${tv.image}' alt='${tv.title}' style='max-width:180px;max-height:180px;margin-bottom:16px;display:block;margin-left:auto;margin-right:auto;'>
+      <div style='font-weight:700;color:#e6ebf4;margin-bottom:8px;font-size:20px;'>${tv.title}</div>
+      <div style='color:#5eead4;font-size:18px;margin-bottom:6px;'>₾${tv.price}</div>
+      <div style='color:#a7b0c0;font-size:15px;margin-bottom:6px;'>${tv.color||''}</div>
+      <div style='color:#a7b0c0;font-size:14px;'>${tv.tags ? tv.tags.join(', ') : ''}</div>
+    </div>`;
+    document.body.appendChild(modal);
+    document.getElementById('closeTvModal').onclick = function(){ modal.remove(); };
+    modal.onclick = function(e){ if(e.target===modal) modal.remove(); };
+  }
+  // TVs - ყველა ელემენტზე, რომელსაც აქვს href="#tvs"
+  var tvsSection = document.getElementById('tvs');
+  var tvsList = document.getElementById('tvs-list');
+  var tvLinks = document.querySelectorAll('a[href="#tvs"]');
+  if(tvLinks.length && tvsSection && tvsList) {
+    tvsSection.style.display = 'none';
+    tvLinks.forEach(function(link){
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        hideAllProductSections();
+        var tvs = (typeof PRODUCTS!=='undefined' ? PRODUCTS : []).filter(function(p){
+          return (p.brand||'').toLowerCase().includes('tv') || (p.category||'').toLowerCase().includes('tv') || (p.title||'').toLowerCase().includes('tv') || (p.title||'').toLowerCase().includes('ტელევიზორ');
+        });
+        tvsList.innerHTML = tvs.length ? tvs.map(function(p){
+          const hasSale = p.tags && p.tags.some(t => t.toLowerCase().includes('sale') || t.includes('სეილი'));
+          return `<div style='background:#232836;border-radius:12px;padding:16px;text-align:center;position:relative;'>
+            ${hasSale ? `<div style='position:absolute;left:10px;top:10px;background:#e11d48;color:#fff;font-weight:700;padding:4px 14px;border-radius:8px;font-size:15px;z-index:2;'>SALE</div>` : ''}
+            <img src="${p.image}" alt="${p.title}" style="max-width:100px;max-height:100px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
+            <div style='font-weight:700;color:#e6ebf4;margin-bottom:6px;'>${p.title}</div>
+            <div style='color:#5eead4;font-size:15px;margin-bottom:4px;'>₾${p.price}</div>
+            <div style='color:#a7b0c0;font-size:13px;'>${p.color||''}</div>
+          </div>`;
+        }).join('') : '<div style="color:#e11d48;">ტელევიზორები ვერ მოიძებნა</div>';
+        tvsSection.style.display = 'block';
+        setTimeout(function(){
+          tvsSection.scrollIntoView({behavior:'smooth'});
+        }, 100);
+        // თუ არსებობს ტელევიზორი, ამოაგდოს მოდალად პირველი
+        if(tvs.length>0) showTvModal(tvs[0]);
+      });
+    });
+  }
+  // Samsung - ყველა ელემენტზე, რომელსაც აქვს href="#samsung"
+  // სექცია და ლისტი უნდა არსებობდეს
+  var samsungSection = document.getElementById('samsung');
+  var samsungList = document.getElementById('samsung-list');
+  var samsungLinks = document.querySelectorAll('a[href="#samsung"]');
+  if(samsungLinks.length && samsungSection && samsungList) {
+    samsungSection.style.display = 'none';
+    samsungLinks.forEach(function(link){
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        hideAllProductSections();
+        samsungSection.style.display = 'none';
+        var samsungs = (typeof PRODUCTS!=='undefined' ? PRODUCTS : []).filter(function(p){
+          return (p.brand||'').toLowerCase().includes('samsung');
+        });
+        samsungList.innerHTML = samsungs.length ? samsungs.map(function(p){
+          return `<div style='background:#232836;border-radius:12px;padding:16px;text-align:center;'>
+            <img src="${p.image}" alt="${p.title}" style="max-width:100px;max-height:100px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
+            <div style='font-weight:700;color:#e6ebf4;margin-bottom:6px;'>${p.title}</div>
+            <div style='color:#5eead4;font-size:15px;margin-bottom:4px;'>₾${p.price}</div>
+            <div style='color:#a7b0c0;font-size:13px;'>${p.color||''}</div>
+          </div>`;
+        }).join('') : '<div style="color:#e11d48;">SAMSUNG ვერ მოიძებნა</div>';
+        samsungSection.style.display = 'block';
+        setTimeout(function(){
+          samsungSection.scrollIntoView({behavior:'smooth'});
+        }, 100);
+      });
+    });
+  }
+  // Helper to hide all product sections
+  function hideAllProductSections() {
+  document.querySelectorAll('.iphones-section, .accessories-section, .laptops-section, .tvs-section, .samsung-section').forEach(function(sec){ sec.style.display = 'none'; });
+  }
+
+  // Laptops
+  var laptopsBtn = document.getElementById('laptopsMenuBtn');
+  var laptopsSection = document.getElementById('laptops');
+  var laptopsList = document.getElementById('laptops-list');
+  if(laptopsBtn && laptopsSection && laptopsList) {
+    laptopsSection.style.display = 'none';
+    laptopsBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      hideAllProductSections();
+      var laptops = (typeof PRODUCTS!=='undefined' ? PRODUCTS : []).filter(function(p){
+        return (p.brand||'').toLowerCase().includes('laptop') || (p.brand||'').toLowerCase().includes('notebook') || (p.category||'').toLowerCase().includes('laptop') || (p.category||'').toLowerCase().includes('notebook');
+      });
+      laptopsList.innerHTML = laptops.length ? laptops.map(function(p){
+        return `<div style='background:#232836;border-radius:12px;padding:16px;text-align:center;'>
+          <img src="${p.image}" alt="${p.title}" style="max-width:100px;max-height:100px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
+          <div style='font-weight:700;color:#e6ebf4;margin-bottom:6px;'>${p.title}</div>
+          <div style='color:#5eead4;font-size:15px;margin-bottom:4px;'>₾${p.price}</div>
+          <div style='color:#a7b0c0;font-size:13px;'>${p.color||''}</div>
+        </div>`;
+      }).join('') : '<div style="color:#e11d48;">ნოუთბუქები ვერ მოიძებნა</div>';
+      laptopsSection.style.display = 'block';
+      setTimeout(function(){
+        laptopsSection.scrollIntoView({behavior:'smooth'});
+      }, 100);
+    });
+  }
+
+  // iPhones - ყველა ელემენტზე, რომელსაც აქვს href="#iphones"
+  var iphonesSection = document.getElementById('iphones');
+  var iphonesList = document.getElementById('iphones-list');
+  var iphoneLinks = document.querySelectorAll('a[href="#iphones"]');
+  if(iphoneLinks.length && iphonesSection && iphonesList) {
+    iphonesSection.style.display = 'none';
+    iphoneLinks.forEach(function(link){
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        hideAllProductSections();
+        var iphones = (typeof PRODUCTS!=='undefined' ? PRODUCTS : []).filter(function(p){
+          return (p.brand||'').toLowerCase().includes('apple') || (p.title||'').toLowerCase().includes('iphone');
+        });
+        iphonesList.innerHTML = iphones.length ? iphones.map(function(p){
+          return `<div style='background:#232836;border-radius:12px;padding:16px;text-align:center;'>
+            <img src="${p.image}" alt="${p.title}" style="max-width:100px;max-height:100px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
+            <div style='font-weight:700;color:#e6ebf4;margin-bottom:6px;'>${p.title}</div>
+            <div style='color:#5eead4;font-size:15px;margin-bottom:4px;'>₾${p.price}</div>
+            <div style='color:#a7b0c0;font-size:13px;'>${p.color||''}</div>
+          </div>`;
+        }).join('') : '<div style="color:#e11d48;">აიფონები ვერ მოიძებნა</div>';
+        iphonesSection.style.display = 'block';
+        setTimeout(function(){
+          iphonesSection.scrollIntoView({behavior:'smooth'});
+        }, 100);
+      });
+    });
+  }
+
+  // Accessories
+  var accessoriesBtn = document.getElementById('accessoriesMenuBtn');
+  var accessoriesSection = document.getElementById('accessories');
+  var accessoriesList = document.getElementById('accessories-list');
+  if(accessoriesBtn && accessoriesSection && accessoriesList) {
+    accessoriesSection.style.display = 'none';
+    accessoriesBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      hideAllProductSections();
+      var accs = (typeof PRODUCTS!=='undefined' ? PRODUCTS : []).filter(function(p){ return (p.brand||'').toLowerCase().includes('აქსესუარ') || (p.category||'').toLowerCase().includes('აქსესუარ'); });
+      accessoriesList.innerHTML = accs.length ? accs.map(function(p){
+        const hasSale = p.tags && p.tags.some(t => t.toLowerCase().includes('sale') || t.includes('სეილი'));
+        return `<div style='background:#232836;border-radius:12px;padding:16px;text-align:center;position:relative;'>
+          ${hasSale ? `<div style='position:absolute;left:10px;top:10px;background:#e11d48;color:#fff;font-weight:700;padding:4px 14px;border-radius:8px;font-size:15px;z-index:2;'>SALE</div>` : ''}
+          <img src="${p.image}" alt="${p.title}" style="max-width:100px;max-height:100px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
+          <div style='font-weight:700;color:#e6ebf4;margin-bottom:6px;'>${p.title}</div>
+          <div style='color:#5eead4;font-size:15px;margin-bottom:4px;'>₾${p.price}</div>
+          <div style='color:#a7b0c0;font-size:13px;'>${p.color||''}</div>
+        </div>`;
+      }).join('') : '<div style="color:#e11d48;">აქსესუარები ვერ მოიძებნა</div>';
+      accessoriesSection.style.display = 'block';
+      setTimeout(function(){
+        accessoriesSection.scrollIntoView({behavior:'smooth'});
+      }, 100);
+    });
+  }
+});
+</script>
+
+
+<!-- ...existing code... -->
+
+<!-- ეს სკრიპტი გადაიტანე <body> ბოლოს, რომ DOM ელემენტები უკვე არსებობდეს -->
+
+<!-- ...existing code... -->
 
 <!DOCTYPE html>
 <html lang="ka">
@@ -161,6 +342,46 @@
     
 </head>
 <body>
+  <!-- ჩვენ შესახებ სექცია -->
+  <div id="about" class="about-section" style="display:none;max-width:600px;margin:60px auto 30px auto;padding:32px 26px 26px 26px;background:#181e2a;border-radius:18px;box-shadow:0 4px 24px #0002;">
+    <h2 style="color:#5eead4;margin-bottom:18px;">ჩვენ შესახებ</h2>
+    <div style="font-size:17px;color:#e6ebf4;line-height:1.7;">
+      <b>ტექნო სითი 2022</b> — თანამედროვე ტექნიკის მაღაზია ქობულეთში. გთავაზობთ მობილურებს, ლეპტოპებს, აქსესუარებსა და სხვა ტექნიკას საუკეთესო ფასად.<br><br>
+      ჩვენი გუნდი გეხმარებათ სწორ არჩევანში და უზრუნველყოფს ხარისხიან მომსახურებას.<br>
+      ჩვენთვის მნიშვნელოვანია მომხმარებლის კმაყოფილება, სანდოობა და სწრაფი სერვისი.
+    </div>
+  </div>
+  <!-- კონტაქტის სექცია -->
+  <div id="contact" class="contact-section" style="max-width:420px;margin:60px auto 30px auto;padding:28px 22px 22px 22px;background:#181e2a;border-radius:18px;box-shadow:0 4px 24px #0002;">
+  <h2 style="color:#5eead4;margin-bottom:18px;">კონტაქტი</h2>
+  <div style="margin-bottom:10px;font-size:16px;color:#e6ebf4;"><b>მისამართი:</b> ქობულეთი, რუსთაველის 106</div>
+  <div style="margin-bottom:10px;font-size:16px;color:#e6ebf4;"><b>ტელეფონი:</b> <a href="tel:+995558141491" style="color:#5eead4;text-decoration:none;">+995 558 14 14 91</a></div>
+  <div style="margin-bottom:10px;font-size:16px;color:#e6ebf4;"><b>Facebook:</b> <a href="https://www.facebook.com/TechnocityKobuleti/" target="_blank" style="color:#5eead4;word-break:break-all;">facebook.com/TechnocityKobuleti</a></div>
+  <script>document.getElementById('contact').style.display='none';</script>
+  </div>
+  <!-- ნავიგაციის დაფა -->
+  <nav class="main-navbar">
+    <ul>
+      <li><a href="#" class="active">მთავარი</a></li>
+      <li class="dropdown">
+        <a href="#products">პროდუქტები</a>
+        <ul class="dropdown-menu">
+          <li><a href="#iphones" id="iphonesMenuBtn">აიფონები</a></li>
+          <li><a href="#samsung" id="samsungMenuBtn">SAMSUNG</a></li>
+          <li><a href="#tvs" id="tvsMenuBtn">ტელევიზორები</a></li>
+          <li><a href="#laptops" id="laptopsMenuBtn">ნოუთბუქები</a></li>
+          <li><a href="#accessories" id="accessoriesMenuBtn">აქსესუარები</a></li>
+  <!-- აქსესუარების სექცია -->
+  <div id="accessories" class="accessories-section" style="display:none;max-width:900px;margin:60px auto 30px auto;padding:32px 26px 26px 26px;background:#181e2a;border-radius:18px;box-shadow:0 4px 24px #0002;">
+    <h2 style="color:#5eead4;margin-bottom:18px;">აქსესუარები</h2>
+    <div id="accessories-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;"></div>
+  </div>
+        </ul>
+      </li>
+      <li><a href="#about" id="aboutBtn">ჩვენ შესახებ</a></li>
+  <li><a href="#contact" id="contactBtn">კონტაქტი</a></li>
+    </ul>
+  </nav>
     <div class="slideshow-container">
         <div class="mySlides fade">
             <img src="https://bankofgeorgia.ge/images/fc7f65ee-9605-4cc1-9b89-55989ff37aa4.jpg" alt="Slide 1">
@@ -264,6 +485,59 @@
 </style>
 
 <script>
+  // აქსესუარების სექციის გამოჩენა მხოლოდ მენიუდან
+  document.addEventListener('DOMContentLoaded', function() {
+    var accessoriesBtn = document.getElementById('accessoriesMenuBtn');
+    var accessoriesSection = document.getElementById('accessories');
+    var accessoriesList = document.getElementById('accessories-list');
+    if(accessoriesBtn && accessoriesSection && accessoriesList && typeof PRODUCTS!=='undefined') {
+      accessoriesBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        // ამოიღე აქსესუარები PRODUCTS-დან
+        var accs = PRODUCTS.filter(function(p){ return (p.brand||'').toLowerCase().includes('აქსესუარ') || (p.category||'').toLowerCase().includes('აქსესუარ'); });
+        accessoriesList.innerHTML = accs.length ? accs.map(function(p){
+          return `<div style='background:#232836;border-radius:12px;padding:16px;text-align:center;'>
+            <img src="${p.image}" alt="${p.title}" style="max-width:100px;max-height:100px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
+            <div style='font-weight:700;color:#e6ebf4;margin-bottom:6px;'>${p.title}</div>
+            <div style='color:#5eead4;font-size:15px;margin-bottom:4px;'>₾${p.price}</div>
+            <div style='color:#a7b0c0;font-size:13px;'>${p.color||''}</div>
+          </div>`;
+        }).join('') : '<div style="color:#e11d48;">აქსესუარები ვერ მოიძებნა</div>';
+        accessoriesSection.style.display = 'block';
+        setTimeout(function(){
+          accessoriesSection.scrollIntoView({behavior:'smooth'});
+        }, 100);
+      });
+    }
+  });
+  // კონტაქტის სექციის გამოჩენა მხოლოდ ღილაკზე დაჭერით
+  document.addEventListener('DOMContentLoaded', function() {
+    var contactBtn = document.getElementById('contactBtn');
+    var contactSection = document.getElementById('contact');
+    if(contactBtn && contactSection) {
+      contactBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        contactSection.style.display = 'block';
+        setTimeout(function(){
+          contactSection.scrollIntoView({behavior:'smooth'});
+        }, 100);
+      });
+    }
+  });
+  // ჩვენ შესახებ სექციის გამოჩენა მხოლოდ ღილაკზე დაჭერით
+  document.addEventListener('DOMContentLoaded', function() {
+    var aboutBtn = document.getElementById('aboutBtn');
+    var aboutSection = document.getElementById('about');
+    if(aboutBtn && aboutSection) {
+      aboutBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        aboutSection.style.display = 'block';
+        setTimeout(function(){
+          aboutSection.scrollIntoView({behavior:'smooth'});
+        }, 100);
+      });
+    }
+  });
 function openMenu() {
   document.getElementById("sidebarMenu").style.width = "260px"; // გახსნისას
 }
@@ -285,6 +559,131 @@ function closeMenu() {
 
   <!-- 🔥 პოპულარული მოდელების სლაიდერი — ქვედა მარცხენა კუთხე -->
 <style>
+    .main-navbar .dropdown {
+      position: relative;
+    }
+    .main-navbar .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #232836;
+      min-width: 160px;
+      box-shadow: 0 4px 16px #0002;
+      border-radius: 0 0 10px 10px;
+      z-index: 200;
+      padding: 6px 0;
+    }
+    .main-navbar .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    .main-navbar .dropdown-menu li {
+      width: 100%;
+    }
+    .main-navbar .dropdown-menu a {
+      display: block;
+      padding: 8px 18px;
+      color: #e6ebf4;
+      background: none;
+      border-radius: 0;
+      font-size: 15px;
+      transition: background 0.18s, color 0.18s;
+    }
+    .main-navbar .dropdown-menu a:hover {
+      background: #5eead4;
+      color: #181e2a;
+    }
+  <!-- აიფონების სექცია -->
+  <div id="iphones" class="iphones-section" style="display:none;max-width:900px;margin:60px auto 30px auto;padding:32px 26px 26px 26px;background:#181e2a;border-radius:18px;box-shadow:0 4px 24px #0002;">
+    <h2 style="color:#5eead4;margin-bottom:18px;">აიფონები</h2>
+    <div id="iphones-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;"></div>
+  </div>
+
+  <!-- ნოუთბუქების სექცია -->
+  <div id="laptops" class="laptops-section" style="display:none;max-width:900px;margin:60px auto 30px auto;padding:32px 26px 26px 26px;background:#181e2a;border-radius:18px;box-shadow:0 4px 24px #0002;">
+</div>
+
+<!-- ტელევიზორების სექცია -->
+<div id="tvs" class="tvs-section" style="display:none;max-width:900px;margin:60px auto 30px auto;padding:32px 26px 26px 26px;background:#181e2a;border-radius:18px;box-shadow:0 4px 24px #0002;">
+  <h2 style="color:#5eead4;margin-bottom:18px;">ტელევიზორები</h2>
+  <div id="tvs-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;"></div>
+</div>
+
+<!-- SAMSUNG სექცია -->
+<div id="samsung" class="samsung-section" style="display:none;max-width:900px;margin:60px auto 30px auto;padding:32px 26px 26px 26px;background:#181e2a;border-radius:18px;box-shadow:0 4px 24px #0002;">
+  <h2 style="color:#5eead4;margin-bottom:18px;">SAMSUNG</h2>
+  <div id="samsung-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;"></div>
+    <h2 style="color:#5eead4;margin-bottom:18px;">ნოუთბუქები</h2>
+    <div id="laptops-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;"></div>
+  </div>
+
+  <script>
+  // აიფონების სექციის გამოჩენა მხოლოდ მენიუდან, სხვა დროს დამალული
+  document.addEventListener('DOMContentLoaded', function() {
+    var iphonesBtn = document.getElementById('iphonesMenuBtn');
+    var iphonesSection = document.getElementById('iphones');
+    var iphonesList = document.getElementById('iphones-list');
+    if(iphonesBtn && iphonesSection && iphonesList) {
+      iphonesSection.style.display = 'none';
+      iphonesBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        // ყველა სექცია დავმალოთ
+        document.querySelectorAll('.iphones-section, .accessories-section, .laptops-section').forEach(function(sec){ sec.style.display = 'none'; });
+        // ამოიღე აიფონები PRODUCTS-დან
+        var iphones = PRODUCTS.filter(function(p){
+          return (p.brand||'').toLowerCase().includes('apple') || (p.title||'').toLowerCase().includes('iphone');
+        });
+        iphonesList.innerHTML = iphones.length ? iphones.map(function(p){
+          return `<div style='background:#232836;border-radius:12px;padding:16px;text-align:center;'>
+            <img src="${p.image}" alt="${p.title}" style="max-width:100px;max-height:100px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
+            <div style='font-weight:700;color:#e6ebf4;margin-bottom:6px;'>${p.title}</div>
+            <div style='color:#5eead4;font-size:15px;margin-bottom:4px;'>₾${p.price}</div>
+            <div style='color:#a7b0c0;font-size:13px;'>${p.color||''}</div>
+          </div>`;
+        }).join('') : '<div style="color:#e11d48;">აიფონები ვერ მოიძებნა</div>';
+        iphonesSection.style.display = 'block';
+        setTimeout(function(){
+          iphonesSection.scrollIntoView({behavior:'smooth'});
+        }, 100);
+      });
+    }
+  });
+  </script>
+    .main-navbar {
+      width: 100%;
+      background: #181e2a;
+      box-shadow: 0 2px 8px #0001;
+      margin-bottom: 10px;
+      z-index: 100;
+      position: relative;
+    }
+    .main-navbar ul {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      margin: 0 auto;
+      padding: 0 24px;
+      max-width: 1200px;
+      height: 48px;
+      align-items: center;
+    }
+    .main-navbar li {
+      display: flex;
+      align-items: center;
+    }
+    .main-navbar a {
+      color: #e6ebf4;
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background 0.18s, color 0.18s;
+      font-weight: 500;
+    }
+    .main-navbar a.active, .main-navbar a:hover {
+      background: #5eead4;
+      color: #181e2a;
+    }
   .hot-slider{position:fixed; left:12px; bottom:12px; width:200px; border:1px solid #232836;
     border-radius:16px; overflow:hidden; background:#0f131b; box-shadow:0 10px 30px rgba(0,0,0,.45); z-index:2000}
   .hot-head{display:flex; align-items:center; justify-content:space-between; padding:8px 10px;
@@ -1874,6 +2273,48 @@ function closeMenu() {
     "inStock": true,
     "tags": ["ახალი", "გარანტია 6თვ"]
   },
+  {
+    "id": 2,
+    "title": " power bank 20000mAh",
+    "brand": "აქსესუარები",
+    "price": 80,
+    "oldPrice": 110,
+    "type": "20 000mAh",
+    "color": "BLACK",
+    "image": "https://uk.cygnett.com/cdn/shop/files/CY4751PBCHE-1_2376x.png?v=1737590291",
+    "rating": 4.5,
+    "inStock": true,
+    "tags": ["ახალი", "გარანტია 6თვ"]
+  },
+   {
+    "id": 2,
+    "title": "Smart Watch ultra",
+    "brand": "აქსესუარები",
+    "price": 130,
+    "oldPrice": 155,
+    "type": "450mAh",
+    "color": "yellow",
+    "image": "https://parspng.com/wp-content/uploads/2023/06/watchpng.parspng.com-9.png",
+    "rating": 4.5,
+    "inStock": true,
+    "tags": ["ახალი", "გარანტია 6თვ"]
+  },
+
+  {
+  id: 101,
+  title: "HISENSE 65''\" 4K UHD",
+  brand: "tv",
+  price: 1850,
+  oldPrice: 1990,
+  storage: "",
+  ram: "",
+  color: "შავი",
+  image: "https://crdms.images.consumerreports.org/prod/products/cr/models/406377-65-inch-tvs-hisense-65a6h-10031164.png",
+  rating: 4.7,
+  inStock: true,
+  tags: ["სმარტი", "4K", "გარანტია 1წელი"],
+  category: "ტელევიზორი"
+},
 
 
 
