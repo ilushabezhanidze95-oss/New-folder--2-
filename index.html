@@ -334,6 +334,7 @@
       background: #0b0f16;
       display: grid;
       place-items: center;
+      position: relative;
     }
     .thumb img {
       max-width: 80%;
@@ -503,9 +504,9 @@
       right: 10px;
       background: #e11d48;
       color: #fff;
-      padding: 5px 14px;
+      padding: 5px 10px;
       border-radius: 8px;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: bold;
       z-index: 10;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
@@ -571,7 +572,7 @@
         width: 200px;
       }
       .hot-slide {
-        width: 220px;
+        width: 200px;
         height: 140px;
       }
       .mySlides {
@@ -580,6 +581,10 @@
       .text-overlay {
         font-size: 1rem;
         padding: 8px 12px;
+      }
+      .sale-badge {
+        font-size: 10px;
+        padding: 4px 8px;
       }
     }
     @media (max-width: 700px) {
@@ -768,6 +773,7 @@
           <div class="hot-slide">
             <img src="https://theapplewiki.com/images/applewiki/thumb/0/06/IPhone_16_Pro_Max.png/800px-IPhone_16_Pro_Max.png" alt="iPhone 16 pro">
             <div class="hot-label">iPhone 16 pro max · 256GB</div>
+            <div class="sale-badge">10% OFF</div>
           </div>
           <div class="hot-slide">
             <img src="https://pngimg.com/d/iphone16_PNG37.png" alt="iphone 16">
@@ -776,6 +782,7 @@
           <div class="hot-slide">
             <img src="https://miamicenters.com/wp-content/uploads/2025/04/screennN-3-768x768.png" alt="SAMSUNG A06 4/128">
             <div class="hot-label">SAMSUNG A06 4/128</div>
+            <div class="sale-badge">15% OFF</div>
           </div>
           <div class="hot-slide">
             <img src="https://images.vodafone.co.uk/tizrehont83j/PWwW9oogiC8myWQIvkHJe/ea6bf0eddacd5c1d8aa31fa6ead4580d/galaxy-a17-5g-gallery.png" alt="SAMSUNG A17 5G">
@@ -784,10 +791,11 @@
           <div class="hot-slide">
             <img src="https://pngimg.com/d/iphone_13_PNG22.png" alt="IPHONE 13pro 128GB">
             <div class="hot-label">IPHONE 13pro 128GB</div>
+            <div class="sale-badge">20% OFF</div>
           </div>
           <div class="hot-slide">
-            <img src="https://ng.xpark.com/media/catalog/product/cache/7c9924b6276ad76a951c1e786fcf2062/2/0/20250218-114932.png" alt="infinix">
             <div class="hot-label">Infinix ZERO FLIP 12/512GB</div>
+            <img src="https://ng.xpark.com/media/catalog/product/cache/7c9924b6276ad76a951c1e786fcf2062/2/0/20250218-114932.png" alt="infinix">
           </div>
         </div>
         <div class="hot-controls">
@@ -839,37 +847,68 @@
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ka_GE/sdk.js#xfbml=1&version=v19.0"></script>
 
   <script>
-    // Define PRODUCTS array
+    // Define PRODUCTS array with sale information
     const PRODUCTS = [
       {
         brand: "Apple",
-        title: "iPhone 16 Pro Max",
-        price: 4500,
-        image: "https://theapplewiki.com/images/applewiki/thumb/0/06/IPhone_16_Pro_Max.png/800px-IPhone_16_Pro_Max.png",
-        color: "Black Titanium"
+        title: "iPhone 16 128GB",
+        price: 2350,
+        image: "https://pngimg.com/d/iphone16_PNG3.png",
+        color: "Black",
+        sale: "5%"
       },
       {
         brand: "Apple",
-        title: "iPhone 16",
-        price: 3200,
+        title: "iPhone 16 128GB",
+        price: 2350,
         image: "https://pngimg.com/d/iphone16_PNG37.png",
-        color: "Midnight"
+        color: "Midnight",
+        sale: "5%"
+      },
+      {
+        brand: "Apple",
+        title: "iPhone 16 128GB",
+        price: 2350,
+        image: "https://assets.swappie.com/cdn-cgi/image/width=600,height=600,fit=contain,format=auto/swappie-iphone-16-ultramarine-back.png?v=e449b87a",
+        color: "Ultramarine",
+        sale: "5%"
+      },
+      {
+        brand: "Apple",
+        title: "iphone 16 128GB",
+        price: 2350,
+        image: "https://taon.ge/storage/3817/OJ6yN9hmfIWxRd3d4vPtw2UvX8KhfO-metaNmI3ZWQ0OGQtMDI3My00Y2QzLTkxOGItZmY3NGQ1YWZmZGQ5X1RodW1iLnBuZw==-.png",
+        color: "Teal",
+        sale: "5%"
       },
       {
         brand: "Samsung",
-        title: "Samsung A06",
-        price: 600,
-        image: "https://miamicenters.com/wp-content/uploads/2025/04/screennN-3-768x768.png",
-        color: "Blue"
+        title: "Samsung A17 5G",
+        price: 800,
+        image: "https://images.vodafone.co.uk/tizrehont83j/PWwW9oogiC8myWQIvkHJe/ea6bf0eddacd5c1d8aa31fa6ead4580d/galaxy-a17-5g-gallery.png",
+        color: "Black"
       },
       {
         brand: "Accessories",
         title: "AirPods Pro",
-        price: 800,
-        image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MTJV3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1694014878236",
-        color: "White"
+        price: 50,
+        image: "https://icity.ge/wp-content/uploads/2025/09/AirPods-Pro-3-2.webp",
+        color: "White",
+        sale: "10%"
       }
     ];
+
+    // Function to generate product card HTML
+    function generateProductCard(p) {
+      return `
+        <div style="background:#232836;border-radius:12px;padding:16px;text-align:center;position:relative;">
+          ${p.sale ? `<div class="sale-badge">${p.sale} OFF</div>` : ''}
+          <img src="${p.image}" alt="${p.title}" style="max-width:100px;max-height:100px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
+          <div style="font-weight:700;color:#e6ebf4;margin-bottom:6px;">${p.title}</div>
+          <div style="color:#5eead4;font-size:15px;margin-bottom:4px;">₾${p.price}</div>
+          <div style="color:#a7b0c0;font-size:13px;">${p.color || ''}</div>
+        </div>`;
+    }
 
     // Slideshow logic
     let slideIndex = 1;
@@ -923,47 +962,10 @@
           var iphones = PRODUCTS.filter(function(p) {
             return (p.brand || '').toLowerCase().includes('apple') || (p.title || '').toLowerCase().includes('iphone');
           });
-          iphonesList.innerHTML = iphones.length ? iphones.map(function(p) {
-            return `<div style='background:#232836;border-radius:12px;padding:16px;text-align:center;'>
-              <img src="${p.image}" alt="${p.title}" style="max-width:100px;max-height:100px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
-              <div style='font-weight:700;color:#e6ebf4;margin-bottom:6px;'>${p.title}</div>
-              <div style='color:#5eead4;font-size:15px;margin-bottom:4px;'>₾${p.price}</div>
-              <div style='color:#a7b0c0;font-size:13px;'>${p.color || ''}</div>
-            </div>`;
-          }).join('') : '<div style="color:#e11d48;">აიფონები ვერ მოიძებნა</div>';
+          iphonesList.innerHTML = iphones.length ? iphones.map(generateProductCard).join('') : '<div style="color:#e11d48;">აიფონები ვერ მოიძებნა</div>';
           iphonesSection.style.display = 'block';
           setTimeout(function() {
             iphonesSection.scrollIntoView({ behavior: 'smooth' });
-          }, 100);
-        });
-      }
-    });
-
-    // Accessories section logic
-    document.addEventListener('DOMContentLoaded', function() {
-      var accessoriesBtn = document.getElementById('accessoriesMenuBtn');
-      var accessoriesSection = document.getElementById('accessories');
-      var accessoriesList = document.getElementById('accessories-list');
-      if (accessoriesBtn && accessoriesSection && accessoriesList) {
-        accessoriesBtn.addEventListener('click', function(e) {
-          e.preventDefault();
-          document.querySelectorAll('.iphones-section, .accessories-section, .laptops-section, .tvs-section, .samsung-section, .about-section, .contact-section').forEach(function(sec) {
-            sec.style.display = 'none';
-          });
-          var accs = PRODUCTS.filter(function(p) {
-            return (p.brand || '').toLowerCase().includes('accessories') || (p.category || '').toLowerCase().includes('accessories');
-          });
-          accessoriesList.innerHTML = accs.length ? accs.map(function(p) {
-            return `<div style='background:#232836;border-radius:12px;padding:16px;text-align:center;'>
-              <img src="${p.image}" alt="${p.title}" style="max-width:100px;max-height:100px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
-              <div style='font-weight:700;color:#e6ebf4;margin-bottom:6px;'>${p.title}</div>
-              <div style='color:#5eead4;font-size:15px;margin-bottom:4px;'>₾${p.price}</div>
-              <div style='color:#a7b0c0;font-size:13px;'>${p.color || ''}</div>
-            </div>`;
-          }).join('') : '<div style="color:#e11d48;">აქსესუარები ვერ მოიძებნა</div>';
-          accessoriesSection.style.display = 'block';
-          setTimeout(function() {
-            accessoriesSection.scrollIntoView({ behavior: 'smooth' });
           }, 100);
         });
       }
@@ -983,17 +985,79 @@
           var samsungs = PRODUCTS.filter(function(p) {
             return (p.brand || '').toLowerCase().includes('samsung') || (p.title || '').toLowerCase().includes('samsung');
           });
-          samsungList.innerHTML = samsungs.length ? samsungs.map(function(p) {
-            return `<div style='background:#232836;border-radius:12px;padding:16px;text-align:center;'>
-              <img src="${p.image}" alt="${p.title}" style="max-width:100px;max-height:100px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
-              <div style='font-weight:700;color:#e6ebf4;margin-bottom:6px;'>${p.title}</div>
-              <div style='color:#5eead4;font-size:15px;margin-bottom:4px;'>₾${p.price}</div>
-              <div style='color:#a7b0c0;font-size:13px;'>${p.color || ''}</div>
-            </div>`;
-          }).join('') : '<div style="color:#e11d48;">Samsung პროდუქტები ვერ მოიძებნა</div>';
+          samsungList.innerHTML = samsungs.length ? samsungs.map(generateProductCard).join('') : '<div style="color:#e11d48;">Samsung პროდუქტები ვერ მოიძებნა</div>';
           samsungSection.style.display = 'block';
           setTimeout(function() {
             samsungSection.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        });
+      }
+    });
+
+    // Accessories section logic
+    document.addEventListener('DOMContentLoaded', function() {
+      var accessoriesBtn = document.getElementById('accessoriesMenuBtn');
+      var accessoriesSection = document.getElementById('accessories');
+      var accessoriesList = document.getElementById('accessories-list');
+      if (accessoriesBtn && accessoriesSection && accessoriesList) {
+        accessoriesBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelectorAll('.iphones-section, .accessories-section, .laptops-section, .tvs-section, .samsung-section, .about-section, .contact-section').forEach(function(sec) {
+            sec.style.display = 'none';
+          });
+          var accs = PRODUCTS.filter(function(p) {
+            return (p.brand || '').toLowerCase().includes('accessories') || (p.category || '').toLowerCase().includes('accessories');
+          });
+          accessoriesList.innerHTML = accs.length ? accs.map(generateProductCard).join('') : '<div style="color:#e11d48;">აქსესუარები ვერ მოიძებნა</div>';
+          accessoriesSection.style.display = 'block';
+          setTimeout(function() {
+            accessoriesSection.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        });
+      }
+    });
+
+    // TVs section logic
+    document.addEventListener('DOMContentLoaded', function() {
+      var tvsBtn = document.getElementById('tvsMenuBtn');
+      var tvsSection = document.getElementById('tvs');
+      var tvsList = document.getElementById('tvs-list');
+      if (tvsBtn && tvsSection && tvsList) {
+        tvsBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelectorAll('.iphones-section, .accessories-section, .laptops-section, .tvs-section, .samsung-section, .about-section, .contact-section').forEach(function(sec) {
+            sec.style.display = 'none';
+          });
+          var tvs = PRODUCTS.filter(function(p) {
+            return (p.brand || '').toLowerCase().includes('tv') || (p.title || '').toLowerCase().includes('tv');
+          });
+          tvsList.innerHTML = tvs.length ? tvs.map(generateProductCard).join('') : '<div style="color:#e11d48;">ტელევიზორები ვერ მოიძებნა</div>';
+          tvsSection.style.display = 'block';
+          setTimeout(function() {
+            tvsSection.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        });
+      }
+    });
+
+    // Laptops section logic
+    document.addEventListener('DOMContentLoaded', function() {
+      var laptopsBtn = document.getElementById('laptopsMenuBtn');
+      var laptopsSection = document.getElementById('laptops');
+      var laptopsList = document.getElementById('laptops-list');
+      if (laptopsBtn && laptopsSection && laptopsList) {
+        laptopsBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelectorAll('.iphones-section, .accessories-section, .laptops-section, .tvs-section, .samsung-section, .about-section, .contact-section').forEach(function(sec) {
+            sec.style.display = 'none';
+          });
+          var laptops = PRODUCTS.filter(function(p) {
+            return (p.brand || '').toLowerCase().includes('laptop') || (p.title || '').toLowerCase().includes('laptop');
+          });
+          laptopsList.innerHTML = laptops.length ? laptops.map(generateProductCard).join('') : '<div style="color:#e11d48;">ნოუთბუქები ვერ მოიძებნა</div>';
+          laptopsSection.style.display = 'block';
+          setTimeout(function() {
+            laptopsSection.scrollIntoView({ behavior: 'smooth' });
           }, 100);
         });
       }
@@ -1033,6 +1097,85 @@
           }, 100);
         });
       }
+    });
+
+    // Filter and search logic
+    document.addEventListener('DOMContentLoaded', function() {
+      var grid = document.getElementById('grid');
+      var q = document.getElementById('q');
+      var sort = document.getElementById('sort');
+      var minPrice = document.getElementById('minPrice');
+      var maxPrice = document.getElementById('maxPrice');
+      var perPage = document.getElementById('perPage');
+      var resetBtn = document.getElementById('resetBtn');
+      var count = document.getElementById('count');
+      var pagination = document.getElementById('pagination');
+      var brandCheckboxes = document.querySelectorAll('#brandList input[type="checkbox"]');
+
+      function updateGrid(page = 1) {
+        var query = q.value.toLowerCase();
+        var sortValue = sort.value;
+        var min = parseFloat(minPrice.value) || 0;
+        var max = parseFloat(maxPrice.value) || Infinity;
+        var brands = Array.from(brandCheckboxes)
+          .filter(cb => cb.checked)
+          .map(cb => cb.id.toLowerCase());
+        var itemsPerPage = parseInt(perPage.value) || 12;
+
+        var filtered = PRODUCTS.filter(function(p) {
+          var matchesQuery = (p.title || '').toLowerCase().includes(query) || (p.brand || '').toLowerCase().includes(query);
+          var matchesPrice = p.price >= min && p.price <= max;
+          var matchesBrand = brands.length === 0 || brands.some(brand => (p.brand || '').toLowerCase().includes(brand));
+          return matchesQuery && matchesPrice && matchesBrand;
+        });
+
+        if (sortValue === 'price-asc') {
+          filtered.sort((a, b) => a.price - b.price);
+        } else if (sortValue === 'price-desc') {
+          filtered.sort((a, b) => b.price - a.price);
+        } else if (sortValue === 'rating-desc') {
+          filtered.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+        } else if (sortValue === 'newest') {
+          filtered.sort((a, b) => (b.id || 0) - (a.id || 0));
+        }
+
+        var total = filtered.length;
+        count.textContent = `${total} პროდუქტი`;
+
+        var start = (page - 1) * itemsPerPage;
+        var end = start + itemsPerPage;
+        var paginated = filtered.slice(start, end);
+
+        grid.innerHTML = paginated.length ? paginated.map(generateProductCard).join('') : '<div style="color:#e11d48;">პროდუქტები ვერ მოიძებნა</div>';
+
+        pagination.innerHTML = '';
+        var totalPages = Math.ceil(total / itemsPerPage);
+        for (var i = 1; i <= totalPages; i++) {
+          var btn = document.createElement('button');
+          btn.textContent = i;
+          btn.className = i === page ? 'active' : '';
+          btn.onclick = () => updateGrid(i);
+          pagination.appendChild(btn);
+        }
+      }
+
+      q.addEventListener('input', () => updateGrid());
+      sort.addEventListener('change', () => updateGrid());
+      minPrice.addEventListener('input', () => updateGrid());
+      maxPrice.addEventListener('input', () => updateGrid());
+      perPage.addEventListener('input', () => updateGrid());
+      brandCheckboxes.forEach(cb => cb.addEventListener('change', () => updateGrid()));
+      resetBtn.addEventListener('click', function() {
+        q.value = '';
+        sort.value = 'default';
+        minPrice.value = '';
+        maxPrice.value = '';
+        perPage.value = '12';
+        brandCheckboxes.forEach(cb => cb.checked = false);
+        updateGrid();
+      });
+
+      updateGrid();
     });
 
     // Hot slider logic
