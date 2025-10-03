@@ -1,15 +1,10 @@
-<!-- ...existing code... -->
-
-<!-- ეს სკრიპტი გადაიტანე <body> ბოლოს, რომ DOM ელემენტები უკვე არსებობდეს -->
-
-<!-- ...existing code... -->
-
 <!DOCTYPE html>
 <html lang="ka">
-  <head><!DOCTYPE html>
-<html lang="ka">
 <head>
-    <script type="application/ld+json">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ტექნო სითი 2022</title>
+  <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
@@ -17,381 +12,188 @@
       "url": "https://თქვენი-ვებგვერდი.ge",
       "logo": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6fR7Fdji6OaqAzDjxtPe6hJlozk5KqHAXGg&s"
     }
-    </script>
- 
-  
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>თანამედროვე სლაიდშოუ</title>
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f0f0;
-        }
-
-        .slideshow-container {
-            max-width: 1300px;
-            position: relative;
-            margin: 20px auto;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .mySlides {
-            display: none;
-            position: relative;
-            width: 100%;
-            height: 600px;
-            overflow: hidden;
-        }
-
-        .mySlides img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .mySlides:hover img {
-            transform: scale(1.05);
-        }
-
-        .text-overlay {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: rgb(252, 248, 9);
-            background: linear-gradient(90deg, rgba(0, 0, 0, 0.7), transparent);
-            padding: 15px 25px;
-            border-radius: 10px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s ease;
-        }
-
-        .mySlides.active .text-overlay {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .prev, .next {
-            cursor: pointer;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            padding: 15px;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 50%;
-            transition: all 0.3s ease;
-            user-select: none;
-        }
-
-        .prev {
-            left: 20px;
-        }
-
-        .next {
-            right: 20px;
-        }
-
-        .prev:hover, .next:hover {
-            background: rgba(0, 0, 0, 0.9);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .dots-container {
-            text-align: center;
-            padding: 10px 0;
-        }
-
-        .dot {
-            cursor: pointer;
-            height: 12px;
-            width: 12px;
-            margin: 0 5px;
-            background-color: #e7e7e6;
-            border-radius: 50%;
-            display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .dot.active, .dot:hover {
-            background-color: #007bff;
-            transform: scale(1.3);
-        }
-
-        .fade {
-            animation: fade 1s ease-in-out;
-        }
-
-        @keyframes fade {
-            from { opacity: 0.3; }
-            to { opacity: 1; }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .mySlides {
-                height: 400px;
-            }
-
-            .text-overlay {
-                font-size: 1.2rem;
-                padding: 10px 15px;
-            }
-
-            .prev, .next {
-                font-size: 18px;
-                padding: 10px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .mySlides {
-                height: 300px;
-            }
-
-            .text-overlay {
-                font-size: 1rem;
-                padding: 8px 12px;
-            }
-        }
-    </style>
-    
-</head>
-<body>
-  <!-- ჩვენ შესახებ სექცია -->
-  <div id="about" class="about-section" style="display:none;max-width:600px;margin:60px auto 30px auto;padding:32px 26px 26px 26px;background:#181e2a;border-radius:18px;box-shadow:0 4px 24px #0002;">
-    <h2 style="color:#5eead4;margin-bottom:18px;">ჩვენ შესახებ</h2>
-    <div style="font-size:17px;color:#e6ebf4;line-height:1.7;">
-      <b>ტექნო სითი 2022</b> — თანამედროვე ტექნიკის მაღაზია ქობულეთში. გთავაზობთ მობილურებს, ლეპტოპებს, აქსესუარებსა და სხვა ტექნიკას საუკეთესო ფასად.<br><br>
-      ჩვენი გუნდი გეხმარებათ სწორ არჩევანში და უზრუნველყოფს ხარისხიან მომსახურებას.<br>
-      ჩვენთვის მნიშვნელოვანია მომხმარებლის კმაყოფილება, სანდოობა და სწრაფი სერვისი.
-    </div>
-  </div>
-  <!-- კონტაქტის სექცია -->
-  <div id="contact" class="contact-section" style="max-width:420px;margin:60px auto 30px auto;padding:28px 22px 22px 22px;background:#181e2a;border-radius:18px;box-shadow:0 4px 24px #0002;">
-  <h2 style="color:#5eead4;margin-bottom:18px;">კონტაქტი</h2>
-  <div style="margin-bottom:10px;font-size:16px;color:#e6ebf4;"><b>მისამართი:</b> ქობულეთი, რუსთაველის 106</div>
-  <div style="margin-bottom:10px;font-size:16px;color:#e6ebf4;"><b>ტელეფონი:</b> <a href="tel:+995558141491" style="color:#5eead4;text-decoration:none;">+995 558 14 14 91</a></div>
-  <div style="margin-bottom:10px;font-size:16px;color:#e6ebf4;"><b>Facebook:</b> <a href="https://www.facebook.com/TechnocityKobuleti/" target="_blank" style="color:#5eead4;word-break:break-all;">facebook.com/TechnocityKobuleti</a></div>
-  <script>document.getElementById('contact').style.display='none';</script>
-  </div>
-  <!-- ნავიგაციის დაფა -->
-  <nav class="main-navbar">
-    <ul>
-      <li><a href="#" class="active">მთავარი</a></li>
-      <li class="dropdown">
-        <a href="#products">პროდუქტები</a>
-        <ul class="dropdown-menu">
-          <li><a href="#iphones" id="iphonesMenuBtn">აიფონები</a></li>
-          <li><a href="#samsung" id="samsungMenuBtn">SAMSUNG</a></li>
-          <li><a href="#tvs" id="tvsMenuBtn">ტელევიზორები</a></li>
-          <li><a href="#laptops" id="laptopsMenuBtn">ნოუთბუქები</a></li>
-          <li><a href="#accessories" id="accessoriesMenuBtn">აქსესუარები</a></li>
-  <!-- აქსესუარების სექცია -->
-  <div id="accessories" class="accessories-section" style="display:none;max-width:900px;margin:60px auto 30px auto;padding:32px 26px 26px 26px;background:#181e2a;border-radius:18px;box-shadow:0 4px 24px #0002;">
-    <h2 style="color:#5eead4;margin-bottom:18px;">აქსესუარები</h2>
-    <div id="accessories-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;"></div>
-  </div>
-        </ul>
-      </li>
-      <li><a href="#about" id="aboutBtn">ჩვენ შესახებ</a></li>
-  <li><a href="#contact" id="contactBtn">კონტაქტი</a></li>
-    </ul>
-  </nav>
-    <div class="slideshow-container">
-        <div class="mySlides fade">
-            <img src="https://bankofgeorgia.ge/images/fc7f65ee-9605-4cc1-9b89-55989ff37aa4.jpg" alt="Slide 1">
-            <div class="text-overlay"></div>
-        </div>
-        <div class="mySlides fade">
-            <img src="https://i.ytimg.com/vi/LNpoRSuPwfM/maxresdefault.jpg" alt="Slide 2">
-            <div class="text-overlay"></div>
-        </div>
-        <div class="mySlides fade">
-            <img src="https://imagedelivery.net/d_EE26O5eWcJDRYn-qMBOg/7a0843e9-37f6-4b0a-52e8-05d233d3f600/public" alt="Slide 3">
-            <div class="text-overlay">8 თვემდე უპროცენტო 0%</div>
-            
-            
-        </div>
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-    </div>
-    <div class="dots-container">
-        <span class="dot" onclick="currentSlide(1)"></span>
-        <span class="dot" onclick="currentSlide(2)"></span>
-        <span class="dot" onclick="currentSlide(3)"></span>
-    </div>
-
-    <script>
-        let slideIndex = 1;
-        showSlides(slideIndex);
-
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
-        }
-
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
-        }
-
-        function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("dot");
-
-            if (n > slides.length) { slideIndex = 1; }
-            if (n < 1) { slideIndex = slides.length; }
-
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-                slides[i].classList.remove("active");
-            }
-
-            for (i = 0; i < dots.length; i++) {
-                dots[i].className = dots[i].className.replace(" active", "");
-            }
-
-            slides[slideIndex - 1].style.display = "block";
-            slides[slideIndex - 1].classList.add("active");
-            dots[slideIndex - 1].className += " active";
-        }
-
-        // Auto slideshow
-        setInterval(() => {
-            plusSlides(1);
-        }, 5000);
-    </script>
-</body>
-</html>
-    
-  
-    </script>
-</body>
-</html>
-    <!-- მარჯვენა ქვედა კუთხის ბანკის ლოგოები -->
-<div style="position:fixed; bottom:20px; right:20px; z-index:999; display:flex; gap:60სpx;">
-
-  <!-- TBC Bank -->
-  <a href="https://www.tbcbank.ge" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/TBC_Bank_logo.svg/2560px-TBC_Bank_logo.svg.png" 
-         alt="TBC Bank" 
-         style="width:100px; height:auto; border-radius:30px; background:white; padding:5px; box-shadow:0 5px 60px rgba(0,0,0,0.3);">
-  </a>
-  <!-- Bank of Georgia -->
-  <a href="https://bankofgeorgia.ge" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/ka/4/4c/Bank_of_Georgia_logo.png" 
-         alt="Bank of Georgia" 
-         style="width:100px; height:auto; border-radius:15px; background:white; padding:11px; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
-  </a>
-
-  <!-- Credo Bank -->
-  <a href="https://credobank.ge" target="_blank">
-    <img src="https://imagedelivery.net/d_EE26O5eWcJDRYn-qMBOg/5e5ff2dd-85be-49b7-da19-5572c960d300/public" 
-         alt="Credo Bank" 
-         style="width:100px; height:auto; border-radius:8px; background:white; padding:5px; box-shadow:0 4px 60px rgba(0,0,0,0.3);">
-  </a>
-  <!-- მარჯვენა ქვედა კუთხის ბანკის სლაიდი -->
-<!-- ბანკების სლაიდერი -->
- <!-- კატეგორიების მენიუ -->
-<!-- კატეგორიების ღილაკი -->
-<div class="category-btn">
-  
-
-
-</style>
-
-<script>
-  // აქსესუარების სექციის გამოჩენა მხოლოდ მენიუდან
-  document.addEventListener('DOMContentLoaded', function() {
-    var accessoriesBtn = document.getElementById('accessoriesMenuBtn');
-    var accessoriesSection = document.getElementById('accessories');
-    var accessoriesList = document.getElementById('accessories-list');
-    if(accessoriesBtn && accessoriesSection && accessoriesList && typeof PRODUCTS!=='undefined') {
-      accessoriesBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        // ამოიღე აქსესუარები PRODUCTS-დან
-        var accs = PRODUCTS.filter(function(p){ return (p.brand||'').toLowerCase().includes('აქსესუარ') || (p.category||'').toLowerCase().includes('აქსესუარ'); });
-        accessoriesList.innerHTML = accs.length ? accs.map(function(p){
-          return `<div style='background:#232836;border-radius:12px;padding:16px;text-align:center;'>
-            <img src="${p.image}" alt="${p.title}" style="max-width:100px;max-height:100px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
-            <div style='font-weight:700;color:#e6ebf4;margin-bottom:6px;'>${p.title}</div>
-            <div style='color:#5eead4;font-size:15px;margin-bottom:4px;'>₾${p.price}</div>
-            <div style='color:#a7b0c0;font-size:13px;'>${p.color||''}</div>
-          </div>`;
-        }).join('') : '<div style="color:#e11d48;">აქსესუარები ვერ მოიძებნა</div>';
-        accessoriesSection.style.display = 'block';
-        setTimeout(function(){
-          accessoriesSection.scrollIntoView({behavior:'smooth'});
-        }, 100);
-      });
+  </script>
+  <style>
+    :root {
+      --bg: #0f1115;
+      --card: #151822;
+      --muted: #a7b0c0;
+      --text: #e6ebf4;
+      --accent: #5eead4;
+      --accent2: #60a5fa;
+      --danger: #f87171;
+      --ok: #34d399;
     }
-  });
-  // კონტაქტის სექციის გამოჩენა მხოლოდ ღილაკზე დაჭერით
-  document.addEventListener('DOMContentLoaded', function() {
-    var contactBtn = document.getElementById('contactBtn');
-    var contactSection = document.getElementById('contact');
-    if(contactBtn && contactSection) {
-      contactBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        contactSection.style.display = 'block';
-        setTimeout(function(){
-          contactSection.scrollIntoView({behavior:'smooth'});
-        }, 100);
-      });
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-  });
-  // ჩვენ შესახებ სექციის გამოჩენა მხოლოდ ღილაკზე დაჭერით
-  document.addEventListener('DOMContentLoaded', function() {
-    var aboutBtn = document.getElementById('aboutBtn');
-    var aboutSection = document.getElementById('about');
-    if(aboutBtn && aboutSection) {
-      aboutBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        aboutSection.style.display = 'block';
-        setTimeout(function(){
-          aboutSection.scrollIntoView({behavior:'smooth'});
-        }, 100);
-      });
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+      background: linear-gradient(180deg, #0c0f14, #11151d);
+      color: var(--text);
     }
-  });
-function openMenu() {
-  document.getElementById("sidebarMenu").style.width = "260px"; // გახსნისას
-}
-
-function closeMenu() {
-  document.getElementById("sidebarMenu").style.width = "0"; // დახურვისას
-}
-</script>
-
-
-    </div>
-
-    <script>
-   
-    </script>
-</body>
-</html>
-
-
-  <!-- 🔥 პოპულარული მოდელების სლაიდერი — ქვედა მარცხენა კუთხე -->
-<style>
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    header {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 0;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand .logo img {
+      height: 60px;
+      width: auto;
+      border-radius: 12px;
+    }
+    .brand h1 {
+      font-size: 20px;
+      margin: 0;
+      margin-left: 20px;
+    }
+    .small.muted {
+      font-size: 12px;
+      color: var(--muted);
+      margin-left: 20px;
+    }
+    .slideshow-container {
+      max-width: 1300px;
+      position: relative;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    .mySlides {
+      display: none;
+      position: relative;
+      width: 100%;
+      height: 600px;
+      overflow: hidden;
+    }
+    .mySlides img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .mySlides:hover img {
+      transform: scale(1.05);
+    }
+    .text-overlay {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      color: rgb(252, 248, 9);
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.7), transparent);
+      padding: 15px 25px;
+      border-radius: 10px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.5s ease;
+    }
+    .mySlides.active .text-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 15px;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      user-select: none;
+    }
+    .prev {
+      left: 20px;
+    }
+    .next {
+      right: 20px;
+    }
+    .prev:hover, .next:hover {
+      background: rgba(0, 0, 0, 0.9);
+      transform: translateY(-50%) scale(1.1);
+    }
+    .dots-container {
+      text-align: center;
+      padding: 10px 0;
+    }
+    .dot {
+      cursor: pointer;
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #e7e7e6;
+      border-radius: 50%;
+      display: inline-block;
+      transition: all 0.3s ease;
+    }
+    .dot.active, .dot:hover {
+      background-color: #007bff;
+      transform: scale(1.3);
+    }
+    .fade {
+      animation: fade 1s ease-in-out;
+    }
+    @keyframes fade {
+      from { opacity: 0.3; }
+      to { opacity: 1; }
+    }
+    .main-navbar {
+      width: 100%;
+      background: #181e2a;
+      box-shadow: 0 2px 8px #0001;
+      margin-bottom: 10px;
+      z-index: 100;
+      position: relative;
+    }
+    .main-navbar ul {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      margin: 0 auto;
+      padding: 0 24px;
+      max-width: 1200px;
+      height: 48px;
+      align-items: center;
+    }
+    .main-navbar li {
+      display: flex;
+      align-items: center;
+    }
+    .main-navbar a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 16px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: background 0.18s, color 0.18s;
+      font-weight: 500;
+    }
+    .main-navbar a.active, .main-navbar a:hover {
+      background: var(--accent);
+      color: #181e2a;
+    }
     .main-navbar .dropdown {
       position: relative;
     }
@@ -416,368 +218,487 @@ function closeMenu() {
     .main-navbar .dropdown-menu a {
       display: block;
       padding: 8px 18px;
-      color: #e6ebf4;
+      color: var(--text);
       background: none;
       border-radius: 0;
       font-size: 15px;
       transition: background 0.18s, color 0.18s;
     }
     .main-navbar .dropdown-menu a:hover {
-      background: #5eead4;
+      background: var(--accent);
       color: #181e2a;
     }
-  <!-- აიფონების სექცია -->
-  <div id="iphones" class="iphones-section" style="display:none;max-width:900px;margin:60px auto 30px auto;padding:32px 26px 26px 26px;background:#181e2a;border-radius:18px;box-shadow:0 4px 24px #0002;">
-    <h2 style="color:#5eead4;margin-bottom:18px;">აიფონები</h2>
-    <div id="iphones-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;"></div>
-  </div>
-
-  <!-- ნოუთბუქების სექცია -->
-  <div id="laptops" class="laptops-section" style="display:none;max-width:900px;margin:60px auto 30px auto;padding:32px 26px 26px 26px;background:#181e2a;border-radius:18px;box-shadow:0 4px 24px #0002;">
-</div>
-
-<!-- ტელევიზორების სექცია -->
-<div id="tvs" class="tvs-section" style="display:none;max-width:900px;margin:60px auto 30px auto;padding:32px 26px 26px 26px;background:#181e2a;border-radius:18px;box-shadow:0 4px 24px #0002;">
-  <h2 style="color:#5eead4;margin-bottom:18px;">ტელევიზორები</h2>
-  <div id="tvs-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;"></div>
-</div>
-
-<!-- SAMSUNG სექცია -->
-<div id="samsung" class="samsung-section" style="display:none;max-width:900px;margin:60px auto 30px auto;padding:32px 26px 26px 26px;background:#181e2a;border-radius:18px;box-shadow:0 4px 24px #0002;">
-  <h2 style="color:#5eead4;margin-bottom:18px;">SAMSUNG</h2>
-  <div id="samsung-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;"></div>
-    <h2 style="color:#5eead4;margin-bottom:18px;">ნოუთბუქები</h2>
-    <div id="laptops-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;"></div>
-  </div>
-
-  <script>
-  // აიფონების სექციის გამოჩენა მხოლოდ მენიუდან, სხვა დროს დამალული
-  document.addEventListener('DOMContentLoaded', function() {
-    var iphonesBtn = document.getElementById('iphonesMenuBtn');
-    var iphonesSection = document.getElementById('iphones');
-    var iphonesList = document.getElementById('iphones-list');
-    if(iphonesBtn && iphonesSection && iphonesList) {
-      iphonesSection.style.display = 'none';
-      iphonesBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        // ყველა სექცია დავმალოთ
-        document.querySelectorAll('.iphones-section, .accessories-section, .laptops-section').forEach(function(sec){ sec.style.display = 'none'; });
-        // ამოიღე აიფონები PRODUCTS-დან
-        var iphones = PRODUCTS.filter(function(p){
-          return (p.brand||'').toLowerCase().includes('apple') || (p.title||'').toLowerCase().includes('iphone');
-        });
-        iphonesList.innerHTML = iphones.length ? iphones.map(function(p){
-          return `<div style='background:#232836;border-radius:12px;padding:16px;text-align:center;'>
-            <img src="${p.image}" alt="${p.title}" style="max-width:100px;max-height:100px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
-            <div style='font-weight:700;color:#e6ebf4;margin-bottom:6px;'>${p.title}</div>
-            <div style='color:#5eead4;font-size:15px;margin-bottom:4px;'>₾${p.price}</div>
-            <div style='color:#a7b0c0;font-size:13px;'>${p.color||''}</div>
-          </div>`;
-        }).join('') : '<div style="color:#e11d48;">აიფონები ვერ მოიძებნა</div>';
-        iphonesSection.style.display = 'block';
-        setTimeout(function(){
-          iphonesSection.scrollIntoView({behavior:'smooth'});
-        }, 100);
-      });
-    }
-  });
-  </script>
-    .main-navbar {
-      width: 100%;
+    .iphones-section, .accessories-section, .laptops-section, .tvs-section, .samsung-section, .about-section, .contact-section {
+      display: none;
+      max-width: 900px;
+      margin: 60px auto 30px auto;
+      padding: 32px 26px 26px 26px;
       background: #181e2a;
-      box-shadow: 0 2px 8px #0001;
-      margin-bottom: 10px;
-      z-index: 100;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px #0002;
+    }
+    .iphones-section h2, .accessories-section h2, .laptops-section h2, .tvs-section h2, .samsung-section h2, .about-section h2, .contact-section h2 {
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .toolbar {
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr 0.9fr 0.8fr;
+      gap: 10px;
+    }
+    .control {
+      background: var(--card);
+      border: 1px solid #232836;
+      border-radius: 14px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .control input, .control select {
+      width: 100%;
+      background: transparent;
+      border: none;
+      outline: none;
+      color: var(--text);
+      font-size: 14px;
+    }
+    .control label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .filters {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .panel {
+      background: var(--card);
+      border: 1px solid #232836;
+      border-radius: 16px;
+      padding: 12px;
+    }
+    .panel h3 {
+      margin: 0 0 8px 0;
+      font-size: 14px;
+      color: #cbd5e1;
+    }
+    .brands {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: 1px solid #232836;
+      background: #121622;
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .chip input {
+      accent-color: #22d3ee;
+    }
+    .range {
+      display: flex;
+      gap: 8px;
+    }
+    .range input {
+      width: 100%;
+      background: #0e121a;
+      border: 1px solid #232836;
+      border-radius: 10px;
+      padding: 8px;
+      color: var(--text);
+    }
+    .grid {
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+    .card {
       position: relative;
+      background: linear-gradient(180deg, #121622, #0f131b);
+      border: 1px solid #232836;
+      border-radius: 18px;
+      overflow: hidden;
     }
-    .main-navbar ul {
+    .thumb {
+      height: 180px;
+      background: #0b0f16;
+      display: grid;
+      place-items: center;
+    }
+    .thumb img {
+      max-width: 80%;
+      max-height: 160px;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.5));
+    }
+    .pad {
+      padding: 12px;
+    }
+    .title {
+      font-size: 14px;
+      line-height: 1.3;
+      margin: 0 0 6px;
+    }
+    .meta {
       display: flex;
-      gap: 24px;
-      list-style: none;
-      margin: 0 auto;
-      padding: 0 24px;
-      max-width: 1200px;
-      height: 48px;
-      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
     }
-    .main-navbar li {
-      display: flex;
-      align-items: center;
-    }
-    .main-navbar a {
-      color: #e6ebf4;
-      text-decoration: none;
-      font-size: 16px;
-      padding: 8px 16px;
+    .badge {
+      font-size: 11px;
+      color: #cbd5e1;
+      background: #0b1220;
+      border: 1px dashed #22324a;
       border-radius: 8px;
-      transition: background 0.18s, color 0.18s;
-      font-weight: 500;
+      padding: 4px 8px;
     }
-    .main-navbar a.active, .main-navbar a:hover {
-      background: #5eead4;
-      color: #181e2a;
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-top: 8px;
     }
-  .hot-slider{position:fixed; left:12px; bottom:12px; width:200px; border:1px solid #232836;
-    border-radius:16px; overflow:hidden; background:#0f131b; box-shadow:0 10px 30px rgba(0,0,0,.45); z-index:2000}
-  .hot-head{display:flex; align-items:center; justify-content:space-between; padding:8px 10px;
-    font-size:12px; color:#cbd5e1; background:linear-gradient(180deg,#121826,#0e1420)}
-  .hot-track{display:flex; transition:transform .5s ease}
-  .hot-slide{position:relative; width:280px; height:150px; flex-shrink:0; background:#0b0f16}
-  .hot-slide img{width:100%; height:100%; object-fit:contain; display:block; filter:contrast(1.05) saturate(1.05)}
-  .hot-label{position:absolute; left:10px; bottom:10px; font-size:13px; font-weight:800; color:#e6ebf4;
-    background:rgba(0,0,0,.5); padding:4px 8px; border-radius:10px; border:1px solid #22324a}
-  .hot-controls{position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; pointer-events:none}
-  .hot-btn{pointer-events:auto; border:none; width:28px; height:28px; border-radius:999px; cursor:pointer;
-    background:#0f141f; color:#cbd5e1; border:1px solid #2a3345; display:grid; place-items:center; opacity:.9}
-  .hot-btn:hover{opacity:1}
-  .hot-prev{margin-left:6px} .hot-next{margin-right:6px}
-  .hot-dotbar{display:flex; gap:6px; justify-content:center; padding:6px 10px; background:#0e1420; border-top:1px solid #232836}
-  .hot-dot{width:8px; height:8px; border-radius:999px; background:#263044}
-  .hot-dot.active{background:#5eead4}
-  /* პატარა ეკრანებზე ავტომატურად დაიმალოს თუ ჩამოეფარება რამეს */
-  @media (max-width:480px){ .hot-slider{width:220px} .hot-slide{width:220px; height:140px} }
-</style>
-<!-- 🔥 პოპულარული მოდელების სლაიდერი — ქვედა მარცხენა კუთხე -->
-<style>
-  .hot-slider{position:fixed; left:12px; bottom:12px; width:280px; border:1px solid #e6ff01;
-    border-radius:16px; overflow:hidden; background:#0f131b; box-shadow:0 10px 30px rgba(0,0,0,.45); z-index:2000}
-  .hot-head{display:flex; align-items:center; justify-content:space-between; padding:8px 10px;
-    font-size:12px; color:#cbd5e1; background:linear-gradient(180deg,#121826,#0e1420)}
-  .hot-track{display:flex; transition:transform .5s ease}
-  .hot-slide{position:relative; width: 280px;px; height:150px; flex-shrink:0; background:#0b0f16}
-  .hot-slide img{width:100%; height:100%; object-fit:contain; display:block; filter:contrast(1.05) saturate(1.05)}
-  .hot-label{position:absolute; left:10px; bottom:10px; font-size:13px; font-weight:800; color:#e6ebf4;
-    background:rgba(0,0,0,.5); padding:4px 8px; border-radius:10px; border:1px solid #22324a}
-  .hot-controls{position:absolute; inset:0; display:flex; align-items:center; justify-content:space-between; pointer-events:none}
-  .hot-btn{pointer-events:auto; border:none; width:28px; height:28px; border-radius:999px; cursor:pointer;
-    background:#0f141f; color:#cbd5e1; border:1px solid #2a3345; display:grid; place-items:center; opacity:.9}
-  .hot-btn:hover{opacity:1}
-  .hot-prev{margin-left:6px} .hot-next{margin-right:6px}
-  .hot-dotbar{display:flex; gap:6px; justify-content:center; padding:6px 10px; background:#0e1420; border-top:1px solid #232836}
-  .hot-dot{width:8px; height:8px; border-radius:999px; background:#263044}
-  .hot-dot.active{background:#5eead4}
-  /* პატარა ეკრანებზე ავტომატურად დაიმალოს თუ ჩამოეფარება რამეს */
-  @media (max-width:480px){ .hot-slider{width:200px} .hot-slide{width:220px; height:140px} }
-</style>
-
-
-<div class="hot-slider" id="hotSlider">
-  <div class="hot-head">
-    <span>🔥 პოპულარული მოდელები</span>
-    <button id="hotClose" title="დახურვა" style="background:#0f141f;color:#cbd5e1;border:1px solid #2a3345;border-radius:8px;padding:2px 6px;cursor:pointer;">X</button>
-  </div>
-
-  <div class="hot-viewport" style="position:relative">
-    <div class="hot-track" id="hotTrack">
-      <!-- თითო სლაიდი -->
-      <div class="hot-slide">
-        <img src="https://theapplewiki.com/images/applewiki/thumb/0/06/IPhone_16_Pro_Max.png/800px-IPhone_16_Pro_Max.png" alt="iPhone 16 pro">
-        <div class="hot-label">iPhone 16 pro max · 256GB</div>
-      </div>
-      <div class="hot-slide">
-        <img src="https://pngimg.com/d/iphone16_PNG37.png" alt="iphone 16">
-        <div class="hot-label">iphone 16·128GB</div>
-        
-      </div>
-      <div class="hot-slide">
-        <img src="https://miamicenters.com/wp-content/uploads/2025/04/screennN-3-768x768.png" alt="SAMSUNG A06 4/128">
-        <div class="hot-label">SAMSUNG A06 4/128</div>
-         </div>
-      <div class="hot-slide">
-        <img src="https://images.vodafone.co.uk/tizrehont83j/PWwW9oogiC8myWQIvkHJe/ea6bf0eddacd5c1d8aa31fa6ead4580d/galaxy-a17-5g-gallery.png" alt="SAMSUNG A17 5G ">
-        <div class="hot-label">SAMSUNG A17 5G</div>
-      </div>
-      <div class="hot-slide">
-        <img src="https://pngimg.com/d/iphone_13_PNG22.png">
-        <div class="hot-label">IPHONE 13pro 128GB</div>
-      </div>
-      <div class="hot-slide">
-        <img src="https://ng.xpark.com/media/catalog/product/cache/7c9924b6276ad76a951c1e786fcf2062/2/0/20250218-114932.png" alt="infinix">
-        <div class="hot-label">infinix ZERO FLIP 12/512GB</div>
-      </div>
-    </div>
-
-    <!-- ხელით გადართვის ღილაკები -->
-    <div class="hot-controls">
-      <button class="hot-btn hot-prev" id="hotPrev" aria-label="Previous">‹</button>
-      <button class="hot-btn hot-next" id="hotNext" aria-label="Next">›</button>
-    </div>
-  </div>
-
-  <!-- წერტილები -->
-  <div class="hot-dotbar" id="hotDots"></div>
-</div>
-
-<script>
-  // === სლაიდერი: ქვედა-მარცხენა ===
-  (function(){
-    const track = document.getElementById('hotTrack');
-    const slides = Array.from(track.children);
-    const prev = document.getElementById('hotPrev');
-    const next = document.getElementById('hotNext');
-    const dotsWrap = document.getElementById('hotDots');
-    const closeBtn = document.getElementById('hotClose');
-    const slider = document.getElementById('hotSlider');
-
-    // დინამიური წერტილები
-    slides.forEach((_,i)=>{
-      const d=document.createElement('span');
-      d.className='hot-dot'+(i===0?' active':'');
-      d.dataset.index=i;
-      d.style.cursor='pointer';
-      dotsWrap.appendChild(d);
-    });
-    const dots = Array.from(dotsWrap.children);
-
-    // ზომა (match CSS width)
-    function slideWidth(){ return slides[0].getBoundingClientRect().width; }
-
-    let i = 0, timer = null;
-    function go(idx){
-      i = (idx+slides.length)%slides.length;
-      track.style.transform = `translateX(-${slideWidth()*i}px)`;
-      dots.forEach((d,k)=>d.classList.toggle('active', k===i));
+    .price .now {
+      font-weight: 800;
+      font-size: 18px;
+      color: var(--accent);
     }
-
-    function play(){
-      stop(); timer = setInterval(()=>go(i+1), 3500);
+    .price .old {
+      font-size: 12px;
+      color: #94a3b8;
+      text-decoration: line-through;
     }
-    function stop(){
-      if(timer){ clearInterval(timer); timer=null; }
+    .cta {
+      margin-top: 10px;
+      display: flex;
+      gap: 8px;
     }
-
-    next.onclick = ()=>{ go(i+1); play(); };
-    prev.onclick = ()=>{ go(i-1); play(); };
-    dots.forEach(d=>d.onclick=()=>{ go(+d.dataset.index); play(); });
-
-    // hover-ზე პაუზა
-    slider.addEventListener('mouseenter', stop);
-    slider.addEventListener('mouseleave', play);
-
-    // დახურვა
-    closeBtn.onclick = ()=> slider.style.display='none';
-
-    // რეზიდენტული resize
-    window.addEventListener('resize', ()=> go(i));
-
-    // სტარტი
-    go(0); play();
-  })();
-</script>
-<!-- 🔥/სლაიდერი დასრულდა -->
-
-
-
- 
-</html>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ტექნო სითი 2022</title>
-  <style>
-    
- 
-    :root{
-      --bg:#0f1115; --card:#151822; --muted:#a7b0c0; --text:#e6ebf4; --accent:#5eead4; --accent2:#60a5fa; --danger:#f87171; --ok:#34d399;
+    button.btn {
+      flex: 1;
+      background: linear-gradient(135deg, var(--accent2), var(--accent));
+      border: none;
+      color: #0b1020;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-radius: 12px;
+      cursor: pointer;
     }
-    *{box-sizing:border-box}
-    body{margin:0;background:linear-gradient(180deg,#0c0f14,#11151d);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif}
-    .container{max-width:1200px;margin:0 auto;padding:20px}
-    header{display:flex;gap:16px;align-items:center;justify-content:space-between;padding:12px 0}
-    .brand{display:flex;align-items:center;gap:12px}
-    .brand .logo{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,var(--accent2),var(--accent));display:grid;place-items:center;font-weight:800;color:#0b1020}
-    .brand h1{font-size:20px;margin:0}
-    .toolbar{display:grid;grid-template-columns:1.2fr .9fr .9fr .8fr;gap:10px}
-    .control{background:var(--card);border:1px solid #232836;border-radius:14px;padding:10px 12px;display:flex;align-items:center;gap:8px}
-    .control input,.control select{width:100%;background:transparent;border:none;outline:none;color:var(--text);font-size:14px}
-    .control label{font-size:12px;color:var(--muted)}
-    .filters{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-    .panel{background:var(--card);border:1px solid #232836;border-radius:16px;padding:12px}
-    .panel h3{margin:0 0 8px 0;font-size:14px;color:#cbd5e1}
-    .brands{display:flex;flex-wrap:wrap;gap:8px}
-    .chip{display:inline-flex;align-items:center;gap:6px;border:1px solid #232836;background:#121622;padding:6px 10px;border-radius:999px;font-size:12px;cursor:pointer;user-select:none}
-    .chip input{accent-color:#22d3ee}
-    .range{display:flex;gap:8px}
-    .range input{width:100%;background:#0e121a;border:1px solid #232836;border-radius:10px;padding:8px;color:var(--text)}
-    .grid{margin-top:14px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-    @media (max-width:1000px){.grid{grid-template-columns:repeat(3,1fr)} .toolbar{grid-template-columns:1fr 1fr}}
-    @media (max-width:720px){.grid{grid-template-columns:repeat(2,1fr)} .filters{grid-template-columns:1fr} .toolbar{grid-template-columns:1fr}}
-    @media (max-width:460px){.grid{grid-template-columns:1fr}}
-    .card{position:relative;background:linear-gradient(180deg,#121622,#0f131b);border:1px solid #232836;border-radius:18px;overflow:hidden}
-    .thumb{height:180px;background:#0b0f16;display:grid;place-items:center}
-    .thumb img{max-width:80%;max-height:160px;object-fit:contain;filter:drop-shadow(0 8px 18px rgba(0,0,0,.5))}
-    .pad{padding:12px}
-    .title{font-size:14px;line-height:1.3;margin:0 0 6px}
-    .meta{display:flex;gap:8px;flex-wrap:wrap}
-    .badge{font-size:11px;color:#cbd5e1;background:#0b1220;border:1px dashed #22324a;border-radius:8px;padding:4px 8px}
-    .price{display:flex;align-items:baseline;gap:8px;margin-top:8px}
-    .price .now{font-weight:800;font-size:18px;color:var(--accent)}
-    .price .old{font-size:12px;color:#94a3b8;text-decoration:line-through}
-    .cta{margin-top:10px;display:flex;gap:8px}
-    button.btn{flex:1;background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;color:#0b1020;font-weight:700;padding:10px 12px;border-radius:12px;cursor:pointer}
-    .ghost{background:transparent;border:1px solid #2a3345;color:#cbd5e1}
-    .ribbon{position:absolute;inset:auto 0 0 auto;background:linear-gradient(135deg,#22d3ee,#34d399);color:#07131a;font-size:11px;font-weight:800;padding:6px 10px;border-top-left-radius:12px}
-    .stock{position:absolute;left:8px;top:8px;font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid #2a3345;background:#0d1421}
-    .stock.ok{color:var(--ok)}
-    .stock.no{color:var(--danger)}
-      .sale-badge {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-        background: #e11d48;
-        color: #fff;
-        padding: 5px 14px;
-        border-radius: 8px;
-        font-size: 13px;
-        font-weight: bold;
-        z-index: 10;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        letter-spacing: 1px;
+    .ghost {
+      background: transparent;
+      border: 1px solid #2a3345;
+      color: #cbd5e1;
+    }
+    .hot-slider {
+      position: fixed;
+      left: 12px;
+      bottom: 12px;
+      width: 280px;
+      border: 1px solid #e6ff01;
+      border-radius: 16px;
+      overflow: hidden;
+      background: #0f131b;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      z-index: 2000;
+    }
+    .hot-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 10px;
+      font-size: 12px;
+      color: #cbd5e1;
+      background: linear-gradient(180deg, #121826, #0e1420);
+    }
+    .hot-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    .hot-slide {
+      position: relative;
+      width: 280px;
+      height: 150px;
+      flex-shrink: 0;
+      background: #0b0f16;
+    }
+    .hot-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      filter: contrast(1.05) saturate(1.05);
+    }
+    .hot-label {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      font-size: 13px;
+      font-weight: 800;
+      color: #e6ebf4;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 4px 8px;
+      border-radius: 10px;
+      border: 1px solid #22324a;
+    }
+    .hot-controls {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+    .hot-btn {
+      pointer-events: auto;
+      border: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      cursor: pointer;
+      background: #0f141f;
+      color: #cbd5e1;
+      border: 1px solid #2a3345;
+      display: grid;
+      place-items: center;
+      opacity: 0.9;
+    }
+    .hot-btn:hover {
+      opacity: 1;
+    }
+    .hot-prev {
+      margin-left: 6px;
+    }
+    .hot-next {
+      margin-right: 6px;
+    }
+    .hot-dotbar {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+      padding: 6px 10px;
+      background: #0e1420;
+      border-top: 1px solid #232836;
+    }
+    .hot-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #263044;
+    }
+    .hot-dot.active {
+      background: var(--accent);
+    }
+    .sale-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #e11d48;
+      color: #fff;
+      padding: 5px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: bold;
+      z-index: 10;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      letter-spacing: 1px;
+    }
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 6px;
+    }
+    .count {
+      font-size: 13px;
+      color: #cbd5e1;
+    }
+    .pagination {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .pagination button {
+      background: #0f141f;
+      border: 1px solid #2a3345;
+      color: #cbd5e1;
+      padding: 8px 10px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .pagination .active {
+      background: linear-gradient(135deg, #1f2937, #0f141f);
+      border-color: #3b4254;
+    }
+    footer {
+      margin: 30px 0 10px;
+      color: #94a3b8;
+      font-size: 12px;
+      text-align: center;
+    }
+    @media (max-width: 1000px) {
+      .grid {
+        grid-template-columns: repeat(3, 1fr);
       }
-    .topbar{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
-    .count{font-size:13px;color:#cbd5e1}
-    .pagination{display:flex;gap:6px;align-items:center}
-    .pagination button{background:#0f141f;border:1px solid #2a3345;color:#cbd5e1;padding:8px 10px;border-radius:10px;cursor:pointer}
-    .pagination .active{background:linear-gradient(135deg,#1f2937,#0f141f);border-color:#3b4254}
-    footer{margin:30px 0 10px;color:#94a3b8;font-size:12px;text-align:center}
-    .muted{color:#94a3b8}
-    .small{font-size:12px}
-    /* მოკლე ინსტრუქცია ბლოკში (ჩანს ზედა ნაწილში) */
-    .help{margin:10px 0;padding:10px 12px;border:1px dashed #2a3345;border-radius:14px;background:#0e1420;color:#cbd5e1;font-size:13px}
-    .help code{background:#0b0f16;border:1px solid #232836;padding:2px 6px;border-radius:8px;color:#e2e8f0}
+      .toolbar {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+    @media (max-width: 720px) {
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .filters {
+        grid-template-columns: 1fr;
+      }
+      .toolbar {
+        grid-template-columns: 1fr;
+      }
+    }
+    @media (max-width: 480px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+      .hot-slider {
+        width: 200px;
+      }
+      .hot-slide {
+        width: 220px;
+        height: 140px;
+      }
+      .mySlides {
+        height: 300px;
+      }
+      .text-overlay {
+        font-size: 1rem;
+        padding: 8px 12px;
+      }
+    }
+    @media (max-width: 700px) {
+      .fb-bottom-map, .map {
+        flex: 1 1 100vw;
+        min-width: 0;
+        max-width: 100vw;
+      }
+      .fb-bottom-map {
+        margin: 12px auto 0 auto;
+      }
+      .map {
+        margin: 12px auto 0 auto;
+      }
+      div[style*='display: flex'] {
+        flex-direction: column;
+        gap: 0 !important;
+      }
+      .fb-bottom-map .fb-page {
+        width: 100% !important;
+      }
+    }
   </style>
 </head>
-  </div>
-</div>
 <body>
-  </style>
-</head>
-<body>
-  
   <div class="container">
     <header>
-      <div class="brand" style="display: flex; align-items: center;">
+      <div class="brand">
         <div class="logo">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6fR7Fdji6OaqAzDjxtPe6hJlozk5KqHAXGg&s"
-            alt="Techno-ს ლოგო"
-            style="height:60px; width:auto; margin-right:15px;"
-          >
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6fR7Fdji6OaqAzDjxtPe6hJlozk5KqHAXGg&s" alt="Techno-ს ლოგო">
         </div>
         <div>
-             <h1 style="margin-left:20px;">ტექნო სითი 2022 </h1>
-<div class="small muted" style="margin-left:20px;">
-  რუსთაველის 106 · ქობულეთი · ☎ 558 14 14 91
-</div>
+          <h1>ტექნო სითი 2022</h1>
+          <div class="small muted">რუსთაველის 106 · ქობულეთი · ☎ 558 14 14 91</div>
+        </div>
+      </div>
     </header>
 
+    <nav class="main-navbar">
+      <ul>
+        <li><a href="#" class="active">მთავარი</a></li>
+        <li class="dropdown">
+          <a href="#products">პროდუქტები</a>
+          <ul class="dropdown-menu">
+            <li><a href="#iphones" id="iphonesMenuBtn">აიფონები</a></li>
+            <li><a href="#samsung" id="samsungMenuBtn">SAMSUNG</a></li>
+            <li><a href="#tvs" id="tvsMenuBtn">ტელევიზორები</a></li>
+            <li><a href="#laptops" id="laptopsMenuBtn">ნოუთბუქები</a></li>
+            <li><a href="#accessories" id="accessoriesMenuBtn">აქსესუარები</a></li>
+          </ul>
+        </li>
+        <li><a href="#about" id="aboutBtn">ჩვენ შესახებ</a></li>
+        <li><a href="#contact" id="contactBtn">კონტაქტი</a></li>
+      </ul>
+    </nav>
 
+    <div class="slideshow-container">
+      <div class="mySlides fade">
+        <img src="https://bankofgeorgia.ge/images/fc7f65ee-9605-4cc1-9b89-55989ff37aa4.jpg" alt="Slide 1">
+        <div class="text-overlay"></div>
+      </div>
+      <div class="mySlides fade">
+        <img src="https://i.ytimg.com/vi/LNpoRSuPwfM/maxresdefault.jpg" alt="Slide 2">
+        <div class="text-overlay"></div>
+      </div>
+      <div class="mySlides fade">
+        <img src="https://imagedelivery.net/d_EE26O5eWcJDRYn-qMBOg/7a0843e9-37f6-4b0a-52e8-05d233d3f600/public" alt="Slide 3">
+        <div class="text-overlay">8 თვემდე უპროცენტო 0%</div>
+      </div>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+    <div class="dots-container">
+      <span class="dot" onclick="currentSlide(1)"></span>
+      <span class="dot" onclick="currentSlide(2)"></span>
+      <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
 
+    <div id="about" class="about-section">
+      <h2>ჩვენ შესახებ</h2>
+      <div style="font-size:17px;color:#e6ebf4;line-height:1.7;">
+        <b>ტექნო სითი 2022</b> — თანამედროვე ტექნიკის მაღაზია ქობულეთში. გთავაზობთ მობილურებს, ლეპტოპებს, აქსესუარებსა და სხვა ტექნიკას საუკეთესო ფასად.<br><br>
+        ჩვენი გუნდი გეხმარებათ სწორ არჩევანში და უზრუნველყოფს ხარისხიან მომსახურებას.<br>
+        ჩვენთვის მნიშვნელოვანია მომხმარებლის კმაყოფილება, სანდოობა და სწრაფი სერვისი.
+      </div>
+    </div>
 
+    <div id="contact" class="contact-section">
+      <h2>კონტაქტი</h2>
+      <div style="margin-bottom:10px;font-size:16px;color:#e6ebf4;"><b>მისამართი:</b> ქობულეთი, რუსთაველის 106</div>
+      <div style="margin-bottom:10px;font-size:16px;color:#e6ebf4;"><b>ტელეფონი:</b> <a href="tel:+995558141491" style="color:#5eead4;text-decoration:none;">+995 558 14 14 91</a></div>
+      <div style="margin-bottom:10px;font-size:16px;color:#e6ebf4;"><b>Facebook:</b> <a href="https://www.facebook.com/TechnocityKobuleti/" target="_blank" style="color:#5eead4;word-break:break-all;">facebook.com/TechnocityKobuleti</a></div>
+    </div>
 
+    <div id="iphones" class="iphones-section">
+      <h2>აიფონები</h2>
+      <div id="iphones-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;"></div>
+    </div>
 
-   
+    <div id="samsung" class="samsung-section">
+      <h2>SAMSUNG</h2>
+      <div id="samsung-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;"></div>
+    </div>
 
-    <!-- ძიება / ფილტრები / სორტი -->
+    <div id="tvs" class="tvs-section">
+      <h2>ტელევიზორები</h2>
+      <div id="tvs-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;"></div>
+    </div>
+
+    <div id="laptops" class="laptops-section">
+      <h2>ნოუთბუქები</h2>
+      <div id="laptops-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;"></div>
+    </div>
+
+    <div id="accessories" class="accessories-section">
+      <h2>აქსესუარები</h2>
+      <div id="accessories-list" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;"></div>
+    </div>
+
     <div class="toolbar">
       <div class="control"><label>ძიება</label><input id="q" type="search" placeholder="მაგ: iPhone 13, 128GB, შავი"></div>
       <div class="control"><label>სორტირება</label>
@@ -793,26 +714,20 @@ function closeMenu() {
       <div class="control"><label>მაქს. ფასი ₾</label><input id="maxPrice" type="number" placeholder="5000"></div>
     </div>
 
-     <div class="filters">
+    <div class="filters">
       <div class="panel">
         <h3>ბრენდები</h3>
-        <div id="brandList" class="brands"></div>
         <div id="brandList" class="brands">
-  <span class="chip"><input type="checkbox" id="apple"
-  <span class="chip"><input type="checkbox" id="samsung"> <label for="samsung">Samsung</label></span>
-  <span class="chip"><input type="checkbox" id="ნოუთბუქი"> <label for="ნოუთბუქი">ნოუთბუქი</label></span>
-  <span class="chip"><input type="checkbox" id="huawei"> <label for="infinix">infinix</label></span>
-</div>
-<div class="panel">
-      <span class="chip"><input type="checkbox" id="accessories"> <label for="accessories">აქსესუარები</label></span>
-      <span class="chip"><input type="checkbox" id="tablets"> <label for="tablets">ტაბლეტები</label></span>
-  <span class="chip"><input type="checkbox" id="inStockOnly"> <label for="inStockOnly">მხოლოდ მარაგში</label></span>
-    </div>
+          <span class="chip"><input type="checkbox" id="apple"><label for="apple">Apple</label></span>
+          <span class="chip"><input type="checkbox" id="samsung"><label for="samsung">Samsung</label></span>
+          <span class="chip"><input type="checkbox" id="infinix"><label for="infinix">Infinix</label></span>
+          <span class="chip"><input type="checkbox" id="accessories"><label for="accessories">აქსესუარები</label></span>
+        </div>
       </div>
       <div class="panel">
         <h3>საჩვენებელი რაოდენობა</h3>
         <div class="range">
-          <input id="perPage" type="number" min="4" max="40" step="4" value="12" />
+          <input id="perPage" type="number" min="4" max="40" step="4" value="12">
           <button class="btn ghost" id="resetBtn">გასუფთავება</button>
         </div>
       </div>
@@ -825,49 +740,368 @@ function closeMenu() {
 
     <div id="grid" class="grid"></div>
 
+    <div style="position:fixed; bottom:20px; right:20px; z-index:999; display:flex; gap:20px;">
+      <a href="https://www.tbcbank.ge" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/e2/TBC_Bank_logo.svg/2560px-TBC_Bank_logo.svg.png" 
+             alt="TBC Bank" 
+             style="width:100px; height:auto; border-radius:30px; background:white; padding:5px; box-shadow:0 5px 60px rgba(0,0,0,0.3);">
+      </a>
+      <a href="https://bankofgeorgia.ge" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/ka/4/4c/Bank_of_Georgia_logo.png" 
+             alt="Bank of Georgia" 
+             style="width:100px; height:auto; border-radius:15px; background:white; padding:11px; box-shadow:0 20px 60px rgba(0,0,0,0.3);">
+      </a>
+      <a href="https://credobank.ge" target="_blank">
+        <img src="https://imagedelivery.net/d_EE26O5eWcJDRYn-qMBOg/5e5ff2dd-85be-49b7-da19-5572c960d300/public" 
+             alt="Credo Bank" 
+             style="width:100px; height:auto; border-radius:8px; background:white; padding:5px; box-shadow:0 4px 60px rgba(0,0,0,0.3);">
+      </a>
+    </div>
+
+    <div class="hot-slider" id="hotSlider">
+      <div class="hot-head">
+        <span>🔥 პოპულარული მოდელები</span>
+        <button id="hotClose" title="დახურვა" style="background:#0f141f;color:#cbd5e1;border:1px solid #2a3345;border-radius:8px;padding:2px 6px;cursor:pointer;">X</button>
+      </div>
+      <div class="hot-viewport" style="position:relative">
+        <div class="hot-track" id="hotTrack">
+          <div class="hot-slide">
+            <img src="https://theapplewiki.com/images/applewiki/thumb/0/06/IPhone_16_Pro_Max.png/800px-IPhone_16_Pro_Max.png" alt="iPhone 16 pro">
+            <div class="hot-label">iPhone 16 pro max · 256GB</div>
+          </div>
+          <div class="hot-slide">
+            <img src="https://pngimg.com/d/iphone16_PNG37.png" alt="iphone 16">
+            <div class="hot-label">iPhone 16 · 128GB</div>
+          </div>
+          <div class="hot-slide">
+            <img src="https://miamicenters.com/wp-content/uploads/2025/04/screennN-3-768x768.png" alt="SAMSUNG A06 4/128">
+            <div class="hot-label">SAMSUNG A06 4/128</div>
+          </div>
+          <div class="hot-slide">
+            <img src="https://images.vodafone.co.uk/tizrehont83j/PWwW9oogiC8myWQIvkHJe/ea6bf0eddacd5c1d8aa31fa6ead4580d/galaxy-a17-5g-gallery.png" alt="SAMSUNG A17 5G">
+            <div class="hot-label">SAMSUNG A17 5G</div>
+          </div>
+          <div class="hot-slide">
+            <img src="https://pngimg.com/d/iphone_13_PNG22.png" alt="IPHONE 13pro 128GB">
+            <div class="hot-label">IPHONE 13pro 128GB</div>
+          </div>
+          <div class="hot-slide">
+            <img src="https://ng.xpark.com/media/catalog/product/cache/7c9924b6276ad76a951c1e786fcf2062/2/0/20250218-114932.png" alt="infinix">
+            <div class="hot-label">Infinix ZERO FLIP 12/512GB</div>
+          </div>
+        </div>
+        <div class="hot-controls">
+          <button class="hot-btn hot-prev" id="hotPrev" aria-label="Previous">‹</button>
+          <button class="hot-btn hot-next" id="hotNext" aria-label="Next">›</button>
+        </div>
+      </div>
+      <div class="hot-dotbar" id="hotDots"></div>
+    </div>
+
+    <div style="display: flex; justify-content: center; align-items: flex-start; gap: 18px; flex-wrap: wrap; margin-bottom: 24px;">
+      <div class="map" style="margin-top:15px; text-align:center; min-width:220px;">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d808.7635413269099!2d41.77627339316694!3d41.81999460276767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x405d771b7c6b9e37%3A0x73ced40d78b6abf3!2sTechno%20City!5e0!3m2!1ska!2sge!4v1692357720000!5m2!1ska!2sge"
+          width="300"
+          height="200"
+          style="border:2px solid #4da3ff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+        <div style="margin-top:8px; font-size:14px; color:#555;">
+          📍 ქობულეთი, რუსთაველის 106
+        </div>
+      </div>
+      <div class="fb-bottom-map" style="margin-top:15px; min-width:180px; max-width:220px;">
+        <div class="fb-page"
+             data-href="https://www.facebook.com/TechnocityKobuleti/"
+             data-tabs="timeline"
+             data-width="220"
+             data-height="180"
+             data-small-header="true"
+             data-adapt-container-width="true"
+             data-hide-cover="true"
+             data-show-facepile="false">
+          <blockquote cite="https://www.facebook.com/TechnocityKobuleti/" class="fb-xfbml-parse-ignore">
+            <a href="https://www.facebook.com/TechnocityKobuleti/">Technocity Kobuleti</a>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
     <footer>
-      © <span id="year"></span> Techno City 2022 ·მარაგთან დაკავშირებით დაგვიკავშირდით მითითებულ ნომერზე პატივისცემით ტექნო სითი 2022 ადმინისტრაცია
+      © <span id="year"></span> Techno City 2022 · მარაგთან დაკავშირებით დაგვიკავშირდით მითითებულ ნომერზე პატივისცემით ტექნო სითი 2022 ადმინისტრაცია
     </footer>
   </div>
-  <div style="display: flex; justify-content: center; align-items: flex-start; gap: 18px; flex-wrap: wrap; margin-bottom: 24px;">
-  <div class="map" style="margin-top:15px; text-align:center; min-width:220px;">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d808.7635413269099!2d41.77627339316694!3d41.81999460276767!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x405d771b7c6b9e37%3A0x73ced40d78b6abf3!2sTechno%20City!5e0!3m2!1ska!2sge!4v1692357720000!5m2!1ska!2sge"
-      width="300"
-      height="200"
-      style="border:2px solid #4da3ff; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);"
-      allowfullscreen=""
-      loading="lazy"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-    <div style="margin-top:8px; font-size:14px; color:#555;">
-      📍 ქობულეთი, რუსთაველის 106
-    </div>
-  </div>
-  <div class="fb-bottom-map" style="margin-top:15px; min-width:180px; max-width:220px;">
-    <div class="fb-page"
-         data-href="https://www.facebook.com/TechnocityKobuleti/"
-         data-tabs="timeline"
-         data-width="220"
-         data-height="180"
-         data-small-header="true"
-         data-adapt-container-width="true"
-         data-hide-cover="true"
-         data-show-facepile="false">
-      <blockquote cite="https://www.facebook.com/TechnocityKobuleti/" class="fb-xfbml-parse-ignore">
-        <a href="https://www.facebook.com/TechnocityKobuleti/">Technocity Kobuleti</a>
-      </blockquote>
-    </div>
-  </div>
-</div>
-<div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ka_GE/sdk.js#xfbml=1&version=v19.0"></script>
-<style>
-  @media (max-width: 700px) {
-    .fb-bottom-map, .map { flex: 1 1 100vw; min-width: 0; max-width: 100vw; }
-    .fb-bottom-map { margin: 12px auto 0 auto; }
-    .map { margin: 12px auto 0 auto; }
-    div[style*='display: flex'] { flex-direction: column; gap: 0 !important; }
-    .fb-bottom-map .fb-page { width: 100% !important; }
-  }
-</style>
+
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ka_GE/sdk.js#xfbml=1&version=v19.0"></script>
+
+  <script>
+    // Define PRODUCTS array
+    const PRODUCTS = [
+      {
+        brand: "Apple",
+        title: "iPhone 16 Pro Max",
+        price: 4500,
+        image: "https://theapplewiki.com/images/applewiki/thumb/0/06/IPhone_16_Pro_Max.png/800px-IPhone_16_Pro_Max.png",
+        color: "Black Titanium"
+      },
+      {
+        brand: "Apple",
+        title: "iPhone 16",
+        price: 3200,
+        image: "https://pngimg.com/d/iphone16_PNG37.png",
+        color: "Midnight"
+      },
+      {
+        brand: "Samsung",
+        title: "Samsung A06",
+        price: 600,
+        image: "https://miamicenters.com/wp-content/uploads/2025/04/screennN-3-768x768.png",
+        color: "Blue"
+      },
+      {
+        brand: "Accessories",
+        title: "AirPods Pro",
+        price: 800,
+        image: "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MTJV3?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1694014878236",
+        color: "White"
+      }
+    ];
+
+    // Slideshow logic
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+
+      if (n > slides.length) { slideIndex = 1; }
+      if (n < 1) { slideIndex = slides.length; }
+
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        slides[i].classList.remove("active");
+      }
+
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+
+      slides[slideIndex - 1].style.display = "block";
+      slides[slideIndex - 1].classList.add("active");
+      dots[slideIndex - 1].className += " active";
+    }
+
+    setInterval(() => {
+      plusSlides(1);
+    }, 5000);
+
+    // iPhones section logic
+    document.addEventListener('DOMContentLoaded', function() {
+      var iphonesBtn = document.getElementById('iphonesMenuBtn');
+      var iphonesSection = document.getElementById('iphones');
+      var iphonesList = document.getElementById('iphones-list');
+      if (iphonesBtn && iphonesSection && iphonesList) {
+        iphonesBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelectorAll('.iphones-section, .accessories-section, .laptops-section, .tvs-section, .samsung-section, .about-section, .contact-section').forEach(function(sec) {
+            sec.style.display = 'none';
+          });
+          var iphones = PRODUCTS.filter(function(p) {
+            return (p.brand || '').toLowerCase().includes('apple') || (p.title || '').toLowerCase().includes('iphone');
+          });
+          iphonesList.innerHTML = iphones.length ? iphones.map(function(p) {
+            return `<div style='background:#232836;border-radius:12px;padding:16px;text-align:center;'>
+              <img src="${p.image}" alt="${p.title}" style="max-width:100px;max-height:100px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
+              <div style='font-weight:700;color:#e6ebf4;margin-bottom:6px;'>${p.title}</div>
+              <div style='color:#5eead4;font-size:15px;margin-bottom:4px;'>₾${p.price}</div>
+              <div style='color:#a7b0c0;font-size:13px;'>${p.color || ''}</div>
+            </div>`;
+          }).join('') : '<div style="color:#e11d48;">აიფონები ვერ მოიძებნა</div>';
+          iphonesSection.style.display = 'block';
+          setTimeout(function() {
+            iphonesSection.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        });
+      }
+    });
+
+    // Accessories section logic
+    document.addEventListener('DOMContentLoaded', function() {
+      var accessoriesBtn = document.getElementById('accessoriesMenuBtn');
+      var accessoriesSection = document.getElementById('accessories');
+      var accessoriesList = document.getElementById('accessories-list');
+      if (accessoriesBtn && accessoriesSection && accessoriesList) {
+        accessoriesBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelectorAll('.iphones-section, .accessories-section, .laptops-section, .tvs-section, .samsung-section, .about-section, .contact-section').forEach(function(sec) {
+            sec.style.display = 'none';
+          });
+          var accs = PRODUCTS.filter(function(p) {
+            return (p.brand || '').toLowerCase().includes('accessories') || (p.category || '').toLowerCase().includes('accessories');
+          });
+          accessoriesList.innerHTML = accs.length ? accs.map(function(p) {
+            return `<div style='background:#232836;border-radius:12px;padding:16px;text-align:center;'>
+              <img src="${p.image}" alt="${p.title}" style="max-width:100px;max-height:100px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
+              <div style='font-weight:700;color:#e6ebf4;margin-bottom:6px;'>${p.title}</div>
+              <div style='color:#5eead4;font-size:15px;margin-bottom:4px;'>₾${p.price}</div>
+              <div style='color:#a7b0c0;font-size:13px;'>${p.color || ''}</div>
+            </div>`;
+          }).join('') : '<div style="color:#e11d48;">აქსესუარები ვერ მოიძებნა</div>';
+          accessoriesSection.style.display = 'block';
+          setTimeout(function() {
+            accessoriesSection.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        });
+      }
+    });
+
+    // Samsung section logic
+    document.addEventListener('DOMContentLoaded', function() {
+      var samsungBtn = document.getElementById('samsungMenuBtn');
+      var samsungSection = document.getElementById('samsung');
+      var samsungList = document.getElementById('samsung-list');
+      if (samsungBtn && samsungSection && samsungList) {
+        samsungBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelectorAll('.iphones-section, .accessories-section, .laptops-section, .tvs-section, .samsung-section, .about-section, .contact-section').forEach(function(sec) {
+            sec.style.display = 'none';
+          });
+          var samsungs = PRODUCTS.filter(function(p) {
+            return (p.brand || '').toLowerCase().includes('samsung') || (p.title || '').toLowerCase().includes('samsung');
+          });
+          samsungList.innerHTML = samsungs.length ? samsungs.map(function(p) {
+            return `<div style='background:#232836;border-radius:12px;padding:16px;text-align:center;'>
+              <img src="${p.image}" alt="${p.title}" style="max-width:100px;max-height:100px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
+              <div style='font-weight:700;color:#e6ebf4;margin-bottom:6px;'>${p.title}</div>
+              <div style='color:#5eead4;font-size:15px;margin-bottom:4px;'>₾${p.price}</div>
+              <div style='color:#a7b0c0;font-size:13px;'>${p.color || ''}</div>
+            </div>`;
+          }).join('') : '<div style="color:#e11d48;">Samsung პროდუქტები ვერ მოიძებნა</div>';
+          samsungSection.style.display = 'block';
+          setTimeout(function() {
+            samsungSection.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        });
+      }
+    });
+
+    // About section logic
+    document.addEventListener('DOMContentLoaded', function() {
+      var aboutBtn = document.getElementById('aboutBtn');
+      var aboutSection = document.getElementById('about');
+      if (aboutBtn && aboutSection) {
+        aboutBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelectorAll('.iphones-section, .accessories-section, .laptops-section, .tvs-section, .samsung-section, .about-section, .contact-section').forEach(function(sec) {
+            sec.style.display = 'none';
+          });
+          aboutSection.style.display = 'block';
+          setTimeout(function() {
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        });
+      }
+    });
+
+    // Contact section logic
+    document.addEventListener('DOMContentLoaded', function() {
+      var contactBtn = document.getElementById('contactBtn');
+      var contactSection = document.getElementById('contact');
+      if (contactBtn && contactSection) {
+        contactBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelectorAll('.iphones-section, .accessories-section, .laptops-section, .tvs-section, .samsung-section, .about-section, .contact-section').forEach(function(sec) {
+            sec.style.display = 'none';
+          });
+          contactSection.style.display = 'block';
+          setTimeout(function() {
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+          }, 100);
+        });
+      }
+    });
+
+    // Hot slider logic
+    (function() {
+      const track = document.getElementById('hotTrack');
+      const slides = Array.from(track.children);
+      const prev = document.getElementById('hotPrev');
+      const next = document.getElementById('hotNext');
+      const dotsWrap = document.getElementById('hotDots');
+      const closeBtn = document.getElementById('hotClose');
+      const slider = document.getElementById('hotSlider');
+
+      slides.forEach((_, i) => {
+        const d = document.createElement('span');
+        d.className = 'hot-dot' + (i === 0 ? ' active' : '');
+        d.dataset.index = i;
+        d.style.cursor = 'pointer';
+        dotsWrap.appendChild(d);
+      });
+      const dots = Array.from(dotsWrap.children);
+
+      function slideWidth() {
+        return slides[0].getBoundingClientRect().width;
+      }
+
+      let i = 0, timer = null;
+      function go(idx) {
+        i = (idx + slides.length) % slides.length;
+        track.style.transform = `translateX(-${slideWidth() * i}px)`;
+        dots.forEach((d, k) => d.classList.toggle('active', k === i));
+      }
+
+      function play() {
+        stop();
+        timer = setInterval(() => go(i + 1), 3500);
+      }
+      function stop() {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      }
+
+      next.onclick = () => {
+        go(i + 1);
+        play();
+      };
+      prev.onclick = () => {
+        go(i - 1);
+        play();
+      };
+      dots.forEach(d => d.onclick = () => {
+        go(+d.dataset.index);
+        play();
+      });
+
+      slider.addEventListener('mouseenter', stop);
+      slider.addEventListener('mouseleave', play);
+
+      closeBtn.onclick = () => slider.style.display = 'none';
+
+      window.addEventListener('resize', () => go(i));
+
+      go(0);
+      play();
+    })();
+
+    // Set footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
