@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ka">
 <head>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ტექნო სითი 2022</title>
@@ -331,7 +332,7 @@
     }
     .thumb {
       height: 180px;
-      background: #1C2526;
+      background: #252c2b;
       display: grid;
       place-items: center;
       position: relative;
@@ -340,7 +341,7 @@
       max-width: 80%;
       max-height: 160px;
       object-fit: contain;
-      filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.5));
+      filter: drop-shadow(0 8px 18px #1A3C34);
     }
     .pad {
       padding: 12px;
@@ -418,7 +419,7 @@
       padding: 8px 10px;
       font-size: 12px;
       color: #cbd5e1;
-      background: linear-gradient(180deg, #121826, #0e1420);
+      background: linear-gradient(180deg, #3b3b3a, #000000);
     }
     .hot-track {
       display: flex;
@@ -438,7 +439,7 @@
       display: block;
       filter: contrast(1.05) saturate(1.05);
     }
-    .hot-label {
+    .hot-label { 
       position: absolute;
       left: 10px;
       bottom: 10px;
@@ -448,7 +449,7 @@
       background: rgba(0, 0, 0, 0.5);
       padding: 4px 8px;
       border-radius: 10px;
-      border: 1px solid #22324a;
+      border: 1px solid #f5f1f1;
     }
     .hot-controls {
       position: absolute;
@@ -682,11 +683,11 @@
 
     <div class="slideshow-container">
       <div class="mySlides fade">
-        <img src="https://bankofgeorgia.ge/images/fc7f65ee-9605-4cc1-9b89-55989ff37aa4.jpg" alt="Slide 1">
+        <img src="https://avatars.mds.yandex.net/get-altay/11886651/2a0000018e3c154b2ae905c2ffb078fd6450/orig" alt="Slide 1">
         <div class="text-overlay"></div>
       </div>
       <div class="mySlides fade">
-        <img src="https://i.ytimg.com/vi/LNpoRSuPwfM/maxresdefault.jpg" alt="Slide 2">
+        <img src="https://spy-fy.com/cdn/shop/articles/Iphone_17_Rumors_cf1d2add-c630-4f2d-af27-abbe64c5f2dd.png?v=1742478937" alt="Slide 2">
         <div class="text-overlay"></div>
       </div>
       <div class="mySlides fade">
@@ -801,41 +802,6 @@
              style="width:100px; height:auto; border-radius:8px; background:white; padding:5px; box-shadow:0 4px 60px rgba(0,0,0,0.3);">
       </a>
     </div>
-
-    <div class="hot-slider" id="hotSlider">
-      <div class="hot-head">
-        <span>🔥 პოპულარული მოდელები</span>
-        <button id="hotClose" title="დახურვა" style="background:#0f141f;color:#cbd5e1;border:1px solid #2a3345;border-radius:8px;padding:2px 6px;cursor:pointer;">X</button>
-      </div>
-      <div class="hot-viewport" style="position:relative">
-        <div class="hot-track" id="hotTrack">
-          <div class="hot-slide">
-            <img src="https://theapplewiki.com/images/applewiki/thumb/0/06/IPhone_16_Pro_Max.png/800px-IPhone_16_Pro_Max.png" alt="iPhone 16 pro">
-            <div class="hot-label">iPhone 16 pro max · 256GB</div>
-            <div class="sale-badge">10% OFF</div>
-          </div>
-          <div class="hot-slide">
-            <img src="https://pngimg.com/d/iphone16_PNG37.png" alt="iphone 16">
-            <div class="hot-label">iPhone 16 · 128GB</div>
-          </div>
-          <div class="hot-slide">
-            <img src="https://miamicenters.com/wp-content/uploads/2025/04/screennN-3-768x768.png" alt="SAMSUNG A06 4/128">
-            <div class="hot-label">SAMSUNG A06 4/128</div>
-            <div class="sale-badge">15% OFF</div>
-          </div>
-          <div class="hot-slide">
-            <img src="https://images.vodafone.co.uk/tizrehont83j/PWwW9oogiC8myWQIvkHJe/ea6bf0eddacd5c1d8aa31fa6ead4580d/galaxy-a17-5g-gallery.png" alt="SAMSUNG A17 5G">
-            <div class="hot-label">SAMSUNG A17 5G</div>
-          </div>
-          <div class="hot-slide">
-            <img src="https://pngimg.com/d/iphone_13_PNG22.png" alt="IPHONE 13pro 128GB">
-            <div class="hot-label">IPHONE 13pro 128GB</div>
-            <div class="sale-badge">20% OFF</div>
-          </div>
-          <div class="hot-slide">
-            <div class="hot-label">Infinix ZERO FLIP 12/512GB</div>
-            <img src="https://ng.xpark.com/media/catalog/product/cache/7c9924b6276ad76a951c1e786fcf2062/2/0/20250218-114932.png" alt="infinix">
-          </div>
         </div>
         <div class="hot-controls">
           <button class="hot-btn hot-prev" id="hotPrev" aria-label="Previous">‹</button>
@@ -893,8 +859,8 @@
       <p><strong>ფასდაკლება:</strong> <span id="detailsSale"></span></p>
       <button class="btn" style="margin-top: 10px;" onclick="document.getElementById('productDetails').style.display='none';">დახურვა</button>
     </div>
-  </div>
-
+    
+    
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ka_GE/sdk.js#xfbml=1&version=v19.0"></script>
 
@@ -1037,6 +1003,7 @@
         "sale": "0%"
       }
     ];
+    
 
     // Function to generate product card HTML with data attributes
     function generateProductCard(p) {
@@ -1090,6 +1057,7 @@
       slides[slideIndex - 1].classList.add("active");
       dots[slideIndex - 1].className += " active";
     }
+    
 
     setInterval(() => {
       plusSlides(1);
@@ -1185,6 +1153,7 @@
           }, 100);
         });
       }
+      
     });
 
     // Laptops section logic
