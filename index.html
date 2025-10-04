@@ -586,6 +586,15 @@
         font-size: 10px;
         padding: 4px 8px;
       }
+      .card {
+        cursor: pointer;
+        padding: 10px;
+        border-radius: 12px;
+        transition: transform 0.2s;
+      }
+      .card:hover {
+        transform: scale(1.02);
+      }
     }
     @media (max-width: 700px) {
       .fb-bottom-map, .map {
@@ -606,6 +615,36 @@
       .fb-bottom-map .fb-page {
         width: 100% !important;
       }
+    }
+    .product-details {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .details-content {
+      background: #151822;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 90%;
+      max-height: 90%;
+      overflow-y: auto;
+      color: #e6ebf4;
+      position: relative;
+    }
+    .details-content h2 {
+      margin-bottom: 10px;
+      font-size: 1.5em;
+    }
+    .details-content p {
+      margin: 5px 0;
+      font-size: 1em;
     }
   </style>
 </head>
@@ -843,6 +882,19 @@
     </footer>
   </div>
 
+  <div id="productDetails" class="product-details" style="display: none;">
+    <div class="details-content">
+      <span id="closeDetails" style="float: right; font-size: 24px; cursor: pointer; color: #e6ebf4;">×</span>
+      <h2 id="detailsTitle"></h2>
+      <img id="detailsImage" src="" alt="Product Image" style="max-width: 100%; max-height: 200px; margin: 10px 0;">
+      <p><strong>ბრენდი:</strong> <span id="detailsBrand"></span></p>
+      <p><strong>ფასი:</strong> <span id="detailsPrice"></span></p>
+      <p><strong>ფერი:</strong> <span id="detailsColor"></span></p>
+      <p><strong>ფასდაკლება:</strong> <span id="detailsSale"></span></p>
+      <button class="btn" style="margin-top: 10px;" onclick="document.getElementById('productDetails').style.display='none';">დახურვა</button>
+    </div>
+  </div>
+
   <div id="fb-root"></div>
   <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ka_GE/sdk.js#xfbml=1&version=v19.0"></script>
 
@@ -888,7 +940,6 @@
         image: "https://images.vodafone.co.uk/tizrehont83j/PWwW9oogiC8myWQIvkHJe/ea6bf0eddacd5c1d8aa31fa6ead4580d/galaxy-a17-5g-gallery.png",
         color: "Black"
       },
-  
       {
         brand: "apple",
         title: "iphone 16 pro max 256GB",
@@ -904,99 +955,105 @@
         image: "https://icity.ge/wp-content/uploads/2025/09/AirPods-Pro-3-2.webp",
         color: "White",
         sale: "10%"
-      },  
-  {
-    "brand": "Samsung",
-    "title": "Galaxy A06 4/64GB",
-    "price": 250,
-    "image": "https://miamicenters.com/wp-content/uploads/2025/04/screenn-8.png",
-    "color": "Black",
-    "sale": "5%"
-  },
-  {
-    "brand": "Samsung",
-    "title": "Galaxy A06 4/128GB",
-    "price": 0,
-    "image": "https://miamicenters.com/wp-content/uploads/2025/04/screenn-8.png",
-    "color": "Black",
-    "sale": "0%"
-  },
-  {
-    "brand": "Samsung",
-    "title": "Galaxy A07 4/128GB",
-    "price": 0,
-    "image": "https://mdsmobile.ae/cdn/shop/files/SM-A075_GalaxyA07_LTE_Black_BackL30_Thumb_0f345153-c5ec-4f3b-9d94-6edd046acf86_330x.png?v=1755259439",
-    "color": "Black",
-    "sale": "0%"
-  },
-  {
-    "brand": "Samsung",
-    "title": "Galaxy A07 6/128GB",
-    "price": 0,
-    "image": "https://images.samsung.com/is/image/samsung/p6pim/a07-128gb-blue-front?$FB_TYPE_A_JPG$",
-    "color": "Blue",
-    "sale": "0%"
-  },
-  {
-    "brand": "Samsung",
-    "title": "Galaxy A07 8/256GB",
-    "price": 0,
-    "image": "https://mdsmobile.ae/cdn/shop/files/SM-A075_GalaxyA07_LTE_Black_BackL30_Thumb_0f345153-c5ec-4f3b-9d94-6edd046acf86_330x.png?v=1755259439",
-    "color": "Black",
-    "sale": "0%"
-  },
-  {
-    "brand": "Samsung",
-    "title": "Galaxy A26 6/128GB",
-    "price": 0,
-    "image": "https://media.flixcar.com/webp/synd-asset/Samsung-316807333-ph-galaxy-a26-5g-sm-a266-sm-a266blgdphl-545517509--Download-Source--zoom.png",
-    "color": "Graphite",
-    "sale": "0%"
-  },
-  {
-    "brand": "Samsung",
-    "title": "Galaxy A26 8/256GB",
-    "price": 0,
-    "image": "https://media.flixcar.com/webp/synd-asset/Samsung-319773009-in-galaxy-a26-5g-sm-a266-sm-a266bzwkins-545324047--Download-Source--zoom.png",
-    "color": "white",
-    "sale": "0%"
-  },
-  {
-    "brand": "Samsung",
-    "title": "Galaxy A17 4/128GB",
-    "price": 0,
-    "image": "https://miamicenters.com/wp-content/uploads/2025/10/BLACK.png",
-    "color": "Black",
-    "sale": "0%"
-  },
-  {
-    "brand": "Samsung",
-    "title": "Galaxy A17 6/128GB",
-    "price": 0,
-    "image": "https://miamicenters.com/wp-content/uploads/2025/10/LIGHT-BLUE.png",
-    "color": "Blue",
-    "sale": "0%"
-  },
-  {
-    "brand": "Samsung",
-    "title": "Galaxy A17 8/256GB",
-    "price": 0,
-    "image": "https://miamicenters.com/wp-content/uploads/2025/10/BLACK.png",
-    "color": "Black",
-    "sale": "0%"
-  }
-]
-;
+      },
+      {
+        "brand": "Samsung",
+        "title": "Galaxy A06 4/64GB",
+        "price": 250,
+        "image": "https://miamicenters.com/wp-content/uploads/2025/04/screenn-8.png",
+        "color": "Black",
+        "sale": "5%"
+      },
+      {
+        "brand": "Samsung",
+        "title": "Galaxy A06 4/128GB",
+        "price": 0,
+        "image": "https://miamicenters.com/wp-content/uploads/2025/04/screenn-8.png",
+        "color": "Black",
+        "sale": "0%"
+      },
+      {
+        "brand": "Samsung",
+        "title": "Galaxy A07 4/128GB",
+        "price": 0,
+        "image": "https://mdsmobile.ae/cdn/shop/files/SM-A075_GalaxyA07_LTE_Black_BackL30_Thumb_0f345153-c5ec-4f3b-9d94-6edd046acf86_330x.png?v=1755259439",
+        "color": "Black",
+        "sale": "0%"
+      },
+      {
+        "brand": "Samsung",
+        "title": "Galaxy A07 6/128GB",
+        "price": 0,
+        "image": "https://images.samsung.com/is/image/samsung/p6pim/a07-128gb-blue-front?$FB_TYPE_A_JPG$",
+        "color": "Blue",
+        "sale": "0%"
+      },
+      {
+        "brand": "Samsung",
+        "title": "Galaxy A07 8/256GB",
+        "price": 0,
+        "image": "https://mdsmobile.ae/cdn/shop/files/SM-A075_GalaxyA07_LTE_Black_BackL30_Thumb_0f345153-c5ec-4f3b-9d94-6edd046acf86_330x.png?v=1755259439",
+        "color": "Black",
+        "sale": "0%"
+      },
+      {
+        "brand": "Samsung",
+        "title": "Galaxy A26 6/128GB",
+        "price": 0,
+        "image": "https://media.flixcar.com/webp/synd-asset/Samsung-316807333-ph-galaxy-a26-5g-sm-a266-sm-a266blgdphl-545517509--Download-Source--zoom.png",
+        "color": "Graphite",
+        "sale": "0%"
+      },
+      {
+        "brand": "Samsung",
+        "title": "Galaxy A26 8/256GB",
+        "price": 0,
+        "image": "https://media.flixcar.com/webp/synd-asset/Samsung-319773009-in-galaxy-a26-5g-sm-a266-sm-a266bzwkins-545324047--Download-Source--zoom.png",
+        "color": "white",
+        "sale": "0%"
+      },
+      {
+        "brand": "Samsung",
+        "title": "Galaxy A17 4/128GB",
+        "price": 0,
+        "image": "https://miamicenters.com/wp-content/uploads/2025/10/BLACK.png",
+        "color": "Black",
+        "sale": "0%"
+      },
+      {
+        "brand": "Samsung",
+        "title": "Galaxy A17 6/128GB",
+        "price": 0,
+        "image": "https://miamicenters.com/wp-content/uploads/2025/10/LIGHT-BLUE.png",
+        "color": "Blue",
+        "sale": "0%"
+      },
+      {
+        "brand": "Samsung",
+        "title": "Galaxy A17 8/256GB",
+        "price": 0,
+        "image": "https://miamicenters.com/wp-content/uploads/2025/10/BLACK.png",
+        "color": "Black",
+        "sale": "0%"
+      }
+    ];
 
-    // Function to generate product card HTML
+    // Function to generate product card HTML with data attributes
     function generateProductCard(p) {
       return `
-        <div style="background:#232836;border-radius:12px;padding:16px;text-align:center;position:relative;">
+        <div class="card" data-brand="${p.brand}" data-title="${p.title}" data-price="${p.price}" data-image="${p.image}" data-color="${p.color || ''}" data-sale="${p.sale || '0%'}" style="cursor: pointer; background: #232836; border-radius: 12px; padding: 16px; text-align: center; position: relative;">
           ${p.sale ? `<div class="sale-badge">${p.sale} OFF</div>` : ''}
-          <img src="${p.image}" alt="${p.title}" style="max-width:100px;max-height:100px;margin-bottom:10px;display:block;margin-left:auto;margin-right:auto;">
-          <div style="font-weight:700;color:#e6ebf4;margin-bottom:6px;">${p.title}</div>
-          <div style="color:#5eead4;font-size:15px;margin-bottom:4px;">₾${p.price}</div>
-          <div style="color:#a7b0c0;font-size:13px;">${p.color || ''}</div>
+          <div class="thumb">
+            <img src="${p.image}" alt="${p.title}" style="max-width: 100px; max-height: 100px; margin-bottom: 10px; display: block; margin-left: auto; margin-right: auto;">
+          </div>
+          <div class="pad">
+            <div class="title" style="font-weight: 700; color: #e6ebf4; margin-bottom: 6px;">${p.title}</div>
+            <div class="price">
+              <span class="now" style="color: #5eead4; font-size: 15px;">₾${p.price}</span>
+              ${p.sale ? '<span class="old" style="color: #a7b0c0; font-size: 13px; text-decoration: line-through;">₾' + (p.price / (1 - parseInt(p.sale) / 100)).toFixed(2) + '</span>' : ''}
+            </div>
+            <div style="color: #a7b0c0; font-size: 13px;">${p.color || ''}</div>
+          </div>
         </div>`;
     }
 
@@ -1332,6 +1389,46 @@
       go(0);
       play();
     })();
+
+    // Add event listener for card click to show product details on mobile
+    document.addEventListener('DOMContentLoaded', function() {
+      var grid = document.getElementById('grid');
+
+      grid.addEventListener('click', function(e) {
+        var card = e.target.closest('.card');
+        if (card && window.innerWidth <= 480) { // Trigger only on mobile (480px and below)
+          var brand = card.getAttribute('data-brand');
+          var title = card.getAttribute('data-title');
+          var price = card.getAttribute('data-price');
+          var image = card.getAttribute('data-image');
+          var color = card.getAttribute('data-color');
+          var sale = card.getAttribute('data-sale');
+
+          // Populate details
+          document.getElementById('detailsTitle').textContent = title;
+          document.getElementById('detailsBrand').textContent = brand;
+          document.getElementById('detailsPrice').textContent = `₾${price}`;
+          document.getElementById('detailsImage').src = image;
+          document.getElementById('detailsColor').textContent = color || 'N/A';
+          document.getElementById('detailsSale').textContent = sale ? `${sale} OFF` : 'N/A';
+
+          // Show the details popup
+          document.getElementById('productDetails').style.display = 'flex';
+
+          // Close button functionality
+          document.getElementById('closeDetails').onclick = function() {
+            document.getElementById('productDetails').style.display = 'none';
+          };
+
+          // Close popup when clicking outside
+          document.getElementById('productDetails').onclick = function(e) {
+            if (e.target === this) {
+              this.style.display = 'none';
+            }
+          };
+        }
+      });
+    });
 
     // Set footer year
     document.getElementById('year').textContent = new Date().getFullYear();
