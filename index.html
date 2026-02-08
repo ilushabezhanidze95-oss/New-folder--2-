@@ -317,6 +317,7 @@
       <li><a href="#" class="nav-link" data-target="iphones">iPhone</a></li>
       <li><a href="#" class="nav-link" data-target="samsung">Samsung</a></li>
       <li><a href="#" class="nav-link" data-target="refrigerators">მაცივრები</a></li>
+      <li><a href="#" class="nav-link" data-target="washing">სარეცხი მანქანები</a></li>
       <li><a href="#" class="nav-link" data-target="accessories">აქსესუარები</a></li>
       <li><a href="#" class="nav-link" data-target="contact">კონტაქტი</a></li>
     </ul>
@@ -331,7 +332,7 @@
     </div>
 
     <div class="toolbar">
-      <div class="control"><label>ძიება</label><input type="text" id="searchInput" placeholder="მაგ: iPhone 16..."></div>
+      <div class="control"><label>ძიება</label><input type="text" id="searchInput" placeholder="მაგ: iPhone 16... ან Midea 8კგ..."></div>
       <div class="control">
         <label>სორტირება</label>
         <select id="sortSelect">
@@ -358,6 +359,11 @@
   <div id="refrigerators" class="section">
     <h2>მაცივრების კატალოგი</h2>
     <div id="refrigerators-grid" class="grid"></div>
+  </div>
+
+  <div id="washing" class="section">
+    <h2> სარეცხი მანქანები (6–12 კგ)</h2>
+    <div id="washing-grid" class="grid"></div>
   </div>
 
   <div id="accessories" class="section">
@@ -409,14 +415,14 @@
 
 <script>
   const PRODUCTS = [
-    // iPhone Models (unchanged)
+    // iPhone Models
     { brand: "Apple", title: "iPhone 15 Pro 256GB", price: 2200, image: "https://raw.githubusercontent.com/hdpngworld/HPW/main/uploads/65038654434d0-iPhone%2015%20Pro%20Natural%20titanium%20png.png", color: "Desert Titanium", sale: "5%", cat: "iphones", specs: { "მეხსიერება": "256GB", "RAM": "8GB", "ეკრანი": "6.1 inch Super Retina XDR", "პროცესორი": "A17 Pro", "კამერა": "48MP Main + 12MP Ultra Wide", "ბატარეა": "3274 mAh" } },
     { brand: "Apple", title: "iPhone 16 128GB", price: 2350, image: "https://pngimg.com/d/iphone16_PNG3.png", color: "Black", sale: "5%", cat: "iphones", specs: { "მეხსიერება": "128GB", "RAM": "8GB", "ეკრანი": "6.1 inch OLED", "პროცესორი": "A18", "კამერა": "48MP Fusion", "ბატარეა": "3561 mAh" } },
     { brand: "Apple", title: "iPhone 12 64GB", price: 620, image: "https://freepngimg.com/save/117083-12-iphone-hd-image-free/1752x748", color: "Black", sale: "5%", cat: "iphones", specs: { "მეხსიერება": "64GB", "RAM": "4GB", "ეკრანი": "6.1 inch Super Retina XDR", "პროცესორი": "A14 Bionic", "კამერა": "12MP Dual", "ბატარეა": "2815 mAh" } },
     { brand: "Apple", title: "iPhone 17 256GB", price: 2840, image: "https://pngimg.com/d/iphone17_PNG27.png", color: "Black", sale: "5%", cat: "iphones", specs: { "მეხსიერება": "256GB", "RAM": "8GB", "ეკრანი": "6.3 inch ProMotion", "პროცესორი": "A19", "კამერა": "50MP Main + 12MP Ultra Wide", "ბატარეა": "3877 mAh" } },
     { brand: "Apple", title: "iPhone 17 Pro 256GB", price: 4290, image: "https://www.devicebuzz.com/_next/image?url=https%3A%2F%2Fapi.devicebuzz.com%2Fstatic%2FImages%2FApple%2FApple%20iPhone%2017%20Pro%20Max%2F1757623802183.png&w=3840&q=75", color: "Orange", sale: "5%", cat: "iphones", specs: { "მეხსიერება": "256GB", "RAM": "12GB", "ეკრანი": "6.9 inch ProMotion LTPO", "პროცესორი": "A19 Pro", "კამერა": "50MP Main + 48MP Ultra Wide + Telephoto", "ბატარეა": "4676 mAh" } },
     
-    // Samsung Models (unchanged)
+    // Samsung Models
     { brand: "Samsung", title: "Galaxy A06 4/64GB", price: 250, image: "https://miamicenters.com/wp-content/uploads/2025/04/screenn-8.png", color: "Black", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "64GB", "RAM": "4GB", "ეკრანი": "6.7 inch PLS LCD", "პროცესორი": "MediaTek Helio G85", "კამერა": "50MP Main + 2MP Depth", "ბატარეა": "5000 mAh", "5G": "არა" } },
     { brand: "Samsung", title: "Galaxy A07 4/64GB", price: null, image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a07-4g.jpg", color: "Blue", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "64GB", "RAM": "4GB", "ეკრანი": "6.7 inch PLS LCD 90Hz", "პროცესორი": "MediaTek Helio G85", "კამერა": "50MP + 2MP", "ბატარეა": "5000 mAh", "5G": "არა" } },
     { brand: "Samsung", title: "Galaxy A07 6/128GB", price: 310, image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a07-4g.jpg", color: "Black", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "128GB", "RAM": "6GB", "ეკრანი": "6.7 inch PLS LCD 90Hz", "პროცესორი": "MediaTek Helio G85", "კამერა": "50MP + 2MP", "ბატარეა": "5000 mAh", "5G": "არა" } },
@@ -433,7 +439,7 @@
     { brand: "Samsung", title: "Galaxy S25 8/128GB", price: 1850, image: "https://media.secure-mobiles.com/product-images/SPA2512NAV.1.responsive-lg.centre.png", color: "Icyblue", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "128GB", "RAM": "8GB", "ეკრანი": "6.2 inch Dynamic AMOLED 2X 120Hz", "პროცესორი": "Snapdragon 8 Elite", "კამერა": "50MP + 12MP Ultra Wide + 10MP Telephoto", "ბატარეა": "4000 mAh", "დატვირთვა": "25W", "წყალგამძლეობა": "IP68" } },
     { brand: "Samsung", title: "Galaxy S24 Ultra 1TB", price: 3200, image: "https://tertech.ru/thumb/2/7SiBn-PAibdb00frsAabKg/400r400/d/dfheuy5475.jpg", color: "Titanium Black", sale: "10%", cat: "samsung", specs: { "მეხსიერება": "1TB", "RAM": "12GB", "ეკრანი": "6.8 inch Dynamic AMOLED 2X 120Hz", "პროცესორი": "Snapdragon 8 Gen 3", "კამერა": "200MP + 50MP Telephoto + 10MP Telephoto + 12MP Ultra Wide", "ბატარეა": "5000 mAh", "დატვირთვა": "45W", "S Pen": "დიახ", "წყალგამძლეობა": "IP68" } },
 
-    // Refrigerators - New additions from your list
+    // Refrigerators
     { brand: "Beko", title: "BEKO B3RCNK362HW ", price: null, image: "https://www.beko.com/content/dam/kazakhstan-kz-aem/kazakhstan-kz-aemProductCatalog/product-images/7387010001-B3RCNK362HW/7387010001-MDM2-LOW-2.png/jcr:content/renditions/original", color: "White", sale: null, cat: "refrigerators", specs: { "მოცულობა": "368 ლიტრი", "ფრიზერის მოცულობა": "100 ლიტრი", "მაცივრის მოცულობა": "268 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "186 სმ", "ზომები (სიგანე)": "59.5 სმ", "ზომები (სიღრმე)": "65 სმ", "წონა": "70.2 კგ", "No Frost": "დიახ (Dual Cooling)", "კარების რაოდენობა": "2 კარი", "ინვერტორული კომპრესორი": "დიახ" } },
     { brand: "Hitachi", title: "HITACHI R-B410PUC6", price: null, image: "https://superi.ge/images/detailed/24/2025862.jpg", color: "White/Stainless", sale: null, cat: "refrigerators", specs: { "მოცულობა": "330 ლიტრი", "ფრიზერის მოცულობა": "115 ლიტრი", "მაცივრის მოცულობა": "215 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "181 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "66 სმ", "No Frost": "დიახ (Full No Frost)", "ხმაურის დონე": "42 dB", "გაყინვის სიმძლავრე": "6 კგ/დღეში", "ინვერტორული კომპრესორი": "დიახ" } },
     { brand: "Bosch", title: "BOSCH KGN36NL30U", price: null, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtjkDa8xnZLicPkJdfUIiqm1FOFyLMfJoUfQ&s", color: "Silver", sale: null, cat: "refrigerators", specs: { "მოცულობა": "320 ლიტრი", "ფრიზერის მოცულობა": "87 ლიტრი", "მაცივრის მოცულობა": "233 ლიტრი", "ენერგო კლასი": "A++", "ზომები (სიმაღლე)": "186 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "66 სმ", "No Frost": "დიახ", "კარების რაოდენობა": "2 კარი", "ინვერტორული კომპრესორი": "დიახ" } },
@@ -452,7 +458,17 @@
     { brand: "TOSHIBA", title: "TOSHIBA GR-RT468WE-PMJ(37)", price: null, image: "https://imgstore.alta.ge/images/400/135/135233_301_1.webp", color: "Beige", sale: null, cat: "refrigerators", specs: { "მოცულობა": "384 ლიტრი", "ფრიზერის მოცულობა": "107 ლიტრი", "მაცივრის მოცულობა": "277 ლიტრი", "ენერგო კლასი": "A++", "ზომები (სიმაღლე)": "186 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "67 სმ", "No Frost": "დიახ", "ინვერტორული კომპრესორი": "დიახ" } },
     { brand: "Midea", title: "MDRB424FGF02I", price: null, image: "https://apollo.ge/wp-content/uploads/2023/11/5d9cfd99e17b645af3f41bf3ce28ff8e.jpg", color: "Silver", sale: null, cat: "refrigerators", specs: { "მოცულობა": "424 ლიტრი", "ფრიზერის მოცულობა": "125 ლიტრი", "მაცივრის მოცულობა": "299 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "200 სმ", "ზომები (სიგანე)": "70 სმ", "ზომები (სიღრმე)": "67 სმ", "No Frost": "დიახ", "კარების რაოდენობა": "2 კარი" } },
 
-    // Accessories (unchanged)
+    // Midea Washing Machines
+    { brand: "Midea", title: "Midea MFE02W60/W", price: 0, image: "https://elis.ge/wp-content/uploads/2024/06/dizajn-bez-nazvaniya-34.png", color: "თეთრი", sale: "36%", cat: "washing", specs: { "ჩატვირთვა": "6 კგ", "ბრუნვა": "1000 rpm", "ენერგია": "A+++", "ძრავა": "ინდუქციური", "გარანტია": "3 წელი", "პროგრამები": "15+" } },
+    { brand: "Midea", title: "Midea MF100W60", price: 0, image: "https://imgstore.alta.ge/images/400/150/150148_5556_1.webp", color: "თეთრი", sale: "27%", cat: "washing", specs: { "ჩატვირთვა": "6 კგ", "ბრუნვა": "1000-1200 rpm", "ენერგია": "A+++", "ორთქლი": "დიახ", "ძრავა": "ინვერტორული", "გარანტია": "3 წელი" } },
+    { brand: "Midea", title: "Midea MF01610US40/W", price: 0, image: "https://images.satu.kz/232347690_w300_h300_stiralnaya-mashina-midea.jpg", color: "თეთრი", sale: "38%", cat: "washing", specs: { "ჩატვირთვა": "6 კგ", "ბრუნვა": "1000 rpm", "ორთქლი": "დიახ", "ანტიბაქტერიული": "დიახ", "LED ეკრანი": "დიახ", "გარანტია": "3 წელი" } },
+    { brand: "Midea", title: "Midea MF100W70", price: 0, image: "https://m.media-amazon.com/images/I/5154zFosGNL._AC_UF1000,1000_QL80_.jpg", color: "თეთრი", sale: null, cat: "washing", specs: { "ჩატვირთვა": "7 კგ", "ბრუნვა": "1200 rpm", "ენერგია": "A+++", "ძრავა": "ინვერტორული", "ორთქლი": "დიახ", "გარანტია": "3 წელი" } },
+    { brand: "Midea", title: "Midea MFK80-U1401B", price: 0, image: "https://scontent.ftbs5-2.fna.fbcdn.net/v/t39.30808-6/629223380_122172693788862719_2949349038693226329_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=p8xZtyYy26EQ7kNvwFdPSXA&_nc_oc=Adm7CHVeOxrAfn-XMrYzRD4yC15s1e-Y-sLB9fsrfA-VIlm2K97rVrfq7PS4cbLf4DfpH60E75Orm9lrf0w5z2OV&_nc_zt=23&_nc_ht=scontent.ftbs5-2.fna&_nc_gid=JRYncB7o4Tit7RBjTfjwfA&oh=00_AftnbSbdI47jr8vPV_8i1x_xuEtUNY4mh8Na3GMaPzc8oQ&oe=698EB554", color: "თეთრი/ვერცხლი", sale: "20%", cat: "washing", specs: { "ჩატვირთვა": "8 კგ", "ბრუნვა": "1400 rpm", "ენერგია": "A", "ძრავა": "ინვერტორული", "Wi-Fi": "ზოგ მოდელში", "გარანტია": "3 წელი" } },
+    { brand: "Midea", title: "Midea MF200W90WB/W", price: 0, image: "https://superi.ge/images/detailed/22/Pralka-MIDEA-MF200W90WB-W-PL-front.jpg", color: "თეთრი", sale: "28%", cat: "washing", specs: { "ჩატვირთვა": "9 კგ", "ბრუნვა": "1400 rpm", "ძრავა": "Quad Inverter", "ჩამატება რეცხვისას": "დიახ", "ორთქლი": "დიახ", "ანტიბაქტერიული": "დიახ", "გარანტია": "3 წელი" } },
+    { brand: "Midea", title: "Midea MF210W100WB/W", price: 0, image: "https://s5.ezgif.com/tmp/ezgif-597f386762422f2f.png", color: "თეთრი", sale: null, cat: "washing", specs: { "ჩატვირთვა": "10 კგ", "ბრუნვა": "1400 rpm", "ენერგია": "A+++", "ძრავა": "ინვერტორული", "გარანტია": "3 წელი" } },
+    { brand: "Midea", title: "Midea MFK03W120B/S", price: 0, image: "https://scontent.ftbs5-2.fna.fbcdn.net/v/t39.30808-6/629444684_122172694844862719_1447058881164036364_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=J7-LYknNUHYQ7kNvwFdiCvz&_nc_oc=Adm9lk2gTNaju0XaMzdiCgbFxJGyObq83qIlvenYZy4UlIEaYVDTjQZv-R8LgJqujlMnrih-XZ1VgVqErmeJzDQs&_nc_zt=23&_nc_ht=scontent.ftbs5-2.fna&_nc_gid=JweD7PjsRWJXGgLVWvDnSw&oh=00_AfuLe20md61PpmVv2YdQDNwEXnL0C3awz8xMjKLTPXh4Bw&oe=698EB15F", color: "ვერცხლი", sale: null, cat: "washing", specs: { "ჩატვირთვა": "12 კგ", "ბრუნვა": "1400 rpm", "ენერგია": "A+++", "პროგრამები": "14-16", "ორთქლი": "დიახ", "გარანტია": "3 წელი" } },
+
+    // Accessories
     { brand: "Accessories", title: "AirPods Pro", price: 150, image: "https://crdms.images.consumerreports.org/f_auto,w_600/prod/products/cr/models/407936-wireless-portable-headphones-apple-airpods-pro-2nd-generation-10033244.png", color: "White", sale: "10%", cat: "accessories", specs: { "ტიპი": "In-Ear ყურსასმენი", "Noise Cancellation": "აქტიური", "ბატარეა": "6 საათი (ANC on)", "დამუხტვის კორპუსი": "30 საათი", "წყალგამძლეობა": "IPX4", "ჩიპი": "H2" } },
     { brand: "Accessories", title: "PS5 1TB", price: 1670, image: "https://wallpapers.com/images/featured-full/ps5-console-png-ywbv2gv3gfw23o3w.png", color: "White", sale: "14%", cat: "accessories", specs: { "მოცულობა": "1TB SSD", "პროცესორი": "AMD Zen 2", "გრაფიკული ბარათი": "AMD Radeon RDNA 2", "RAM": "16GB GDDR6", "გარჩევადობა": "8K / 4K 120Hz", "Disc Drive": "Ultra HD Blu-ray" } }
   ];
@@ -461,6 +477,7 @@
     const oldPrice = p.sale ? (p.price / (1 - parseInt(p.sale)/100)).toFixed(0) : null;
     const isSamsungPhone = p.brand === "Samsung" && p.cat === "samsung";
     const isRefrigeratorWithoutPrice = p.cat === "refrigerators" && p.price === null;
+    const isWashingContact = p.cat === "washing" && p.price === null;
     
     return `
       <div class="card" onclick="openModal(${index})">
@@ -472,7 +489,7 @@
           <div class="price">
             ${isSamsungPhone 
               ? `<span class="now" style="font-size:15px;">ფასი კონფიგურაციის მიხედვით</span>`
-              : isRefrigeratorWithoutPrice
+              : isRefrigeratorWithoutPrice || isWashingContact
                 ? `<span class="contact-price">შეამოწმე ფასი დამიწერე</span>`
                 : `<span class="now">₾${p.price}</span>${oldPrice ? `<span class="old">₾${oldPrice}</span>` : ''}`
             }
@@ -488,6 +505,7 @@
       iphones: document.getElementById('iphone-grid'),
       samsung: document.getElementById('samsung-grid'),
       refrigerators: document.getElementById('refrigerators-grid'),
+      washing: document.getElementById('washing-grid'),
       accessories: document.getElementById('accessories-grid')
     };
 
@@ -507,6 +525,7 @@
     const modal = document.getElementById('productModal');
     const isSamsungPhone = product.brand === "Samsung" && product.cat === "samsung";
     const isRefrigeratorWithoutPrice = product.cat === "refrigerators" && product.price === null;
+    const isWashingContact = product.cat === "washing" && product.price === null;
     
     document.getElementById('modalTitle').textContent = product.title;
     document.getElementById('modalImage').src = product.image;
@@ -515,7 +534,7 @@
       document.getElementById('modalPrice').textContent = 'ფასი კონფიგურაციის მიხედვით';
       document.getElementById('modalPrice').style.fontSize = '18px';
       document.getElementById('modalOldPrice').textContent = '';
-    } else if (isRefrigeratorWithoutPrice) {
+    } else if (isRefrigeratorWithoutPrice || isWashingContact) {
       document.getElementById('modalPrice').textContent = 'შეამოწმე ფასი დამიწერე';
       document.getElementById('modalPrice').style.fontSize = '16px';
       document.getElementById('modalPrice').style.color = 'var(--accent2)';
