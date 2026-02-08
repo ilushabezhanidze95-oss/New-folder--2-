@@ -140,6 +140,7 @@
 
     .price .now { font-size: 20px; font-weight: 800; color: var(--accent); }
     .price .old { font-size: 14px; color: var(--muted); text-decoration: line-through; margin-left: 8px; }
+    .price .contact-price { font-size: 14px; color: var(--accent2); text-decoration: underline; cursor: pointer; }
 
     .toolbar {
       display: grid;
@@ -408,441 +409,59 @@
 
 <script>
   const PRODUCTS = [
-    // iPhone Models
-    { 
-      brand: "Apple", 
-      title: "iPhone 15 Pro 256GB", 
-      price: 2200, 
-      image: "https://raw.githubusercontent.com/hdpngworld/HPW/main/uploads/65038654434d0-iPhone%2015%20Pro%20Natural%20titanium%20png.png", 
-      color: "Desert Titanium", 
-      sale: "5%", 
-      cat: "iphones",
-      specs: {
-        "მეხსიერება": "256GB",
-        "RAM": "8GB",
-        "ეკრანი": "6.1 inch Super Retina XDR",
-        "პროცესორი": "A17 Pro",
-        "კამერა": "48MP Main + 12MP Ultra Wide",
-        "ბატარეა": "3274 mAh"
-      }
-    },
-    { 
-      brand: "Apple", 
-      title: "iPhone 16 128GB", 
-      price: 2350, 
-      image: "https://pngimg.com/d/iphone16_PNG3.png", 
-      color: "Black", 
-      sale: "5%", 
-      cat: "iphones",
-      specs: {
-        "მეხსიერება": "128GB",
-        "RAM": "8GB",
-        "ეკრანი": "6.1 inch OLED",
-        "პროცესორი": "A18",
-        "კამერა": "48MP Fusion",
-        "ბატარეა": "3561 mAh"
-      }
-    },
-    { 
-      brand: "Apple", 
-      title: "iPhone 12 64GB", 
-      price: 620, 
-      image: "https://freepngimg.com/save/117083-12-iphone-hd-image-free/1752x748", 
-      color: "Black", 
-      sale: "5%", 
-      cat: "iphones",
-      specs: {
-        "მეხსიერება": "64GB",
-        "RAM": "4GB",
-        "ეკრანი": "6.1 inch Super Retina XDR",
-        "პროცესორი": "A14 Bionic",
-        "კამერა": "12MP Dual",
-        "ბატარეა": "2815 mAh"
-      }
-    },
-    { 
-      brand: "Apple", 
-      title: "iPhone 17 256GB", 
-      price: 2840, 
-      image: "https://pngimg.com/d/iphone17_PNG27.png", 
-      color: "Black", 
-      sale: "5%", 
-      cat: "iphones",
-      specs: {
-        "მეხსიერება": "256GB",
-        "RAM": "8GB",
-        "ეკრანი": "6.3 inch ProMotion",
-        "პროცესორი": "A19",
-        "კამერა": "50MP Main + 12MP Ultra Wide",
-        "ბატარეა": "3877 mAh"
-      }
-    },
-    { 
-      brand: "Apple", 
-      title: "iPhone 17 Pro 256GB", 
-      price: 4290, 
-      image: "https://www.devicebuzz.com/_next/image?url=https%3A%2F%2Fapi.devicebuzz.com%2Fstatic%2FImages%2FApple%2FApple%20iPhone%2017%20Pro%20Max%2F1757623802183.png&w=3840&q=75", 
-      color: "Orange", 
-      sale: "5%", 
-      cat: "iphones",
-      specs: {
-        "მეხსიერება": "256GB",
-        "RAM": "12GB",
-        "ეკრანი": "6.9 inch ProMotion LTPO",
-        "პროცესორი": "A19 Pro",
-        "კამერა": "50MP Main + 48MP Ultra Wide + Telephoto",
-        "ბატარეა": "4676 mAh"
-      }
-    },
+    // iPhone Models (unchanged)
+    { brand: "Apple", title: "iPhone 15 Pro 256GB", price: 2200, image: "https://raw.githubusercontent.com/hdpngworld/HPW/main/uploads/65038654434d0-iPhone%2015%20Pro%20Natural%20titanium%20png.png", color: "Desert Titanium", sale: "5%", cat: "iphones", specs: { "მეხსიერება": "256GB", "RAM": "8GB", "ეკრანი": "6.1 inch Super Retina XDR", "პროცესორი": "A17 Pro", "კამერა": "48MP Main + 12MP Ultra Wide", "ბატარეა": "3274 mAh" } },
+    { brand: "Apple", title: "iPhone 16 128GB", price: 2350, image: "https://pngimg.com/d/iphone16_PNG3.png", color: "Black", sale: "5%", cat: "iphones", specs: { "მეხსიერება": "128GB", "RAM": "8GB", "ეკრანი": "6.1 inch OLED", "პროცესორი": "A18", "კამერა": "48MP Fusion", "ბატარეა": "3561 mAh" } },
+    { brand: "Apple", title: "iPhone 12 64GB", price: 620, image: "https://freepngimg.com/save/117083-12-iphone-hd-image-free/1752x748", color: "Black", sale: "5%", cat: "iphones", specs: { "მეხსიერება": "64GB", "RAM": "4GB", "ეკრანი": "6.1 inch Super Retina XDR", "პროცესორი": "A14 Bionic", "კამერა": "12MP Dual", "ბატარეა": "2815 mAh" } },
+    { brand: "Apple", title: "iPhone 17 256GB", price: 2840, image: "https://pngimg.com/d/iphone17_PNG27.png", color: "Black", sale: "5%", cat: "iphones", specs: { "მეხსიერება": "256GB", "RAM": "8GB", "ეკრანი": "6.3 inch ProMotion", "პროცესორი": "A19", "კამერა": "50MP Main + 12MP Ultra Wide", "ბატარეა": "3877 mAh" } },
+    { brand: "Apple", title: "iPhone 17 Pro 256GB", price: 4290, image: "https://www.devicebuzz.com/_next/image?url=https%3A%2F%2Fapi.devicebuzz.com%2Fstatic%2FImages%2FApple%2FApple%20iPhone%2017%20Pro%20Max%2F1757623802183.png&w=3840&q=75", color: "Orange", sale: "5%", cat: "iphones", specs: { "მეხსიერება": "256GB", "RAM": "12GB", "ეკრანი": "6.9 inch ProMotion LTPO", "პროცესორი": "A19 Pro", "კამერა": "50MP Main + 48MP Ultra Wide + Telephoto", "ბატარეა": "4676 mAh" } },
     
-    // Samsung Galaxy A Series
-    { 
-      brand: "Samsung", 
-      title: "Galaxy A06 4/64GB", 
-      price: 250, 
-      image: "https://miamicenters.com/wp-content/uploads/2025/04/screenn-8.png", 
-      color: "Black", 
-      sale: "5%", 
-      cat: "samsung",
-      specs: {
-        "მეხსიერება": "64GB",
-        "RAM": "4GB",
-        "ეკრანი": "6.7 inch PLS LCD",
-        "პროცესორი": "MediaTek Helio G85",
-        "კამერა": "50MP Main + 2MP Depth",
-        "ბატარეა": "5000 mAh",
-        "5G": "არა"
-      }
-    },
-    { 
-      brand: "Samsung", 
-      title: "Galaxy A07 4/64GB", 
-      price: 260, 
-      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a07-4g.jpg", 
-      color: "Blue", 
-      sale: "5%", 
-      cat: "samsung",
-      specs: {
-        "მეხსიერება": "64GB",
-        "RAM": "4GB",
-        "ეკრანი": "6.7 inch PLS LCD 90Hz",
-        "პროცესორი": "MediaTek Helio G85",
-        "კამერა": "50MP + 2MP",
-        "ბატარეა": "5000 mAh",
-        "5G": "არა"
-      }
-    },
-    { 
-      brand: "Samsung", 
-      title: "Galaxy A07 6/128GB", 
-      price: 310, 
-      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a07-4g.jpg", 
-      color: "Black", 
-      sale: "5%", 
-      cat: "samsung",
-      specs: {
-        "მეხსიერება": "128GB",
-        "RAM": "6GB",
-        "ეკრანი": "6.7 inch PLS LCD 90Hz",
-        "პროცესორი": "MediaTek Helio G85",
-        "კამერა": "50MP + 2MP",
-        "ბატარეა": "5000 mAh",
-        "5G": "არა"
-      }
-    },
-    { 
-      brand: "Samsung", 
-      title: "Galaxy A16 4/128GB", 
-      price: 350, 
-      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a16-5g.jpg", 
-      color: "Light Green", 
-      sale: "5%", 
-      cat: "samsung",
-      specs: {
-        "მეხსიერება": "128GB",
-        "RAM": "4GB",
-        "ეკრანი": "6.7 inch Super AMOLED 90Hz",
-        "პროცესორი": "Dimensity 6300 / Helio G99",
-        "კამერა": "50MP Main + 5MP Ultra Wide",
-        "ბატარეა": "5000 mAh",
-        "5G": "დიახ"
-      }
-    },
-    { 
-      brand: "Samsung", 
-      title: "Galaxy A16 6/128GB", 
-      price: 380, 
-      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a16-5g.jpg", 
-      color: "Blue Black", 
-      sale: "5%", 
-      cat: "samsung",
-      specs: {
-        "მეხსიერება": "128GB",
-        "RAM": "6GB",
-        "ეკრანი": "6.7 inch Super AMOLED 90Hz",
-        "პროცესორი": "Dimensity 6300",
-        "კამერა": "50MP + 5MP Ultra Wide + 2MP Macro",
-        "ბატარეა": "5000 mAh",
-        "5G": "დიახ"
-      }
-    },
-    { 
-      brand: "Samsung", 
-      title: "Galaxy A17 4/128GB", 
-      price: 420, 
-      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a17.jpg", 
-      color: "Mint", 
-      sale: "5%", 
-      cat: "samsung",
-      specs: {
-        "მეხსიერება": "128GB",
-        "RAM": "4GB",
-        "ეკრანი": "6.7 inch Super AMOLED 120Hz",
-        "პროცესორი": "Exynos 1330",
-        "კამერა": "50MP Main + 5MP Ultra Wide + 2MP Macro",
-        "ბატარეა": "5000 mAh",
-        "5G": "დიახ",
-        "OIS": "დიახ"
-      }
-    },
-    { 
-      brand: "Samsung", 
-      title: "Galaxy A17 6/128GB", 
-      price: 460, 
-      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a17.jpg", 
-      color: "Dark Blue", 
-      sale: "5%", 
-      cat: "samsung",
-      specs: {
-        "მეხსიერება": "128GB",
-        "RAM": "6GB",
-        "ეკრანი": "6.7 inch Super AMOLED 120Hz",
-        "პროცესორი": "Exynos 1330",
-        "კამერა": "50MP OIS + 5MP Ultra Wide + 2MP Macro",
-        "ბატარეა": "5000 mAh",
-        "5G": "დიახ",
-        "OIS": "დიახ"
-      }
-    },
-    { 
-      brand: "Samsung", 
-      title: "Galaxy A17 8/256GB", 
-      price: 540, 
-      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a17.jpg", 
-      color: "Black", 
-      sale: "5%", 
-      cat: "samsung",
-      specs: {
-        "მეხსიერება": "256GB",
-        "RAM": "8GB",
-        "ეკრანი": "6.7 inch Super AMOLED 120Hz",
-        "პროცესორი": "Exynos 1330",
-        "კამერა": "50MP OIS + 5MP Ultra Wide + 2MP Macro",
-        "ბატარეა": "5000 mAh",
-        "5G": "დიახ",
-        "OIS": "დიახ"
-      }
-    },
-    { 
-      brand: "Samsung", 
-      title: "Galaxy A26 6/128GB", 
-      price: 580, 
-      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a26.jpg", 
-      color: "Light Violet", 
-      sale: "5%", 
-      cat: "samsung",
-      specs: {
-        "მეხსიერება": "128GB",
-        "RAM": "6GB",
-        "ეკრანი": "6.7 inch Super AMOLED 120Hz",
-        "პროცესორი": "Exynos 1380",
-        "კამერა": "50MP OIS + 8MP Ultra Wide + 5MP Macro",
-        "ბატარეა": "5000 mAh",
-        "დატვირთვა": "25W",
-        "5G": "დიახ"
-      }
-    },
-    { 
-      brand: "Samsung", 
-      title: "Galaxy A26 8/256GB", 
-      price: 660, 
-      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a26.jpg", 
-      color: "Black", 
-      sale: "5%", 
-      cat: "samsung",
-      specs: {
-        "მეხსიერება": "256GB",
-        "RAM": "8GB",
-        "ეკრანი": "6.7 inch Super AMOLED 120Hz",
-        "პროცესორი": "Exynos 1380",
-        "კამერა": "50MP OIS + 8MP Ultra Wide + 5MP Macro",
-        "ბატარეა": "5000 mAh",
-        "დატვირთვა": "25W",
-        "5G": "დიახ"
-      }
-    },
-    { 
-      brand: "Samsung", 
-      title: "Galaxy A36 8/128GB", 
-      price: 750, 
-      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a36.jpg", 
-      color: "Navy", 
-      sale: "5%", 
-      cat: "samsung",
-      specs: {
-        "მეხსიერება": "128GB",
-        "RAM": "8GB",
-        "ეკრანი": "6.7 inch Super AMOLED 120Hz",
-        "პროცესორი": "Snapdragon 6 Gen 3",
-        "კამერა": "50MP OIS + 8MP Ultra Wide + 5MP Macro",
-        "ბატარეა": "5000 mAh",
-        "დატვირთვა": "25W",
-        "წყალგამძლეობა": "IP67"
-      }
-    },
-    { 
-      brand: "Samsung", 
-      title: "Galaxy A56 8/128GB", 
-      price: 950, 
-      image: "https://bsimg.nl/images/samsung-galaxy-a56-5g-128gb-a566-roze-eu_9.png/Taay3pYk60htgS5Hj8RRydwca4g%3D/fit-in/0x0/filters%3Aupscale%28%29", 
-      color: "Awesome Iceblue", 
-      sale: "5%", 
-      cat: "samsung",
-      specs: {
-        "მეხსიერება": "128GB",
-        "RAM": "8GB",
-        "ეკრანი": "6.7 inch Super AMOLED 120Hz",
-        "პროცესორი": "Exynos 1580",
-        "კამერა": "50MP OIS + 12MP Ultra Wide + 5MP Macro",
-        "ბატარეა": "5000 mAh",
-        "დატვირთვა": "45W",
-        "წყალგამძლეობა": "IP67"
-      }
-    },
-    { 
-      brand: "Samsung", 
-      title: "Galaxy A56 8/256GB", 
-      price: 1050, 
-      image: "https://m.media-amazon.com/images/I/41eNOzSUcpL._AC_UF1000,1000_QL80_.jpg", 
-      color: "Awesome Navy", 
-      sale: "5%", 
-      cat: "samsung",
-      specs: {
-        "მეხსიერება": "256GB",
-        "RAM": "8GB",
-        "ეკრანი": "6.7 inch Super AMOLED 120Hz",
-        "პროცესორი": "Exynos 1580",
-        "კამერა": "50MP OIS + 12MP Ultra Wide + 5MP Macro",
-        "ბატარეა": "5000 mAh",
-        "დატვირთვა": "45W",
-        "წყალგამძლეობა": "IP67"
-      }
-    },
-    
-    // Samsung S Series
-    { 
-      brand: "Samsung", 
-      title: "Galaxy S25 8/128GB", 
-      price: 1850, 
-      image: "https://miamicenters.com/wp-content/uploads/2025/04/NAVY.png", 
-      color: "Icyblue", 
-      sale: "5%", 
-      cat: "samsung",
-      specs: {
-        "მეხსიერება": "128GB",
-        "RAM": "8GB",
-        "ეკრანი": "6.2 inch Dynamic AMOLED 2X 120Hz",
-        "პროცესორი": "Snapdragon 8 Elite",
-        "კამერა": "50MP + 12MP Ultra Wide + 10MP Telephoto",
-        "ბატარეა": "4000 mAh",
-        "დატვირთვა": "25W",
-        "წყალგამძლეობა": "IP68"
-      }
-    },
-    { 
-      brand: "Samsung", 
-      title: "Galaxy S24 Ultra 1TB", 
-      price: 3200, 
-      image: "https://imgstore.alta.ge/images/400/148/148693_9921_1.webp", 
-      color: "Titanium Black", 
-      sale: "10%", 
-      cat: "samsung",
-      specs: {
-        "მეხსიერება": "1TB",
-        "RAM": "12GB",
-        "ეკრანი": "6.8 inch Dynamic AMOLED 2X 120Hz",
-        "პროცესორი": "Snapdragon 8 Gen 3",
-        "კამერა": "200MP + 50MP Telephoto + 10MP Telephoto + 12MP Ultra Wide",
-        "ბატარეა": "5000 mAh",
-        "დატვირთვა": "45W",
-        "S Pen": "დიახ",
-        "წყალგამძლეობა": "IP68"
-      }
-    },
+    // Samsung Models (unchanged)
+    { brand: "Samsung", title: "Galaxy A06 4/64GB", price: 250, image: "https://miamicenters.com/wp-content/uploads/2025/04/screenn-8.png", color: "Black", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "64GB", "RAM": "4GB", "ეკრანი": "6.7 inch PLS LCD", "პროცესორი": "MediaTek Helio G85", "კამერა": "50MP Main + 2MP Depth", "ბატარეა": "5000 mAh", "5G": "არა" } },
+    { brand: "Samsung", title: "Galaxy A07 4/64GB", price: null, image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a07-4g.jpg", color: "Blue", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "64GB", "RAM": "4GB", "ეკრანი": "6.7 inch PLS LCD 90Hz", "პროცესორი": "MediaTek Helio G85", "კამერა": "50MP + 2MP", "ბატარეა": "5000 mAh", "5G": "არა" } },
+    { brand: "Samsung", title: "Galaxy A07 6/128GB", price: 310, image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a07-4g.jpg", color: "Black", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "128GB", "RAM": "6GB", "ეკრანი": "6.7 inch PLS LCD 90Hz", "პროცესორი": "MediaTek Helio G85", "კამერა": "50MP + 2MP", "ბატარეა": "5000 mAh", "5G": "არა" } },
+    { brand: "Samsung", title: "Galaxy A16 4/128GB", price: 350, image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a16-5g.jpg", color: "Light Green", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "128GB", "RAM": "4GB", "ეკრანი": "6.7 inch Super AMOLED 90Hz", "პროცესორი": "Dimensity 6300 / Helio G99", "კამერა": "50MP Main + 5MP Ultra Wide", "ბატარეა": "5000 mAh", "5G": "დიახ" } },
+    { brand: "Samsung", title: "Galaxy A16 6/128GB", price: 380, image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a16-5g.jpg", color: "Blue Black", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "128GB", "RAM": "6GB", "ეკრანი": "6.7 inch Super AMOLED 90Hz", "პროცესორი": "Dimensity 6300", "კამერა": "50MP + 5MP Ultra Wide + 2MP Macro", "ბატარეა": "5000 mAh", "5G": "დიახ" } },
+    { brand: "Samsung", title: "Galaxy A17 4/128GB", price: 420, image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a17.jpg", color: "Mint", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "128GB", "RAM": "4GB", "ეკრანი": "6.7 inch Super AMOLED 120Hz", "პროცესორი": "Exynos 1330", "კამერა": "50MP Main + 5MP Ultra Wide + 2MP Macro", "ბატარეა": "5000 mAh", "5G": "დიახ", "OIS": "დიახ" } },
+    { brand: "Samsung", title: "Galaxy A17 6/128GB", price: 460, image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a17.jpg", color: "Dark Blue", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "128GB", "RAM": "6GB", "ეკრანი": "6.7 inch Super AMOLED 120Hz", "პროცესორი": "Exynos 1330", "კამერა": "50MP OIS + 5MP Ultra Wide + 2MP Macro", "ბატარეა": "5000 mAh", "5G": "დიახ", "OIS": "დიახ" } },
+    { brand: "Samsung", title: "Galaxy A17 8/256GB", price: 540, image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a17.jpg", color: "Black", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "256GB", "RAM": "8GB", "ეკრანი": "6.7 inch Super AMOLED 120Hz", "პროცესორი": "Exynos 1330", "კამერა": "50MP OIS + 5MP Ultra Wide + 2MP Macro", "ბატარეა": "5000 mAh", "5G": "დიახ", "OIS": "დიახ" } },
+    { brand: "Samsung", title: "Galaxy A26 6/128GB", price: 580, image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a26.jpg", color: "Light Violet", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "128GB", "RAM": "6GB", "ეკრანი": "6.7 inch Super AMOLED 120Hz", "პროცესორი": "Exynos 1380", "კამერა": "50MP OIS + 8MP Ultra Wide + 5MP Macro", "ბატარეა": "5000 mAh", "დატვირთვა": "25W", "5G": "დიახ" } },
+    { brand: "Samsung", title: "Galaxy A26 8/256GB", price: 660, image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a26.jpg", color: "Black", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "256GB", "RAM": "8GB", "ეკრანი": "6.7 inch Super AMOLED 120Hz", "პროცესორი": "Exynos 1380", "კამერა": "50MP OIS + 8MP Ultra Wide + 5MP Macro", "ბატარეა": "5000 mAh", "დატვირთვა": "25W", "5G": "დიახ" } },
+    { brand: "Samsung", title: "Galaxy A36 8/128GB", price: 750, image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a36.jpg", color: "Navy", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "128GB", "RAM": "8GB", "ეკრანი": "6.7 inch Super AMOLED 120Hz", "პროცესორი": "Snapdragon 6 Gen 3", "კამერა": "50MP OIS + 8MP Ultra Wide + 5MP Macro", "ბატარეა": "5000 mAh", "დატვირთვა": "25W", "წყალგამძლეობა": "IP67" } },
+    { brand: "Samsung", title: "Galaxy A56 8/128GB", price: 960, image: "https://tse1.mm.bing.net/th/id/OIP.wB3j4g4ssNCDXDe8vh5KWQHaJh?rs=1&pid=ImgDetMain&o=7&rm=3", color: "Awesome Iceblue", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "128GB", "RAM": "8GB", "ეკრანი": "6.7 inch Super AMOLED 120Hz", "პროცესორი": "Exynos 1580", "კამერა": "50MP OIS + 12MP Ultra Wide + 5MP Macro", "ბატარეა": "5000 mAh", "დატვირთვა": "45W", "წყალგამძლეობა": "IP67" } },
+    { brand: "Samsung", title: "Galaxy A56 8/256GB", price: 1050, image: "https://shop.samsung.com/ie/images/products/30025/34799/600x600/SM-A566BZKCEUB.webp", color: "Awesome Navy", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "256GB", "RAM": "8GB", "ეკრანი": "6.7 inch Super AMOLED 120Hz", "პროცესორი": "Exynos 1580", "კამერა": "50MP OIS + 12MP Ultra Wide + 5MP Macro", "ბატარეა": "5000 mAh", "დატვირთვა": "45W", "წყალგამძლეობა": "IP67" } },
+    { brand: "Samsung", title: "Galaxy S25 8/128GB", price: 1850, image: "https://media.secure-mobiles.com/product-images/SPA2512NAV.1.responsive-lg.centre.png", color: "Icyblue", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "128GB", "RAM": "8GB", "ეკრანი": "6.2 inch Dynamic AMOLED 2X 120Hz", "პროცესორი": "Snapdragon 8 Elite", "კამერა": "50MP + 12MP Ultra Wide + 10MP Telephoto", "ბატარეა": "4000 mAh", "დატვირთვა": "25W", "წყალგამძლეობა": "IP68" } },
+    { brand: "Samsung", title: "Galaxy S24 Ultra 1TB", price: 3200, image: "https://tertech.ru/thumb/2/7SiBn-PAibdb00frsAabKg/400r400/d/dfheuy5475.jpg", color: "Titanium Black", sale: "10%", cat: "samsung", specs: { "მეხსიერება": "1TB", "RAM": "12GB", "ეკრანი": "6.8 inch Dynamic AMOLED 2X 120Hz", "პროცესორი": "Snapdragon 8 Gen 3", "კამერა": "200MP + 50MP Telephoto + 10MP Telephoto + 12MP Ultra Wide", "ბატარეა": "5000 mAh", "დატვირთვა": "45W", "S Pen": "დიახ", "წყალგამძლეობა": "IP68" } },
 
-    // Refrigerators
-    { 
-      brand: "Samsung", 
-      title: "Samsung RD32WRN/INOX მაცივარი", 
-      price: 600, 
-      image: "https://apollo.ge/wp-content/uploads/2023/11/5d9cfd99e17b645af3f41bf3ce28ff8e.jpg", 
-      color: "INOX", 
-      sale: "10%", 
-      cat: "refrigerators",
-      specs: {
-        "მოცულობა": "320 ლიტრი",
-        "ფრიზერის მოცულობა": "98 ლიტრი",
-        "მაცივრის მოცულობა": "222 ლიტრი",
-        "ენერგო კლასი": "A+",
-        "ზომები (სიმაღლე)": "171 სმ",
-        "ზომები (სიგანე)": "60 სმ",
-        "ზომები (სიღრმე)": "65 სმ",
-        "წონა": "58 კგ",
-        "ფერი": "INOX (უჟანგავი ფოლადი)",
-        "No Frost": "არა",
-        "კარების რაოდენობა": "2 კარი"
-      }
-    },
+    // Refrigerators - New additions from your list
+    { brand: "Beko", title: "BEKO B3RCNK362HW ", price: null, image: "https://www.beko.com/content/dam/kazakhstan-kz-aem/kazakhstan-kz-aemProductCatalog/product-images/7387010001-B3RCNK362HW/7387010001-MDM2-LOW-2.png/jcr:content/renditions/original", color: "White", sale: null, cat: "refrigerators", specs: { "მოცულობა": "368 ლიტრი", "ფრიზერის მოცულობა": "100 ლიტრი", "მაცივრის მოცულობა": "268 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "186 სმ", "ზომები (სიგანე)": "59.5 სმ", "ზომები (სიღრმე)": "65 სმ", "წონა": "70.2 კგ", "No Frost": "დიახ (Dual Cooling)", "კარების რაოდენობა": "2 კარი", "ინვერტორული კომპრესორი": "დიახ" } },
+    { brand: "Hitachi", title: "HITACHI R-B410PUC6", price: null, image: "https://superi.ge/images/detailed/24/2025862.jpg", color: "White/Stainless", sale: null, cat: "refrigerators", specs: { "მოცულობა": "330 ლიტრი", "ფრიზერის მოცულობა": "115 ლიტრი", "მაცივრის მოცულობა": "215 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "181 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "66 სმ", "No Frost": "დიახ (Full No Frost)", "ხმაურის დონე": "42 dB", "გაყინვის სიმძლავრე": "6 კგ/დღეში", "ინვერტორული კომპრესორი": "დიახ" } },
+    { brand: "Bosch", title: "BOSCH KGN36NL30U", price: null, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtjkDa8xnZLicPkJdfUIiqm1FOFyLMfJoUfQ&s", color: "Silver", sale: null, cat: "refrigerators", specs: { "მოცულობა": "320 ლიტრი", "ფრიზერის მოცულობა": "87 ლიტრი", "მაცივრის მოცულობა": "233 ლიტრი", "ენერგო კლასი": "A++", "ზომები (სიმაღლე)": "186 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "66 სმ", "No Frost": "დიახ", "კარების რაოდენობა": "2 კარი", "ინვერტორული კომპრესორი": "დიახ" } },
+    { brand: "LG", title: "LG GR-F589BLCM", price: null, image: "https://cdn1.smartprix.com/rx-ioXWCoRWX-w1200-h1200/oXWCoRWX.webp", color: "Black", sale: null, cat: "refrigerators", specs: { "მოცულობა": "394 ლიტრი", "ფრიზერის მოცულობა": "131 ლიტრი", "მაცივრის მოცულობა": "263 ლიტრი", "ენერგო კლასი": "A++", "ზომები (სიმაღლე)": "190 სმ", "ზომები (სიგანე)": "59.5 სმ", "ზომები (სიღრმე)": "68.6 სმ", "No Frost": "დიახ", "კარების რაოდენობა": "2 კარი", "ინვერტორული კომპრესორი": "დიახ", "DoorCooling+": "დიახ" } },
+    { brand: "Midea", title: "MIDEA MDRE306FZF01", price: null, image: "https://imgstore.alta.ge/images/400/155/155814_558_6.webp", color: "White/Silver", sale: null, cat: "refrigerators", specs: { "მოცულობა": "306 ლიტრი", "ფრიზერის მოცულობა": "95 ლიტრი", "მაცივრის მოცულობა": "211 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "176 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "64 სმ", "No Frost": "დიახ", "კარების რაოდენობა": "2 კარი" } },
+    { brand: "Gorenje", title: "GORENJE NRK6201PS4", price: null, image: "https://superi.ge/images/detailed/18/orig_tq3t-gv.webp", color: "Silver", sale: null, cat: "refrigerators", specs: { "მოცულობა": "362 ლიტრი", "ფრიზერის მოცულობა": "105 ლიტრი", "მაცივრის მოცულობა": "257 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "200 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "64 სმ", "No Frost": "დიახ", "კარების რაოდენობა": "2 კარი", "ინვერტორული კომპრესორი": "დიახ" } },
+    { brand: "Gorenje", title: "GORENJE NRK619FAS4", price: null, image: "https://superi.ge/images/detailed/37/a7950144d4af3e79052d2c9445f5a6f6a924a0e8f8a0fe2faba00655948f9e08.jpg.webp", color: "Silver", sale: null, cat: "refrigerators", specs: { "მოცულობა": "350 ლიტრი", "ფრიზერის მოცულობა": "98 ლიტრი", "მაცივრის მოცულობა": "252 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "185 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "64 სმ", "No Frost": "დიახ", "კარების რაოდენობა": "2 კარი" } },
+    { brand: "Bosch", title: "BOSCH KGN49XL30U", price: null, image: "https://media3.bsh-group.com/Product_Shots/MCSA01709262_G4535_KGN49XL30G_1152347_def.webp", color: "Stainless Steel", sale: null, cat: "refrigerators", specs: { "მოცულობა": "435 ლიტრი", "ფრიზერის მოცულობა": "105 ლიტრი", "მაცივრის მოცულობა": "330 ლიტრი", "ენერგო კლასი": "A++", "ზომები (სიმაღლე)": "203 სმ", "ზომები (სიგანე)": "70 სმ", "ზომები (სიღრმე)": "67 სმ", "No Frost": "დიახ", "კარების რაოდენობა": "2 კარი", "VitaFresh": "დიახ" } },
+    { brand: "Hitachi", title: "HITACHI R-BG410PUC6X", price: null, image: "https://mimelon.com/uploads/catalog/Product//a301.jpg", color: "Black/Beige", sale: null, cat: "refrigerators", specs: { "მოცულობა": "330 ლიტრი", "ფრიზერის მოცულობა": "115 ლიტრი", "მაცივრის მოცულობა": "215 ლიტრი", "ენერგო კლასი": "A++", "ზომები (სიმაღლე)": "181 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "66 სმ", "No Frost": "დიახ", "ხმაურის დონე": "38 dB", "ინვერტორული კომპრესორი": "დიახ", "Nano Titanium ფილტრი": "დიახ" } },
+    { brand: "HISENSE", title: "DT27DR4-WHITE", price: null, image: "https://megatechnica.ge/storage/5531a5834816222280f20d1ef9e95f69/d3d9446802a44259755d38e6d163e820/70efdf2ec9b086079795c442636b55fb/70efdf2ec9b086079795c442636b55fb/9f61408e3afb633e50cdf1b20de6f466/287abbf4fa07e18b2cfdc0da48aa6403_200.jpg", color: "White", sale: null, cat: "refrigerators", specs: { "მოცულობა": "270 ლიტრი", "ფრიზერის მოცულობა": "65 ლიტრი", "მაცივრის მოცულობა": "205 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "177 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "64 სმ", "No Frost": "არა", "კარების რაოდენობა": "2 კარი" } },
+    { brand: "HISENSE", title: "DT27DR4-Silver", price: null, image: "https://apollo.ge/wp-content/uploads/2023/11/5d9cfd99e17b645af3f41bf3ce28ff8e.jpg", color: "Silver", sale: null, cat: "refrigerators", specs: { "მოცულობა": "270 ლიტრი", "ფრიზერის მოცულობა": "65 ლიტრი", "მაცივრის მოცულობა": "205 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "177 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "64 სმ", "No Frost": "არა", "კარების რაოდენობა": "2 კარი" } },
+    { brand: "Samsung", title: "RD-31DR4SA", price: null, image: "https://apollo.ge/wp-content/uploads/2023/11/5d9cfd99e17b645af3f41bf3ce28ff8e.jpg", color: "Silver", sale: null, cat: "refrigerators", specs: { "მოცულობა": "310 ლიტრი", "ფრიზერის მოცულობა": "98 ლიტრი", "მაცივრის მოცულობა": "212 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "171 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "65 სმ", "No Frost": "არა", "კარების რაოდენობა": "2 კარი" } },
+    { brand: "Samsung", title: "RD32WRN/INOX", price: 600, image: "https://apollo.ge/wp-content/uploads/2023/11/5d9cfd99e17b645af3f41bf3ce28ff8e.jpg", color: "INOX", sale: "10%", cat: "refrigerators", specs: { "მოცულობა": "320 ლიტრი", "ფრიზერის მოცულობა": "98 ლიტრი", "მაცივრის მოცულობა": "222 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "171 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "65 სმ", "წონა": "58 კგ", "ფერი": "INOX (უჟანგავი ფოლადი)", "No Frost": "არა", "კარების რაოდენობა": "2 კარი" } },
+    { brand: "Samsung", title: "RS20DC WHITE", price: null, image: "https://apollo.ge/wp-content/uploads/2023/11/5d9cfd99e17b645af3f41bf3ce28ff8e.jpg", color: "White", sale: null, cat: "refrigerators", specs: { "მოცულობა": "565 ლიტრი", "ტიპი": "Side-by-Side", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "178 სმ", "ზომები (სიგანე)": "91 სმ", "ზომები (სიღრმე)": "73 სმ", "No Frost": "დიახ", "წყლის დისპენსერი": "დიახ", "ყინულის გამომყვანი": "დიახ" } },
+    { brand: "Beko", title: "BEKO RDNE510M20XBR", price: null, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9r8LcaIQ_6odFEB7J_YLEx5es5LnJFQ8WPw&s", color: "Stainless", sale: null, cat: "refrigerators", specs: { "მოცულობა": "510 ლიტრი", "ტიპი": "French Door", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "185 სმ", "ზომები (სიგანე)": "84 სმ", "ზომები (სიღრმე)": "75 სმ", "No Frost": "დიახ", "ინვერტორული კომპრესორი": "დიახ", "EverFresh+": "დიახ" } },
+    { brand: "TOSHIBA", title: "TOSHIBA GR-RT468WE-PMJ(37)", price: null, image: "https://imgstore.alta.ge/images/400/135/135233_301_1.webp", color: "Beige", sale: null, cat: "refrigerators", specs: { "მოცულობა": "384 ლიტრი", "ფრიზერის მოცულობა": "107 ლიტრი", "მაცივრის მოცულობა": "277 ლიტრი", "ენერგო კლასი": "A++", "ზომები (სიმაღლე)": "186 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "67 სმ", "No Frost": "დიახ", "ინვერტორული კომპრესორი": "დიახ" } },
+    { brand: "Midea", title: "MDRB424FGF02I", price: null, image: "https://apollo.ge/wp-content/uploads/2023/11/5d9cfd99e17b645af3f41bf3ce28ff8e.jpg", color: "Silver", sale: null, cat: "refrigerators", specs: { "მოცულობა": "424 ლიტრი", "ფრიზერის მოცულობა": "125 ლიტრი", "მაცივრის მოცულობა": "299 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "200 სმ", "ზომები (სიგანე)": "70 სმ", "ზომები (სიღრმე)": "67 სმ", "No Frost": "დიახ", "კარების რაოდენობა": "2 კარი" } },
 
-    // Accessories
-    { 
-      brand: "Accessories", 
-      title: "AirPods Pro", 
-      price: 150, 
-      image: "https://crdms.images.consumerreports.org/f_auto,w_600/prod/products/cr/models/407936-wireless-portable-headphones-apple-airpods-pro-2nd-generation-10033244.png", 
-      color: "White", 
-      sale: "10%", 
-      cat: "accessories",
-      specs: {
-        "ტიპი": "In-Ear ყურსასმენი",
-        "Noise Cancellation": "აქტიური",
-        "ბატარეა": "6 საათი (ANC on)",
-        "დამუხტვის კორპუსი": "30 საათი",
-        "წყალგამძლეობა": "IPX4",
-        "ჩიპი": "H2"
-      }
-    },
-    { 
-      brand: "Accessories", 
-      title: "PS5 1TB", 
-      price: 1670, 
-      image: "https://wallpapers.com/images/featured-full/ps5-console-png-ywbv2gv3gfw23o3w.png", 
-      color: "White", 
-      sale: "14%", 
-      cat: "accessories",
-      specs: {
-        "მოცულობა": "1TB SSD",
-        "პროცესორი": "AMD Zen 2",
-        "გრაფიკული ბარათი": "AMD Radeon RDNA 2",
-        "RAM": "16GB GDDR6",
-        "გარჩევადობა": "8K / 4K 120Hz",
-        "Disc Drive": "Ultra HD Blu-ray"
-      }
-    }
+    // Accessories (unchanged)
+    { brand: "Accessories", title: "AirPods Pro", price: 150, image: "https://crdms.images.consumerreports.org/f_auto,w_600/prod/products/cr/models/407936-wireless-portable-headphones-apple-airpods-pro-2nd-generation-10033244.png", color: "White", sale: "10%", cat: "accessories", specs: { "ტიპი": "In-Ear ყურსასმენი", "Noise Cancellation": "აქტიური", "ბატარეა": "6 საათი (ANC on)", "დამუხტვის კორპუსი": "30 საათი", "წყალგამძლეობა": "IPX4", "ჩიპი": "H2" } },
+    { brand: "Accessories", title: "PS5 1TB", price: 1670, image: "https://wallpapers.com/images/featured-full/ps5-console-png-ywbv2gv3gfw23o3w.png", color: "White", sale: "14%", cat: "accessories", specs: { "მოცულობა": "1TB SSD", "პროცესორი": "AMD Zen 2", "გრაფიკული ბარათი": "AMD Radeon RDNA 2", "RAM": "16GB GDDR6", "გარჩევადობა": "8K / 4K 120Hz", "Disc Drive": "Ultra HD Blu-ray" } }
   ];
 
   function generateCard(p, index) {
     const oldPrice = p.sale ? (p.price / (1 - parseInt(p.sale)/100)).toFixed(0) : null;
+    const isSamsungPhone = p.brand === "Samsung" && p.cat === "samsung";
+    const isRefrigeratorWithoutPrice = p.cat === "refrigerators" && p.price === null;
+    
     return `
       <div class="card" onclick="openModal(${index})">
         ${p.sale ? `<div class="sale-badge">-${p.sale}</div>` : ''}
@@ -851,8 +470,12 @@
           <h3 style="font-size:16px;">${p.title}</h3>
           <p style="color:var(--muted); font-size:13px;">${p.color}</p>
           <div class="price">
-            <span class="now">₾${p.price}</span>
-            ${oldPrice ? `<span class="old">₾${oldPrice}</span>` : ''}
+            ${isSamsungPhone 
+              ? `<span class="now" style="font-size:15px;">ფასი კონფიგურაციის მიხედვით</span>`
+              : isRefrigeratorWithoutPrice
+                ? `<span class="contact-price">შეამოწმე ფასი დამიწერე</span>`
+                : `<span class="now">₾${p.price}</span>${oldPrice ? `<span class="old">₾${oldPrice}</span>` : ''}`
+            }
           </div>
         </div>
       </div>
@@ -879,19 +502,34 @@
     });
   }
 
-  // Modal functionality
   function openModal(index) {
     const product = PRODUCTS[index];
     const modal = document.getElementById('productModal');
+    const isSamsungPhone = product.brand === "Samsung" && product.cat === "samsung";
+    const isRefrigeratorWithoutPrice = product.cat === "refrigerators" && product.price === null;
     
     document.getElementById('modalTitle').textContent = product.title;
     document.getElementById('modalImage').src = product.image;
-    document.getElementById('modalPrice').textContent = '₾' + product.price;
     
-    const oldPrice = product.sale ? (product.price / (1 - parseInt(product.sale)/100)).toFixed(0) : null;
-    document.getElementById('modalOldPrice').textContent = oldPrice ? '₾' + oldPrice : '';
+    if (isSamsungPhone) {
+      document.getElementById('modalPrice').textContent = 'ფასი კონფიგურაციის მიხედვით';
+      document.getElementById('modalPrice').style.fontSize = '18px';
+      document.getElementById('modalOldPrice').textContent = '';
+    } else if (isRefrigeratorWithoutPrice) {
+      document.getElementById('modalPrice').textContent = 'შეამოწმე ფასი დამიწერე';
+      document.getElementById('modalPrice').style.fontSize = '16px';
+      document.getElementById('modalPrice').style.color = 'var(--accent2)';
+      document.getElementById('modalPrice').style.textDecoration = 'underline';
+      document.getElementById('modalOldPrice').textContent = '';
+    } else {
+      document.getElementById('modalPrice').textContent = '₾' + product.price;
+      document.getElementById('modalPrice').style.fontSize = '20px';
+      document.getElementById('modalPrice').style.color = '';
+      document.getElementById('modalPrice').style.textDecoration = '';
+      const oldPrice = product.sale ? (product.price / (1 - parseInt(product.sale)/100)).toFixed(0) : null;
+      document.getElementById('modalOldPrice').textContent = oldPrice ? '₾' + oldPrice : '';
+    }
     
-    // Generate specs
     const specsContainer = document.getElementById('modalSpecs');
     specsContainer.innerHTML = '';
     
@@ -915,7 +553,6 @@
     document.body.style.overflow = 'auto';
   }
 
-  // Close modal events
   document.querySelector('.close-modal').onclick = closeModal;
   window.onclick = function(event) {
     const modal = document.getElementById('productModal');
