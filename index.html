@@ -72,7 +72,20 @@
       overflow: hidden;
       height: 400px;
       margin-bottom: 30px;
+      animation: slideIn 0.8s ease-out;
     }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .mySlides { display: none; height: 100%; }
     .mySlides img { width: 100%; height: 100%; object-fit: cover; }
     
@@ -107,6 +120,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      cursor: pointer;
     }
     .card:hover { transform: translateY(-5px); border-color: var(--accent); }
 
@@ -176,8 +190,108 @@
     }
     .bank-card img { max-width: 85%; max-height: 85%; object-fit: contain; }
 
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      animation: fadeIn 0.3s;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .modal-content {
+      background: var(--card);
+      margin: 50px auto;
+      padding: 0;
+      border-radius: 20px;
+      max-width: 800px;
+      width: 90%;
+      position: relative;
+      animation: slideUp 0.3s;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    .modal-header {
+      padding: 25px;
+      border-bottom: 1px solid #232836;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-body {
+      padding: 30px;
+    }
+
+    .modal-image {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .modal-image img {
+      max-width: 300px;
+      max-height: 300px;
+      object-fit: contain;
+    }
+
+    .close-modal {
+      color: var(--muted);
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      line-height: 1;
+    }
+
+    .close-modal:hover {
+      color: var(--accent);
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .spec-item {
+      background: rgba(24, 30, 42, 0.5);
+      padding: 15px;
+      border-radius: 10px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .spec-label {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 5px;
+    }
+
+    .spec-value {
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 600;
+    }
+
     @media (max-width: 768px) {
       .slideshow-container { height: 250px; }
+      .modal-content { margin: 20px auto; width: 95%; }
+      .modal-body { padding: 20px; }
     }
   </style>
 </head>
@@ -255,8 +369,8 @@
     <p>📍 მისამართი: ქობულეთი, რუსთაველის 106</p>
     <p>📞 ტელეფონი: +995 558 14 14 91</p>
     <div style="margin-top: 20px;">
-        <iframe src="http://googleusercontent.com/maps.google.com/5" width="100%" height="300" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy"></iframe>
-    </div>
+        <iframe src="https://www.google.com/maps?q=41.82095763446872,41.7779783441744&output=embed" width="100%" height="300" style="border:0; border-radius:15px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div> 
   </div>
 
   <section class="bank-section">
@@ -272,24 +386,465 @@
   </footer>
 </div>
 
+<!-- Modal -->
+<div id="productModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2 id="modalTitle" style="border: none; padding: 0; margin: 0;"></h2>
+      <span class="close-modal">&times;</span>
+    </div>
+    <div class="modal-body">
+      <div class="modal-image">
+        <img id="modalImage" src="" alt="">
+      </div>
+      <div class="price" style="text-align: center; margin-bottom: 20px;">
+        <span class="now" id="modalPrice"></span>
+        <span class="old" id="modalOldPrice"></span>
+      </div>
+      <div id="modalSpecs" class="specs-grid"></div>
+    </div>
+  </div>
+</div>
+
 <script>
-  // აქ არის ყველა შენი პროდუქტი სრულად აღდგენილი
   const PRODUCTS = [
-    { brand: "Apple", title: "iPhone 15 Pro 256GB", price: 2200, image: "https://raw.githubusercontent.com/hdpngworld/HPW/main/uploads/65038654434d0-iPhone%2015%20Pro%20Natural%20titanium%20png.png", color: "Desert Titanium", sale: "5%", cat: "iphones" },
-    { brand: "Apple", title: "iPhone 16 128GB", price: 2350, image: "https://pngimg.com/d/iphone16_PNG3.png", color: "Black", sale: "5%", cat: "iphones" },
-    { brand: "Apple", title: "iPhone 12 64GB", price: 620, image: "https://freepngimg.com/save/117083-12-iphone-hd-image-free/1752x748", color: "Black", sale: "5%", cat: "iphones" },
-    { brand: "Apple", title: "iPhone 17 256GB", price: 2840, image: "https://pngimg.com/d/iphone17_PNG27.png", color: "Black", sale: "5%", cat: "iphones" },
-    { brand: "Apple", title: "iPhone 17 Pro 256GB", price: 4290, image: "https://www.devicebuzz.com/_next/image?url=https%3A%2F%2Fapi.devicebuzz.com%2Fstatic%2FImages%2FApple%2FApple%20iPhone%2017%20Pro%20Max%2F1757623802183.png&w=3840&q=75", color: "Orange", sale: "5%", cat: "iphones" },
-    { brand: "Samsung", title: "Galaxy A06 4/64GB", price: 250, image: "https://miamicenters.com/wp-content/uploads/2025/04/screenn-8.png", color: "Black", sale: "5%", cat: "samsung" },
-    { brand: "Samsung", title: "Samsung RD32WRN/INOX მაცივარი", price: 600, image: "https://apollo.ge/wp-content/uploads/2023/11/5d9cfd99e17b645af3f41bf3ce28ff8e.jpg", color: "INOX", sale: "10%", cat: "refrigerators" },
-    { brand: "Accessories", title: "AirPods Pro", price: 150, image: "https://crdms.images.consumerreports.org/f_auto,w_600/prod/products/cr/models/407936-wireless-portable-headphones-apple-airpods-pro-2nd-generation-10033244.png", color: "White", sale: "10%", cat: "accessories" },
-    { brand: "Accessories", title: "PS5 1TB", price: 1670, image: "https://wallpapers.com/images/featured-full/ps5-console-png-ywbv2gv3gfw23o3w.png", color: "White", sale: "14%", cat: "accessories" }
+    // iPhone Models
+    { 
+      brand: "Apple", 
+      title: "iPhone 15 Pro 256GB", 
+      price: 2200, 
+      image: "https://raw.githubusercontent.com/hdpngworld/HPW/main/uploads/65038654434d0-iPhone%2015%20Pro%20Natural%20titanium%20png.png", 
+      color: "Desert Titanium", 
+      sale: "5%", 
+      cat: "iphones",
+      specs: {
+        "მეხსიერება": "256GB",
+        "RAM": "8GB",
+        "ეკრანი": "6.1 inch Super Retina XDR",
+        "პროცესორი": "A17 Pro",
+        "კამერა": "48MP Main + 12MP Ultra Wide",
+        "ბატარეა": "3274 mAh"
+      }
+    },
+    { 
+      brand: "Apple", 
+      title: "iPhone 16 128GB", 
+      price: 2350, 
+      image: "https://pngimg.com/d/iphone16_PNG3.png", 
+      color: "Black", 
+      sale: "5%", 
+      cat: "iphones",
+      specs: {
+        "მეხსიერება": "128GB",
+        "RAM": "8GB",
+        "ეკრანი": "6.1 inch OLED",
+        "პროცესორი": "A18",
+        "კამერა": "48MP Fusion",
+        "ბატარეა": "3561 mAh"
+      }
+    },
+    { 
+      brand: "Apple", 
+      title: "iPhone 12 64GB", 
+      price: 620, 
+      image: "https://freepngimg.com/save/117083-12-iphone-hd-image-free/1752x748", 
+      color: "Black", 
+      sale: "5%", 
+      cat: "iphones",
+      specs: {
+        "მეხსიერება": "64GB",
+        "RAM": "4GB",
+        "ეკრანი": "6.1 inch Super Retina XDR",
+        "პროცესორი": "A14 Bionic",
+        "კამერა": "12MP Dual",
+        "ბატარეა": "2815 mAh"
+      }
+    },
+    { 
+      brand: "Apple", 
+      title: "iPhone 17 256GB", 
+      price: 2840, 
+      image: "https://pngimg.com/d/iphone17_PNG27.png", 
+      color: "Black", 
+      sale: "5%", 
+      cat: "iphones",
+      specs: {
+        "მეხსიერება": "256GB",
+        "RAM": "8GB",
+        "ეკრანი": "6.3 inch ProMotion",
+        "პროცესორი": "A19",
+        "კამერა": "50MP Main + 12MP Ultra Wide",
+        "ბატარეა": "3877 mAh"
+      }
+    },
+    { 
+      brand: "Apple", 
+      title: "iPhone 17 Pro 256GB", 
+      price: 4290, 
+      image: "https://www.devicebuzz.com/_next/image?url=https%3A%2F%2Fapi.devicebuzz.com%2Fstatic%2FImages%2FApple%2FApple%20iPhone%2017%20Pro%20Max%2F1757623802183.png&w=3840&q=75", 
+      color: "Orange", 
+      sale: "5%", 
+      cat: "iphones",
+      specs: {
+        "მეხსიერება": "256GB",
+        "RAM": "12GB",
+        "ეკრანი": "6.9 inch ProMotion LTPO",
+        "პროცესორი": "A19 Pro",
+        "კამერა": "50MP Main + 48MP Ultra Wide + Telephoto",
+        "ბატარეა": "4676 mAh"
+      }
+    },
+    
+    // Samsung Galaxy A Series
+    { 
+      brand: "Samsung", 
+      title: "Galaxy A06 4/64GB", 
+      price: 250, 
+      image: "https://miamicenters.com/wp-content/uploads/2025/04/screenn-8.png", 
+      color: "Black", 
+      sale: "5%", 
+      cat: "samsung",
+      specs: {
+        "მეხსიერება": "64GB",
+        "RAM": "4GB",
+        "ეკრანი": "6.7 inch PLS LCD",
+        "პროცესორი": "MediaTek Helio G85",
+        "კამერა": "50MP Main + 2MP Depth",
+        "ბატარეა": "5000 mAh",
+        "5G": "არა"
+      }
+    },
+    { 
+      brand: "Samsung", 
+      title: "Galaxy A07 4/64GB", 
+      price: 260, 
+      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a07-4g.jpg", 
+      color: "Blue", 
+      sale: "5%", 
+      cat: "samsung",
+      specs: {
+        "მეხსიერება": "64GB",
+        "RAM": "4GB",
+        "ეკრანი": "6.7 inch PLS LCD 90Hz",
+        "პროცესორი": "MediaTek Helio G85",
+        "კამერა": "50MP + 2MP",
+        "ბატარეა": "5000 mAh",
+        "5G": "არა"
+      }
+    },
+    { 
+      brand: "Samsung", 
+      title: "Galaxy A07 6/128GB", 
+      price: 310, 
+      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a07-4g.jpg", 
+      color: "Black", 
+      sale: "5%", 
+      cat: "samsung",
+      specs: {
+        "მეხსიერება": "128GB",
+        "RAM": "6GB",
+        "ეკრანი": "6.7 inch PLS LCD 90Hz",
+        "პროცესორი": "MediaTek Helio G85",
+        "კამერა": "50MP + 2MP",
+        "ბატარეა": "5000 mAh",
+        "5G": "არა"
+      }
+    },
+    { 
+      brand: "Samsung", 
+      title: "Galaxy A16 4/128GB", 
+      price: 350, 
+      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a16-5g.jpg", 
+      color: "Light Green", 
+      sale: "5%", 
+      cat: "samsung",
+      specs: {
+        "მეხსიერება": "128GB",
+        "RAM": "4GB",
+        "ეკრანი": "6.7 inch Super AMOLED 90Hz",
+        "პროცესორი": "Dimensity 6300 / Helio G99",
+        "კამერა": "50MP Main + 5MP Ultra Wide",
+        "ბატარეა": "5000 mAh",
+        "5G": "დიახ"
+      }
+    },
+    { 
+      brand: "Samsung", 
+      title: "Galaxy A16 6/128GB", 
+      price: 380, 
+      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a16-5g.jpg", 
+      color: "Blue Black", 
+      sale: "5%", 
+      cat: "samsung",
+      specs: {
+        "მეხსიერება": "128GB",
+        "RAM": "6GB",
+        "ეკრანი": "6.7 inch Super AMOLED 90Hz",
+        "პროცესორი": "Dimensity 6300",
+        "კამერა": "50MP + 5MP Ultra Wide + 2MP Macro",
+        "ბატარეა": "5000 mAh",
+        "5G": "დიახ"
+      }
+    },
+    { 
+      brand: "Samsung", 
+      title: "Galaxy A17 4/128GB", 
+      price: 420, 
+      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a17.jpg", 
+      color: "Mint", 
+      sale: "5%", 
+      cat: "samsung",
+      specs: {
+        "მეხსიერება": "128GB",
+        "RAM": "4GB",
+        "ეკრანი": "6.7 inch Super AMOLED 120Hz",
+        "პროცესორი": "Exynos 1330",
+        "კამერა": "50MP Main + 5MP Ultra Wide + 2MP Macro",
+        "ბატარეა": "5000 mAh",
+        "5G": "დიახ",
+        "OIS": "დიახ"
+      }
+    },
+    { 
+      brand: "Samsung", 
+      title: "Galaxy A17 6/128GB", 
+      price: 460, 
+      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a17.jpg", 
+      color: "Dark Blue", 
+      sale: "5%", 
+      cat: "samsung",
+      specs: {
+        "მეხსიერება": "128GB",
+        "RAM": "6GB",
+        "ეკრანი": "6.7 inch Super AMOLED 120Hz",
+        "პროცესორი": "Exynos 1330",
+        "კამერა": "50MP OIS + 5MP Ultra Wide + 2MP Macro",
+        "ბატარეა": "5000 mAh",
+        "5G": "დიახ",
+        "OIS": "დიახ"
+      }
+    },
+    { 
+      brand: "Samsung", 
+      title: "Galaxy A17 8/256GB", 
+      price: 540, 
+      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a17.jpg", 
+      color: "Black", 
+      sale: "5%", 
+      cat: "samsung",
+      specs: {
+        "მეხსიერება": "256GB",
+        "RAM": "8GB",
+        "ეკრანი": "6.7 inch Super AMOLED 120Hz",
+        "პროცესორი": "Exynos 1330",
+        "კამერა": "50MP OIS + 5MP Ultra Wide + 2MP Macro",
+        "ბატარეა": "5000 mAh",
+        "5G": "დიახ",
+        "OIS": "დიახ"
+      }
+    },
+    { 
+      brand: "Samsung", 
+      title: "Galaxy A26 6/128GB", 
+      price: 580, 
+      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a26.jpg", 
+      color: "Light Violet", 
+      sale: "5%", 
+      cat: "samsung",
+      specs: {
+        "მეხსიერება": "128GB",
+        "RAM": "6GB",
+        "ეკრანი": "6.7 inch Super AMOLED 120Hz",
+        "პროცესორი": "Exynos 1380",
+        "კამერა": "50MP OIS + 8MP Ultra Wide + 5MP Macro",
+        "ბატარეა": "5000 mAh",
+        "დატვირთვა": "25W",
+        "5G": "დიახ"
+      }
+    },
+    { 
+      brand: "Samsung", 
+      title: "Galaxy A26 8/256GB", 
+      price: 660, 
+      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a26.jpg", 
+      color: "Black", 
+      sale: "5%", 
+      cat: "samsung",
+      specs: {
+        "მეხსიერება": "256GB",
+        "RAM": "8GB",
+        "ეკრანი": "6.7 inch Super AMOLED 120Hz",
+        "პროცესორი": "Exynos 1380",
+        "კამერა": "50MP OIS + 8MP Ultra Wide + 5MP Macro",
+        "ბატარეა": "5000 mAh",
+        "დატვირთვა": "25W",
+        "5G": "დიახ"
+      }
+    },
+    { 
+      brand: "Samsung", 
+      title: "Galaxy A36 8/128GB", 
+      price: 750, 
+      image: "https://fdn2.gsmarena.com/vv/bigpic/samsung-galaxy-a36.jpg", 
+      color: "Navy", 
+      sale: "5%", 
+      cat: "samsung",
+      specs: {
+        "მეხსიერება": "128GB",
+        "RAM": "8GB",
+        "ეკრანი": "6.7 inch Super AMOLED 120Hz",
+        "პროცესორი": "Snapdragon 6 Gen 3",
+        "კამერა": "50MP OIS + 8MP Ultra Wide + 5MP Macro",
+        "ბატარეა": "5000 mAh",
+        "დატვირთვა": "25W",
+        "წყალგამძლეობა": "IP67"
+      }
+    },
+    { 
+      brand: "Samsung", 
+      title: "Galaxy A56 8/128GB", 
+      price: 950, 
+      image: "https://bsimg.nl/images/samsung-galaxy-a56-5g-128gb-a566-roze-eu_9.png/Taay3pYk60htgS5Hj8RRydwca4g%3D/fit-in/0x0/filters%3Aupscale%28%29", 
+      color: "Awesome Iceblue", 
+      sale: "5%", 
+      cat: "samsung",
+      specs: {
+        "მეხსიერება": "128GB",
+        "RAM": "8GB",
+        "ეკრანი": "6.7 inch Super AMOLED 120Hz",
+        "პროცესორი": "Exynos 1580",
+        "კამერა": "50MP OIS + 12MP Ultra Wide + 5MP Macro",
+        "ბატარეა": "5000 mAh",
+        "დატვირთვა": "45W",
+        "წყალგამძლეობა": "IP67"
+      }
+    },
+    { 
+      brand: "Samsung", 
+      title: "Galaxy A56 8/256GB", 
+      price: 1050, 
+      image: "https://m.media-amazon.com/images/I/41eNOzSUcpL._AC_UF1000,1000_QL80_.jpg", 
+      color: "Awesome Navy", 
+      sale: "5%", 
+      cat: "samsung",
+      specs: {
+        "მეხსიერება": "256GB",
+        "RAM": "8GB",
+        "ეკრანი": "6.7 inch Super AMOLED 120Hz",
+        "პროცესორი": "Exynos 1580",
+        "კამერა": "50MP OIS + 12MP Ultra Wide + 5MP Macro",
+        "ბატარეა": "5000 mAh",
+        "დატვირთვა": "45W",
+        "წყალგამძლეობა": "IP67"
+      }
+    },
+    
+    // Samsung S Series
+    { 
+      brand: "Samsung", 
+      title: "Galaxy S25 8/128GB", 
+      price: 1850, 
+      image: "https://miamicenters.com/wp-content/uploads/2025/04/NAVY.png", 
+      color: "Icyblue", 
+      sale: "5%", 
+      cat: "samsung",
+      specs: {
+        "მეხსიერება": "128GB",
+        "RAM": "8GB",
+        "ეკრანი": "6.2 inch Dynamic AMOLED 2X 120Hz",
+        "პროცესორი": "Snapdragon 8 Elite",
+        "კამერა": "50MP + 12MP Ultra Wide + 10MP Telephoto",
+        "ბატარეა": "4000 mAh",
+        "დატვირთვა": "25W",
+        "წყალგამძლეობა": "IP68"
+      }
+    },
+    { 
+      brand: "Samsung", 
+      title: "Galaxy S24 Ultra 1TB", 
+      price: 3200, 
+      image: "https://imgstore.alta.ge/images/400/148/148693_9921_1.webp", 
+      color: "Titanium Black", 
+      sale: "10%", 
+      cat: "samsung",
+      specs: {
+        "მეხსიერება": "1TB",
+        "RAM": "12GB",
+        "ეკრანი": "6.8 inch Dynamic AMOLED 2X 120Hz",
+        "პროცესორი": "Snapdragon 8 Gen 3",
+        "კამერა": "200MP + 50MP Telephoto + 10MP Telephoto + 12MP Ultra Wide",
+        "ბატარეა": "5000 mAh",
+        "დატვირთვა": "45W",
+        "S Pen": "დიახ",
+        "წყალგამძლეობა": "IP68"
+      }
+    },
+
+    // Refrigerators
+    { 
+      brand: "Samsung", 
+      title: "Samsung RD32WRN/INOX მაცივარი", 
+      price: 600, 
+      image: "https://apollo.ge/wp-content/uploads/2023/11/5d9cfd99e17b645af3f41bf3ce28ff8e.jpg", 
+      color: "INOX", 
+      sale: "10%", 
+      cat: "refrigerators",
+      specs: {
+        "მოცულობა": "320 ლიტრი",
+        "ფრიზერის მოცულობა": "98 ლიტრი",
+        "მაცივრის მოცულობა": "222 ლიტრი",
+        "ენერგო კლასი": "A+",
+        "ზომები (სიმაღლე)": "171 სმ",
+        "ზომები (სიგანე)": "60 სმ",
+        "ზომები (სიღრმე)": "65 სმ",
+        "წონა": "58 კგ",
+        "ფერი": "INOX (უჟანგავი ფოლადი)",
+        "No Frost": "არა",
+        "კარების რაოდენობა": "2 კარი"
+      }
+    },
+
+    // Accessories
+    { 
+      brand: "Accessories", 
+      title: "AirPods Pro", 
+      price: 150, 
+      image: "https://crdms.images.consumerreports.org/f_auto,w_600/prod/products/cr/models/407936-wireless-portable-headphones-apple-airpods-pro-2nd-generation-10033244.png", 
+      color: "White", 
+      sale: "10%", 
+      cat: "accessories",
+      specs: {
+        "ტიპი": "In-Ear ყურსასმენი",
+        "Noise Cancellation": "აქტიური",
+        "ბატარეა": "6 საათი (ANC on)",
+        "დამუხტვის კორპუსი": "30 საათი",
+        "წყალგამძლეობა": "IPX4",
+        "ჩიპი": "H2"
+      }
+    },
+    { 
+      brand: "Accessories", 
+      title: "PS5 1TB", 
+      price: 1670, 
+      image: "https://wallpapers.com/images/featured-full/ps5-console-png-ywbv2gv3gfw23o3w.png", 
+      color: "White", 
+      sale: "14%", 
+      cat: "accessories",
+      specs: {
+        "მოცულობა": "1TB SSD",
+        "პროცესორი": "AMD Zen 2",
+        "გრაფიკული ბარათი": "AMD Radeon RDNA 2",
+        "RAM": "16GB GDDR6",
+        "გარჩევადობა": "8K / 4K 120Hz",
+        "Disc Drive": "Ultra HD Blu-ray"
+      }
+    }
   ];
 
-  function generateCard(p) {
+  function generateCard(p, index) {
     const oldPrice = p.sale ? (p.price / (1 - parseInt(p.sale)/100)).toFixed(0) : null;
     return `
-      <div class="card">
+      <div class="card" onclick="openModal(${index})">
         ${p.sale ? `<div class="sale-badge">-${p.sale}</div>` : ''}
         <div class="thumb"><img src="${p.image}" alt="${p.title}" onerror="this.src='https://via.placeholder.com/180?text=No+Image'"></div>
         <div>
@@ -315,13 +870,58 @@
 
     Object.values(grids).forEach(g => { if(g) g.innerHTML = ""; });
 
-    PRODUCTS.forEach(p => {
+    PRODUCTS.forEach((p, index) => {
       if (p.title.toLowerCase().includes(filter.toLowerCase())) {
-        const card = generateCard(p);
+        const card = generateCard(p, index);
         if(grids.main) grids.main.innerHTML += card;
         if(grids[p.cat]) grids[p.cat].innerHTML += card;
       }
     });
+  }
+
+  // Modal functionality
+  function openModal(index) {
+    const product = PRODUCTS[index];
+    const modal = document.getElementById('productModal');
+    
+    document.getElementById('modalTitle').textContent = product.title;
+    document.getElementById('modalImage').src = product.image;
+    document.getElementById('modalPrice').textContent = '₾' + product.price;
+    
+    const oldPrice = product.sale ? (product.price / (1 - parseInt(product.sale)/100)).toFixed(0) : null;
+    document.getElementById('modalOldPrice').textContent = oldPrice ? '₾' + oldPrice : '';
+    
+    // Generate specs
+    const specsContainer = document.getElementById('modalSpecs');
+    specsContainer.innerHTML = '';
+    
+    if (product.specs) {
+      for (const [key, value] of Object.entries(product.specs)) {
+        specsContainer.innerHTML += `
+          <div class="spec-item">
+            <div class="spec-label">${key}</div>
+            <div class="spec-value">${value}</div>
+          </div>
+        `;
+      }
+    }
+    
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('productModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  // Close modal events
+  document.querySelector('.close-modal').onclick = closeModal;
+  window.onclick = function(event) {
+    const modal = document.getElementById('productModal');
+    if (event.target == modal) {
+      closeModal();
+    }
   }
 
   document.querySelectorAll('.nav-link').forEach(link => {
