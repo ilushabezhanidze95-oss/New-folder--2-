@@ -138,6 +138,52 @@
       font-weight: bold;
     }
 
+    /* HYUNDAI badge for refrigerators */
+    .hyundai-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: linear-gradient(90deg,#ea580c,#fb923c);
+      padding: 6px 8px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+    }
+    .hyundai-badge img { display: none; }
+    .hyundai-badge span { color: white; font-weight: 800; font-size: 12px; letter-spacing: 0.6px; }
+
+    /* Generic TV brand badge (appears on TV cards) */
+    .tv-badge {
+      position: absolute;
+      top: 42px; /* sit below sale badge if present */
+      right: 10px;
+      background: linear-gradient(90deg,#0077ff,#60a5fa);
+      padding: 5px 8px;
+      border-radius: 8px;
+      color: white;
+      font-weight: 700;
+      font-size: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+      letter-spacing: 0.4px;
+    }
+
+    /* Washing machine badge (green gradient) */
+    .washing-badge {
+      position: absolute;
+      top: 42px;
+      left: 10px;
+      background: linear-gradient(90deg,#10b981,#34d399);
+      padding: 5px 9px;
+      border-radius: 8px;
+      color: white;
+      font-weight: 700;
+      font-size: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.22);
+      letter-spacing: 0.4px;
+    }
+
     .price .now { font-size: 20px; font-weight: 800; color: var(--accent); }
     .price .old { font-size: 14px; color: var(--muted); text-decoration: line-through; margin-left: 8px; }
     .price .contact-price { font-size: 14px; color: var(--accent2); text-decoration: underline; cursor: pointer; }
@@ -424,7 +470,7 @@
     // iPhone Models
     { brand: "Apple", title: "iPhone 15 Pro 256GB", price: 2200, image: "https://raw.githubusercontent.com/hdpngworld/HPW/main/uploads/65038654434d0-iPhone%2015%20Pro%20Natural%20titanium%20png.png", color: "Desert Titanium", sale: "5%", cat: "iphones", specs: { "მეხსიერება": "256GB", "RAM": "8GB", "ეკრანი": "6.1 inch Super Retina XDR", "პროცესორი": "A17 Pro", "კამერა": "48MP Main + 12MP Ultra Wide", "ბატარეა": "3274 mAh" } },
     { brand: "Apple", title: "iPhone 16 128GB", price: 2350, image: "https://pngimg.com/d/iphone16_PNG3.png", color: "Black", sale: "5%", cat: "iphones", specs: { "მეხსიერება": "128GB", "RAM": "8GB", "ეკრანი": "6.1 inch OLED", "პროცესორი": "A18", "კამერა": "48MP Fusion", "ბატარეა": "3561 mAh" } },
-    { brand: "Apple", title: "iPhone 12 64GB", price: 650, image: "https://freepngimg.com/save/117083-12-iphone-hd-image-free/1752x748", color: "Black", sale: "5%", cat: "iphones", specs: { "მეხსიერება": "64GB", "RAM": "4GB", "ეკრანი": "6.1 inch Super Retina XDR", "პროცესორი": "A14 Bionic", "კამერა": "12MP Dual", "ბატარეა": "2815 mAh" } },
+    { brand: "Apple", title: "iPhone 12 64GB", price: 620, image: "https://freepngimg.com/save/117083-12-iphone-hd-image-free/1752x748", color: "Black", sale: "5%", cat: "iphones", specs: { "მეხსიერება": "64GB", "RAM": "4GB", "ეკრანი": "6.1 inch Super Retina XDR", "პროცესორი": "A14 Bionic", "კამერა": "12MP Dual", "ბატარეა": "2815 mAh" } },
     { brand: "Apple", title: "iPhone 17 256GB", price: 2840, image: "https://pngimg.com/d/iphone17_PNG27.png", color: "Black", sale: "5%", cat: "iphones", specs: { "მეხსიერება": "256GB", "RAM": "8GB", "ეკრანი": "6.3 inch ProMotion", "პროცესორი": "A19", "კამერა": "50MP Main + 12MP Ultra Wide", "ბატარეა": "3877 mAh" } },
     { brand: "Apple", title: "iPhone 17 E-SIM Pro 256GB", price: 3750, image: "https://www.devicebuzz.com/_next/image?url=https%3A%2F%2Fapi.devicebuzz.com%2Fstatic%2FImages%2FApple%2FApple%20iPhone%2017%20Pro%20Max%2F1757623802183.png&w=3840&q=75", color: "Orange", sale: "5%", cat: "iphones", specs: { "მეხსიერება": "256GB", "RAM": "12GB", "ეკრანი": "6.9 inch ProMotion LTPO", "პროცესორი": "A19 Pro", "კამერა": "50MP Main + 48MP Ultra Wide + Telephoto", "ბატარეა": "4676 mAh" } },
     
@@ -443,7 +489,7 @@
     { brand: "Samsung", title: "Galaxy A56 8/128GB", price: 960, image: "https://tse1.mm.bing.net/th/id/OIP.wB3j4g4ssNCDXDe8vh5KWQHaJh?rs=1&pid=ImgDetMain&o=7&rm=3", color: "Awesome Iceblue", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "128GB", "RAM": "8GB", "ეკრანი": "6.7 inch Super AMOLED 120Hz", "პროცესორი": "Exynos 1580", "კამერა": "50MP OIS + 12MP Ultra Wide + 5MP Macro", "ბატარეა": "5000 mAh", "დატვირთვა": "45W", "წყალგამძლეობა": "IP67" } },
     { brand: "Samsung", title: "Galaxy A56 8/256GB", price: 1050, image: "https://shop.samsung.com/ie/images/products/30025/34799/600x600/SM-A566BZKCEUB.webp", color: "Awesome Navy", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "256GB", "RAM": "8GB", "ეკრანი": "6.7 inch Super AMOLED 120Hz", "პროცესორი": "Exynos 1580", "კამერა": "50MP OIS + 12MP Ultra Wide + 5MP Macro", "ბატარეა": "5000 mAh", "დატვირთვა": "45W", "წყალგამძლეობა": "IP67" } },
     { brand: "Samsung", title: "Galaxy S25 8/128GB", price: 1850, image: "https://media.secure-mobiles.com/product-images/SPA2512NAV.1.responsive-lg.centre.png", color: "Icyblue", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "128GB", "RAM": "8GB", "ეკრანი": "6.2 inch Dynamic AMOLED 2X 120Hz", "პროცესორი": "Snapdragon 8 Elite", "კამერა": "50MP + 12MP Ultra Wide + 10MP Telephoto", "ბატარეა": "4000 mAh", "დატვირთვა": "25W", "წყალგამძლეობა": "IP68" } },
-    { brand: "Samsung", title: "Galaxy S24 Ultra 1TB", price: 3200, image: "https://tertech.ru/thumb/2/7SiBn-PAibdb00frsAabKg/400r400/d/dfheuy5475.jpg", color: "Titanium Black", sale: "10%", cat: "samsung", specs: { "მეხსიერება": "1TB", "RAM": "12GB", "ეკრანი": "6.8 inch Dynamic AMOLED 2X 120Hz", "პროცესორი": "Snapdragon 8 Gen 3", "კამერა": "200MP + 50MP Telephoto + 10MP Telephoto + 12MP Ultra Wide", "ბატარეა": "5000 mAh", "დატვირთვა": "45W", "S Pen": "დიახ", "წყალგამძლეობა": "IP68" } },
+    { brand: "Samsung", title: "Galaxy S24 Ultra 1TB", price: 3200, image: "https://tertech.ru/thumb/2/7SiBn-PAibdb00frsAabKg/400r400/d/dfsamsung s22 128gbGbheuy5475.jpg", color: "Titanium Black", sale: "10%", cat: "samsung", swhitepecs: { "მეხსიერება": "1TB", "RAM": "12GB", "ეკრანი": "6.8128 inch Dynamic A98MOLED 2X 120Hz", "პ1როცესორი": "Snapdragon 8 Ge90n 3", "კამერა": "200MP + 50MP Telephoto + 10MP Telephoto + 12MP Ultra Wide", "ბატარეა": "5000 mAh", "დატვირთვა": "45W", "S Pen": "დიახ", "წყალგამძლეობა": "IP68" } },
 
     // Refrigerators - ძველი მოდელები
     { brand: "Beko", title: "BEKO B3RCNK362HW ", price: null, image: "https://www.beko.com/content/dam/kazakhstan-kz-aem/kazakhstan-kz-aemProductCatalog/product-images/7387010001-B3RCNK362HW/7387010001-MDM2-LOW-2.png/jcr:content/renditions/original", color: "White", sale: null, cat: "refrigerators", specs: { "მოცულობა": "368 ლიტრი", "ფრიზერის მოცულობა": "100 ლიტრი", "მაცივრის მოცულობა": "268 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "186 სმ", "ზომები (სიგანე)": "59.5 სმ", "ზომები (სიღრმე)": "65 სმ", "წონა": "70.2 კგ", "No Frost": "დიახ (Dual Cooling)", "კარების რაოდენობა": "2 კარი", "ინვერტორული კომპრესორი": "დიახ" } },
@@ -539,10 +585,15 @@
     const isRefrigeratorWithoutPrice = p.cat === "refrigerators" && p.price === null;
     const isWashingContact = p.cat === "washing" && p.price === null;
     const isTVContact = p.cat === "tvs" && p.price === null;
-    
+    const isHyundaiRefrigerator = p.brand && p.brand.toUpperCase() === "HYUNDAI" && p.cat === "refrigerators";
+    const saleHtml = p.sale ? `<div class="sale-badge">-${p.sale}</div>` : '';
+    const hyundaiHtml = isHyundaiRefrigerator ? `<div class="hyundai-badge"><span>HYUNDAI</span></div>` : '';
+    const tvBadgeHtml = (p.cat === 'tvs' && p.brand) ? `<div class="tv-badge"><span>${p.brand.toUpperCase()}</span></div>` : '';
+    const washingBadgeHtml = (p.cat === 'washing' && p.brand) ? `<div class="washing-badge"><span>${p.brand.toUpperCase()}</span></div>` : '';
+
     return `
       <div class="card" onclick="openModal(${index})">
-        ${p.sale ? `<div class="sale-badge">-${p.sale}</div>` : ''}
+        ${saleHtml}${hyundaiHtml}${tvBadgeHtml}${washingBadgeHtml}
         <div class="thumb"><img src="${p.image}" alt="${p.title}" onerror="this.src='https://via.placeholder.com/180?text=No+Image'"></div>
         <div>
           <h3 style="font-size:16px;">${p.title}</h3>
