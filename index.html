@@ -318,6 +318,7 @@
       <li><a href="#" class="nav-link" data-target="samsung">Samsung</a></li>
       <li><a href="#" class="nav-link" data-target="refrigerators">მაცივრები</a></li>
       <li><a href="#" class="nav-link" data-target="washing">სარეცხი მანქანები</a></li>
+      <li><a href="#" class="nav-link" data-target="tvs">ტელევიზორები</a></li>
       <li><a href="#" class="nav-link" data-target="accessories">აქსესუარები</a></li>
       <li><a href="#" class="nav-link" data-target="contact">კონტაქტი</a></li>
     </ul>
@@ -364,6 +365,11 @@
   <div id="washing" class="section">
     <h2> სარეცხი მანქანები (6–12 კგ)</h2>
     <div id="washing-grid" class="grid"></div>
+  </div>
+
+  <div id="tvs" class="section">
+    <h2>ტელევიზორები</h2>
+    <div id="tvs-grid" class="grid"></div>
   </div>
 
   <div id="accessories" class="section">
@@ -439,12 +445,12 @@
     { brand: "Samsung", title: "Galaxy S25 8/128GB", price: 1850, image: "https://media.secure-mobiles.com/product-images/SPA2512NAV.1.responsive-lg.centre.png", color: "Icyblue", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "128GB", "RAM": "8GB", "ეკრანი": "6.2 inch Dynamic AMOLED 2X 120Hz", "პროცესორი": "Snapdragon 8 Elite", "კამერა": "50MP + 12MP Ultra Wide + 10MP Telephoto", "ბატარეა": "4000 mAh", "დატვირთვა": "25W", "წყალგამძლეობა": "IP68" } },
     { brand: "Samsung", title: "Galaxy S24 Ultra 1TB", price: 3200, image: "https://tertech.ru/thumb/2/7SiBn-PAibdb00frsAabKg/400r400/d/dfheuy5475.jpg", color: "Titanium Black", sale: "10%", cat: "samsung", specs: { "მეხსიერება": "1TB", "RAM": "12GB", "ეკრანი": "6.8 inch Dynamic AMOLED 2X 120Hz", "პროცესორი": "Snapdragon 8 Gen 3", "კამერა": "200MP + 50MP Telephoto + 10MP Telephoto + 12MP Ultra Wide", "ბატარეა": "5000 mAh", "დატვირთვა": "45W", "S Pen": "დიახ", "წყალგამძლეობა": "IP68" } },
 
-    // Refrigerators
+    // Refrigerators - ძველი მოდელები
     { brand: "Beko", title: "BEKO B3RCNK362HW ", price: null, image: "https://www.beko.com/content/dam/kazakhstan-kz-aem/kazakhstan-kz-aemProductCatalog/product-images/7387010001-B3RCNK362HW/7387010001-MDM2-LOW-2.png/jcr:content/renditions/original", color: "White", sale: null, cat: "refrigerators", specs: { "მოცულობა": "368 ლიტრი", "ფრიზერის მოცულობა": "100 ლიტრი", "მაცივრის მოცულობა": "268 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "186 სმ", "ზომები (სიგანე)": "59.5 სმ", "ზომები (სიღრმე)": "65 სმ", "წონა": "70.2 კგ", "No Frost": "დიახ (Dual Cooling)", "კარების რაოდენობა": "2 კარი", "ინვერტორული კომპრესორი": "დიახ" } },
     { brand: "Hitachi", title: "HITACHI R-B410PUC6", price: null, image: "https://superi.ge/images/detailed/24/2025862.jpg", color: "White/Stainless", sale: null, cat: "refrigerators", specs: { "მოცულობა": "330 ლიტრი", "ფრიზერის მოცულობა": "115 ლიტრი", "მაცივრის მოცულობა": "215 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "181 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "66 სმ", "No Frost": "დიახ (Full No Frost)", "ხმაურის დონე": "42 dB", "გაყინვის სიმძლავრე": "6 კგ/დღეში", "ინვერტორული კომპრესორი": "დიახ" } },
     { brand: "Bosch", title: "BOSCH KGN36NL30U", price: null, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtjkDa8xnZLicPkJdfUIiqm1FOFyLMfJoUfQ&s", color: "Silver", sale: null, cat: "refrigerators", specs: { "მოცულობა": "320 ლიტრი", "ფრიზერის მოცულობა": "87 ლიტრი", "მაცივრის მოცულობა": "233 ლიტრი", "ენერგო კლასი": "A++", "ზომები (სიმაღლე)": "186 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "66 სმ", "No Frost": "დიახ", "კარების რაოდენობა": "2 კარი", "ინვერტორული კომპრესორი": "დიახ" } },
     { brand: "LG", title: "LG GR-F589BLCM", price: null, image: "https://cdn1.smartprix.com/rx-ioXWCoRWX-w1200-h1200/oXWCoRWX.webp", color: "Black", sale: null, cat: "refrigerators", specs: { "მოცულობა": "394 ლიტრი", "ფრიზერის მოცულობა": "131 ლიტრი", "მაცივრის მოცულობა": "263 ლიტრი", "ენერგო კლასი": "A++", "ზომები (სიმაღლე)": "190 სმ", "ზომები (სიგანე)": "59.5 სმ", "ზომები (სიღრმე)": "68.6 სმ", "No Frost": "დიახ", "კარების რაოდენობა": "2 კარი", "ინვერტორული კომპრესორი": "დიახ", "DoorCooling+": "დიახ" } },
-    { brand: "Midea", title: "MIDEA MDRE306FZF01", price: null, image: "https://imgstore.alta.ge/images/400/155/155814_558_6.webp", color: "White/Silver", sale: null, cat: "refrigerators", specs: { "მოცულობა": "306 ლიტრი", "ფრიზერის მოცულობა": "95 ლიტრი", "მაცივრის მოცულობა": "211 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "176 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "64 სმ", "No Frost": "დიახ", "კარების რაოდენობა": "2 კარი" } },
+    { brand: "Midea", title: "MIDEA MDRE306FZF01", price: null, image: "https://i.ibb.co/xP2R1vr/155814-558-6-removebg-preview.png", color: "White/Silver", sale: null, cat: "refrigerators", specs: { "მოცულობა": "306 ლიტრი", "ფრიზერის მოცულობა": "95 ლიტრი", "მაცივრის მოცულობა": "211 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "176 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "64 სმ", "No Frost": "დიახ", "კარების რაოდენობა": "2 კარი" } },
     { brand: "Gorenje", title: "GORENJE NRK6201PS4", price: null, image: "https://superi.ge/images/detailed/18/orig_tq3t-gv.webp", color: "Silver", sale: null, cat: "refrigerators", specs: { "მოცულობა": "362 ლიტრი", "ფრიზერის მოცულობა": "105 ლიტრი", "მაცივრის მოცულობა": "257 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "200 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "64 სმ", "No Frost": "დიახ", "კარების რაოდენობა": "2 კარი", "ინვერტორული კომპრესორი": "დიახ" } },
     { brand: "Gorenje", title: "GORENJE NRK619FAS4", price: null, image: "https://superi.ge/images/detailed/37/a7950144d4af3e79052d2c9445f5a6f6a924a0e8f8a0fe2faba00655948f9e08.jpg.webp", color: "Silver", sale: null, cat: "refrigerators", specs: { "მოცულობა": "350 ლიტრი", "ფრიზერის მოცულობა": "98 ლიტრი", "მაცივრის მოცულობა": "252 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "185 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "64 სმ", "No Frost": "დიახ", "კარების რაოდენობა": "2 კარი" } },
     { brand: "Bosch", title: "BOSCH KGN49XL30U", price: null, image: "https://media3.bsh-group.com/Product_Shots/MCSA01709262_G4535_KGN49XL30G_1152347_def.webp", color: "Stainless Steel", sale: null, cat: "refrigerators", specs: { "მოცულობა": "435 ლიტრი", "ფრიზერის მოცულობა": "105 ლიტრი", "მაცივრის მოცულობა": "330 ლიტრი", "ენერგო კლასი": "A++", "ზომები (სიმაღლე)": "203 სმ", "ზომები (სიგანე)": "70 სმ", "ზომები (სიღრმე)": "67 სმ", "No Frost": "დიახ", "კარების რაოდენობა": "2 კარი", "VitaFresh": "დიახ" } },
@@ -458,15 +464,69 @@
     { brand: "TOSHIBA", title: "TOSHIBA GR-RT468WE-PMJ(37)", price: null, image: "https://imgstore.alta.ge/images/400/135/135233_301_1.webp", color: "Beige", sale: null, cat: "refrigerators", specs: { "მოცულობა": "384 ლიტრი", "ფრიზერის მოცულობა": "107 ლიტრი", "მაცივრის მოცულობა": "277 ლიტრი", "ენერგო კლასი": "A++", "ზომები (სიმაღლე)": "186 სმ", "ზომები (სიგანე)": "60 სმ", "ზომები (სიღრმე)": "67 სმ", "No Frost": "დიახ", "ინვერტორული კომპრესორი": "დიახ" } },
     { brand: "Midea", title: "MDRB424FGF02I", price: null, image: "https://apollo.ge/wp-content/uploads/2023/11/5d9cfd99e17b645af3f41bf3ce28ff8e.jpg", color: "Silver", sale: null, cat: "refrigerators", specs: { "მოცულობა": "424 ლიტრი", "ფრიზერის მოცულობა": "125 ლიტრი", "მაცივრის მოცულობა": "299 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "200 სმ", "ზომები (სიგანე)": "70 სმ", "ზომები (სიღრმე)": "67 სმ", "No Frost": "დიახ", "კარების რაოდენობა": "2 კარი" } },
 
+    // ახალი მაცივრები ცხრილიდან
+    // HYUNDAI
+    { brand: "HYUNDAI", title: "HYUNDAI RHB326SG", price: null, image: "https://i.ibb.co/PZ4v9PFG/j0cneegbrxrqmhw-removebg-preview.png", color: "Silver/Grey", sale: null, cat: "refrigerators", specs: { "მოდელი": "RHB326SG", "რაოდენობა": "3 ცალი", "ბრენდი": "HYUNDAI", "ტიპი": "ორკარიანი მაცივარი" } },
+    { brand: "HYUNDAI", title: "HYUNDAI RHB326MG", price: null, image: "https://i.ibb.co/PG6mjMVW/i5dtwershlrq1vm-removebg-preview.png", color: "Matt Grey", sale: null, cat: "refrigerators", specs: { "მოდელი": "RHB326MG", "რაოდენობა": "1 ცალი", "ბრენდი": "HYUNDAI", "ტიპი": "ორკარიანი მაცივარი" } },
+    { brand: "HYUNDAI", title: "HYUNDAI RHB326GLD", price: null, image: "https://i.ibb.co/ks0wrf4K/tqrl0wvp1gs84ac-removebg-preview.png", color: "Gold", sale: null, cat: "refrigerators", specs: { "მოდელი": "RHB326GLD", "რაოდენობა": "3 ცალი", "ბრენდი": "HYUNDAI", "ტიპი": "ორკარიანი მაცივარი" } },
+
+    // Beko (ახალი მოდელები)
+    { brand: "Beko", title: "Beko RDNE55X", price: null, image: "https://www.beko.com/content/dam/kazakhstan-kz-aem/kazakhstan-kz-aemProductCatalog/product-images/7387010001-B3RCNK362HW/7387010001-MDM2-LOW-2.png/jcr:content/renditions/original", color: "Stainless Steel", sale: null, cat: "refrigerators", specs: { "მოდელი": "RDNE55X", "რაოდენობა": "2 ცალი", "ბრენდი": "Beko", "ტიპი": "ორკარიანი მაცივარი" } },
+    { brand: "Beko", title: "Beko RDNE510M20B", price: null, image: "https://www.beko.com/content/dam/kazakhstan-kz-aem/kazakhstan-kz-aemProductCatalog/product-images/7387010001-B3RCNK362HW/7387010001-MDM2-LOW-2.png/jcr:content/renditions/original", color: "Black", sale: null, cat: "refrigerators", specs: { "მოდელი": "RDNE510M20B", "რაოდენობა": "2 ცალი", "ბრენდი": "Beko", "ტიპი": "ორკარიანი მაცივარი" } },
+    { brand: "Beko", title: "Beko RDNE510M20W", price: null, image: "https://www.beko.com/content/dam/kazakhstan-kz-aem/kazakhstan-kz-aemProductCatalog/product-images/7387010001-B3RCNK362HW/7387010001-MDM2-LOW-2.png/jcr:content/renditions/original", color: "White", sale: null, cat: "refrigerators", specs: { "მოდელი": "RDNE510M20W", "რაოდენობა": "1 ცალი", "ბრენდი": "Beko", "ტიპი": "ორკარიანი მაცივარი" } },
+
+    // Indesit
+    { brand: "Indesit", title: "Indesit IFFT510N01TS", price: null, image: "https://i.ibb.co/Xr1JtcVq/1-min-76619a17-9695-470a-85fa-c99421a6597f-250x250-2x-removebg-preview.png", color: "Silver", sale: null, cat: "refrigerators", specs: { "მოდელი": "IFFT510N01TS", "რაოდენობა": "1 ცალი", "ბრენდი": "Indesit", "ტიპი": "ორკარიანი მაცივარი" } },
+
+    // MIDEA (ახალი მოდელები)
+    { brand: "MIDEA", title: "MIDEA MDRS791MIE28", price: null, image: "https://i.ibb.co/0RwWQSxq/6690bffd57caf-removebg-preview.png", color: "Silver", sale: null, cat: "refrigerators", specs: { "მოდელი": "MDRS791MIE28", "რაოდენობა": "2 ცალი", "ბრენდი": "MIDEA", "ტიპი": "Side-by-Side მაცივარი" } },
+    { brand: "MIDEA", title: "MIDEA MDRF69MIE46", price: null, image: "https://i.ibb.co/pjhpr5p7/155807-6579-4-removebg-preview.png", color: "Silver", sale: null, cat: "refrigerators", specs: { "მოდელი": "MDRF69MIE46", "რაოდენობა": "1 ცალი", "ბრენდი": "MIDEA", "ტიპი": "French Door მაცივარი" } },
+    { brand: "MIDEA", title: "MIDEA MDET645MTF28", price: null, image: "https://i.ibb.co/VW2kBXdS/43e03ff1-c61d-418c-8c3e-cd5ecb8642fe-Thumb-removebg-preview.png", color: "Silver", sale: null, cat: "refrigerators", specs: { "მოდელი": "MDET645MTF28", "რაოდენობა": "1 ცალი", "ბრენდი": "MIDEA", "ტიპი": "Multi-Door მაცივარი" } },
+    { brand: "MIDEA", title: "MIDEA MDRB593FGE02", price: null, image: "https://i.ibb.co/4gMDpxVz/MDRB593-FGE02-1-20250811201740-removebg-preview.png", color: "Silver", sale: null, cat: "refrigerators", specs: { "მოდელი": "MDRB593FGE02", "რაოდენობა": "1 ცალი", "ბრენდი": "MIDEA", "ტიპი": "ორკარიანი მაცივარი" } },
+
+    // TCL
+    { brand: "TCL", title: "TCL P650SBWG", price: null, image: "https://i.ibb.co/60PHWXRg/P650-SBWG-removebg-preview.png", color: "White/Grey", sale: null, cat: "refrigerators", specs: { "მოდელი": "P650SBWG", "რაოდენობა": "2 ცალი", "ბრენდი": "TCL", "ტიპი": "Side-by-Side მაცივარი" } },
+
+    // AKAI
+    { brand: "AKAI", title: "AKAI AK570TFNFI", price: null, image: "https://i.ibb.co/XfrhGFpQ/udjpozghqdoxesw-removebg-preview.png", color: "Stainless Steel", sale: null, cat: "refrigerators", specs: { "მოდელი": "AK570TFNFI", "რაოდენობა": "1 ცალი", "ბრენდი": "AKAI", "ტიპი": "French Door მაცივარი" } },
+
+    // TVs - ტელევიზორები
+    // AKAI TVs
+    { brand: "AKAI", title: "AKAI Q65AK97GTV", price: null, image: "https://i.ibb.co/gbYgwdjx/fiqobmgvrx2z9p5-removebg-preview.png", color: "Black", sale: "10%", cat: "tvs", specs: { "ეკრანი": "65 ინჩი", "გარჩევადობა": "4K UHD", "ტექნოლოგია": "QLED", "Smart TV": "დიახ", "რაოდენობა": "2 ცალი" } },
+    { brand: "AKAI", title: "AKAI Q55AK97GTV", price: null, image: "https://i.ibb.co/gbYgwdjx/fiqobmgvrx2z9p5-removebg-preview.png", color: "Black", sale: "10%", cat: "tvs", specs: { "ეკრანი": "55 ინჩი", "გარჩევადობა": "4K UHD", "ტექნოლოგია": "QLED", "Smart TV": "დიახ" } },
+    { brand: "AKAI", title: "AKAI 43AK87WHO", price: null, image: "https://i.ibb.co/4Zp25XBF/sfjeqqjhkm51tw8-removebg-preview.png", color: "Black", sale: "10%", cat: "tvs", specs: { "ეკრანი": "43 ინჩი", "გარჩევადობა": "Full HD", "Smart TV": "დიახ", "რაოდენობა": "3 ცალი" } },
+    { brand: "AKAI", title: "AKAI 40BS8200", price: null, image: "https://i.ibb.co/gbYgwdjx/fiqobmgvrx2z9p5-removebg-preview.png", color: "Black", sale: "10%", cat: "tvs", specs: { "ეკრანი": "40 ინჩი", "გარჩევადობა": "Full HD", "Smart TV": "დიახ", "რაოდენობა": "4 ცალი" } },
+    { brand: "AKAI", title: "AKAI Q43AK97GTV", price: null, image: "https://i.ibb.co/gbYgwdjx/fiqobmgvrx2z9p5-removebg-preview.png", color: "Black", sale: "10%", cat: "tvs", specs: { "ეკრანი": "43 ინჩი", "გარჩევადობა": "4K UHD", "ტექნოლოგია": "QLED", "Smart TV": "დიახ", "რაოდენობა": "3 ცალი" } },
+    { brand: "AKAI", title: "AKAI 40AK87WHO", price: null, image: "https://i.ibb.co/gbYgwdjx/fiqobmgvrx2z9p5-removebg-preview.png", color: "Black", sale: "10%", cat: "tvs", specs: { "ეკრანი": "40 ინჩი", "გარჩევადობა": "Full HD", "Smart TV": "დიახ", "რაოდენობა": "3 ცალი" } },
+    { brand: "AKAI", title: "AKAI 32AK80TS", price: null, image: "https://i.ibb.co/gbYgwdjx/fiqobmgvrx2z9p5-removebg-preview.png", color: "Black", sale: "10%", cat: "tvs", specs: { "ეკრანი": "32 ინჩი", "გარჩევადობა": "HD Ready", "Smart TV": "დიახ", "რაოდენობა": "5 ცალი" } },
+    { brand: "AKAI", title: "AKAI 32AK80WHO", price: null, image: "https://i.ibb.co/gbYgwdjx/fiqobmgvrx2z9p5-removebg-preview.png", color: "White", sale: "10%", cat: "tvs", specs: { "ეკრანი": "32 ინჩი", "გარჩევადობა": "HD Ready", "Smart TV": "დიახ", "რაოდენობა": "4 ცალი" } },
+    { brand: "AKAI", title: "AKAI 32BS8000", price: null, image: "https://i.ibb.co/gbYgwdjx/fiqobmgvrx2z9p5-removebg-preview.png", color: "Black", sale: "10%", cat: "tvs", specs: { "ეკრანი": "32 ინჩი", "გარჩევადობა": "HD Ready", "Smart TV": "დიახ", "რაოდენობა": "4 ცალი" } },
+
+    // SAMSUNG TVs
+    { brand: "Samsung", title: "Samsung QE65Q7FAAU", price: null, image: "https://i.ibb.co/bgtrt73B/019b4b6c-b07a-79ae-9776-107ec72555b0-720-removebg-preview.png", color: "Black", sale: "10%", cat: "tvs", specs: { "ეკრანი": "65 ინჩი", "გარჩევადობა": "4K UHD", "ტექნოლოგია": "QLED", "Smart TV": "დიახ", "რაოდენობა": "1 ცალი" } },
+    { brand: "Samsung", title: "Samsung QE50Q7FAAU", price: null, image: "https://i.ibb.co/bgtrt73B/019b4b6c-b07a-79ae-9776-107ec72555b0-720-removebg-preview.png", color: "Black", sale: "10%", cat: "tvs", specs: { "ეკრანი": "50 ინჩი", "გარჩევადობა": "4K UHD", "ტექნოლოგია": "QLED", "Smart TV": "დიახ", "რაოდენობა": "2 ცალი" } },
+
+    // TCL TVs
+    { brand: "TCL", title: "TCL 32S5K", price: null, image: "https://i.ibb.co/fWnhKJh/tcl-32-s5k-hero-front-removebg-preview.png", color: "Black", sale: "10%", cat: "tvs", specs: { "ეკრანი": "32 ინჩი", "გარჩევადობა": "HD Ready", "Smart TV": "დიახ", "Android TV": "დიახ", "რაოდენობა": "3 ცალი" } },
+
+    // IFFALCON TVs
+    { brand: "IFFALCON", title: "IFFALCON 65U85", price: null, image: "https://i.ibb.co/9kXdf2HN/71a7-Bupzdc-L-AC-UF1000-1000-QL80-removebg-preview.png", color: "Black", sale: "10%", cat: "tvs", specs: { "ეკრანი": "65 ინჩი", "გარჩევადობა": "4K UHD", "Smart TV": "დიახ", "რაოდენობა": "2 ცალი" } },
+    { brand: "IFFALCON", title: "IFFALCON 75U65", price: null, image: "https://i.ibb.co/9kXdf2HN/71a7-Bupzdc-L-AC-UF1000-1000-QL80-removebg-preview.png", color: "Black", sale: "10%", cat: "tvs", specs: { "ეკრანი": "75 ინჩი", "გარჩევადობა": "4K UHD", "Smart TV": "დიახ", "რაოდენობა": "2 ცალი" } },
+    { brand: "IFFALCON", title: "IFFALCON 65U65", price: null, image: "https://i.ibb.co/9kXdf2HN/71a7-Bupzdc-L-AC-UF1000-1000-QL80-removebg-preview.png", color: "Black", sale: "10%", cat: "tvs", specs: { "ეკრანი": "65 ინჩი", "გარჩევადობა": "4K UHD", "Smart TV": "დიახ", "რაოდენობა": "1 ცალი" } },
+    { brand: "IFFALCON", title: "IFFALCON 55U85", price: null, image: "https://i.ibb.co/ynYZtyqg/71-O5xq-Ix-F-L-AC-UF894-1000-QL80-removebg-preview.png", color: "Black", sale: "10%", cat: "tvs", specs: { "ეკრანი": "55 ინჩი", "გარჩევადობა": "4K UHD", "Smart TV": "დიახ", "რაოდენობა": "1 ცალი" } },
+
+    // Graetz TVs
+    { brand: "Graetz", title: "Graetz 32 inch", price: null, image: "https://i.ibb.co/W4zxDQQW/71mm-Vndph-RL-removebg-preview.png", color: "Black", sale: "10%", cat: "tvs", specs: { "ეკრანი": "32 ინჩი", "გარჩევადობა": "HD Ready", "Smart TV": "დიახ", "რაოდენობა": "5 ცალი" } },
+
     // Midea Washing Machines
-    { brand: "Midea", title: "Midea MFE02W60/W", price: 0, image: "https://elis.ge/wp-content/uploads/2024/06/dizajn-bez-nazvaniya-34.png", color: "თეთრი", sale: "36%", cat: "washing", specs: { "ჩატვირთვა": "6 კგ", "ბრუნვა": "1000 rpm", "ენერგია": "A+++", "ძრავა": "ინდუქციური", "გარანტია": "3 წელი", "პროგრამები": "15+" } },
-    { brand: "Midea", title: "Midea MF100W60", price: 0, image: "https://imgstore.alta.ge/images/400/150/150148_5556_1.webp", color: "თეთრი", sale: "27%", cat: "washing", specs: { "ჩატვირთვა": "6 კგ", "ბრუნვა": "1000-1200 rpm", "ენერგია": "A+++", "ორთქლი": "დიახ", "ძრავა": "ინვერტორული", "გარანტია": "3 წელი" } },
-    { brand: "Midea", title: "Midea MF01610US40/W", price: 0, image: "https://images.satu.kz/232347690_w300_h300_stiralnaya-mashina-midea.jpg", color: "თეთრი", sale: "38%", cat: "washing", specs: { "ჩატვირთვა": "6 კგ", "ბრუნვა": "1000 rpm", "ორთქლი": "დიახ", "ანტიბაქტერიული": "დიახ", "LED ეკრანი": "დიახ", "გარანტია": "3 წელი" } },
-    { brand: "Midea", title: "Midea MF100W70", price: 0, image: "https://m.media-amazon.com/images/I/5154zFosGNL._AC_UF1000,1000_QL80_.jpg", color: "თეთრი", sale: null, cat: "washing", specs: { "ჩატვირთვა": "7 კგ", "ბრუნვა": "1200 rpm", "ენერგია": "A+++", "ძრავა": "ინვერტორული", "ორთქლი": "დიახ", "გარანტია": "3 წელი" } },
-    { brand: "Midea", title: "Midea MFK80-U1401B", price: 0, image: "https://scontent.ftbs5-2.fna.fbcdn.net/v/t39.30808-6/629223380_122172693788862719_2949349038693226329_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=p8xZtyYy26EQ7kNvwFdPSXA&_nc_oc=Adm7CHVeOxrAfn-XMrYzRD4yC15s1e-Y-sLB9fsrfA-VIlm2K97rVrfq7PS4cbLf4DfpH60E75Orm9lrf0w5z2OV&_nc_zt=23&_nc_ht=scontent.ftbs5-2.fna&_nc_gid=JRYncB7o4Tit7RBjTfjwfA&oh=00_AftnbSbdI47jr8vPV_8i1x_xuEtUNY4mh8Na3GMaPzc8oQ&oe=698EB554", color: "თეთრი/ვერცხლი", sale: "20%", cat: "washing", specs: { "ჩატვირთვა": "8 კგ", "ბრუნვა": "1400 rpm", "ენერგია": "A", "ძრავა": "ინვერტორული", "Wi-Fi": "ზოგ მოდელში", "გარანტია": "3 წელი" } },
-    { brand: "Midea", title: "Midea MF200W90WB/W", price: 0, image: "https://superi.ge/images/detailed/22/Pralka-MIDEA-MF200W90WB-W-PL-front.jpg", color: "თეთრი", sale: "28%", cat: "washing", specs: { "ჩატვირთვა": "9 კგ", "ბრუნვა": "1400 rpm", "ძრავა": "Quad Inverter", "ჩამატება რეცხვისას": "დიახ", "ორთქლი": "დიახ", "ანტიბაქტერიული": "დიახ", "გარანტია": "3 წელი" } },
-    { brand: "Midea", title: "Midea MF210W100WB/W", price: 0, image: "https://s5.ezgif.com/tmp/ezgif-597f386762422f2f.png", color: "თეთრი", sale: null, cat: "washing", specs: { "ჩატვირთვა": "10 კგ", "ბრუნვა": "1400 rpm", "ენერგია": "A+++", "ძრავა": "ინვერტორული", "გარანტია": "3 წელი" } },
-    { brand: "Midea", title: "Midea MFK03W120B/S", price: 0, image: "https://scontent.ftbs5-2.fna.fbcdn.net/v/t39.30808-6/629444684_122172694844862719_1447058881164036364_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=127cfc&_nc_ohc=J7-LYknNUHYQ7kNvwFdiCvz&_nc_oc=Adm9lk2gTNaju0XaMzdiCgbFxJGyObq83qIlvenYZy4UlIEaYVDTjQZv-R8LgJqujlMnrih-XZ1VgVqErmeJzDQs&_nc_zt=23&_nc_ht=scontent.ftbs5-2.fna&_nc_gid=JweD7PjsRWJXGgLVWvDnSw&oh=00_AfuLe20md61PpmVv2YdQDNwEXnL0C3awz8xMjKLTPXh4Bw&oe=698EB15F", color: "ვერცხლი", sale: null, cat: "washing", specs: { "ჩატვირთვა": "12 კგ", "ბრუნვა": "1400 rpm", "ენერგია": "A+++", "პროგრამები": "14-16", "ორთქლი": "დიახ", "გარანტია": "3 წელი" } },
+    { brand: "Midea", title: "Midea MFE02W60/W", price: null, image: "https://elis.ge/wp-content/uploads/2024/06/dizajn-bez-nazvaniya-34.png", color: "თეთრი", sale: "36%", cat: "washing", specs: { "ჩატვირთვა": "6 კგ", "ბრუნვა": "1000 rpm", "ენერგია": "A+++", "ძრავა": "ინდუქციური", "გარანტია": "3 წელი", "პროგრამები": "15+" } },
+    { brand: "Midea", title: "Midea MF100W60", price: null, image: "https://imgstore.alta.ge/images/400/150/150148_5556_1.webp", color: "თეთრი", sale: "27%", cat: "washing", specs: { "ჩატვირთვა": "6 კგ", "ბრუნვა": "1000-1200 rpm", "ენერგია": "A+++", "ორთქლი": "დიახ", "ძრავა": "ინვერტორული", "გარანტია": "3 წელი" } },
+    { brand: "Midea", title: "Midea MF01610US40/W", price: null, image: "https://images.satu.kz/232347690_w300_h300_stiralnaya-mashina-midea.jpg", color: "თეთრი", sale: "38%", cat: "washing", specs: { "ჩატვირთვა": "6 კგ", "ბრუნვა": "1000 rpm", "ორთქლი": "დიახ", "ანტიბაქტერიული": "დიახ", "LED ეკრანი": "დიახ", "გარანტია": "3 წელი" } },
+    { brand: "Midea", title: "Midea MF100W70", price: null, image: "https://m.media-amazon.com/images/I/5154zFosGNL._AC_UF1000,1000_QL80_.jpg", color: "თეთრი", sale: null, cat: "washing", specs: { "ჩატვირთვა": "7 კგ", "ბრუნვა": "1200 rpm", "ენერგია": "A+++", "ძრავა": "ინვერტორული", "ორთქლი": "დიახ", "გარანტია": "3 წელი" } },
+    { brand: "Midea", title: "Midea MFK80-U1401B", price: null, image: "https://i.ibb.co/bM2KMtW2/1-175-removebg-preview.png", color: "თეთრი/ვერცხლი", sale: "20%", cat: "washing", specs: { "ჩატვირთვა": "8 კგ", "ბრუნვა": "1400 rpm", "ენერგია": "A", "ძრავა": "ინვერტორული", "Wi-Fi": "ზოგ მოდელში", "გარანტია": "3 წელი" } },
+    { brand: "Midea", title: "Midea MF200W90WB/W", price: null, image: "https://superi.ge/images/detailed/22/Pralka-MIDEA-MF200W90WB-W-PL-front.jpg", color: "თეთრი", sale: "28%", cat: "washing", specs: { "ჩატვირთვა": "9 კგ", "ბრუნვა": "1400 rpm", "ძრავა": "Quad Inverter", "ჩამატება რეცხვისას": "დიახ", "ორთქლი": "დიახ", "ანტიბაქტერიული": "დიახ", "გარანტია": "3 წელი" } },
+    { brand: "Midea", title: "Midea MF210W100WB/W", price: null, image: "https://i.ibb.co/bM2KMtW2/1-175-removebg-preview.png", color: "თეთრი", sale: null, cat: "washing", specs: { "ჩატვირთვა": "10 კგ", "ბრუნვა": "1400 rpm", "ენერგია": "A+++", "ძრავა": "ინვერტორული", "გარანტია": "3 წელი" } },
+    { brand: "Midea", title: "Midea MFK03W120B/S", price: null, image: "https://i.ibb.co/QjjjrTs9/629444684-122172694844862719-1447058881164036364-n-removebg-preview.png", color: "ვერცხლი", sale: null, cat: "washing", specs: { "ჩატვირთვა": "12 კგ", "ბრუნვა": "1400 rpm", "ენერგია": "A+++", "პროგრამები": "14-16", "ორთქლი": "დიახ", "გარანტია": "3 წელი" } },
 
     // Accessories
     { brand: "Accessories", title: "AirPods Pro", price: 150, image: "https://crdms.images.consumerreports.org/f_auto,w_600/prod/products/cr/models/407936-wireless-portable-headphones-apple-airpods-pro-2nd-generation-10033244.png", color: "White", sale: "10%", cat: "accessories", specs: { "ტიპი": "In-Ear ყურსასმენი", "Noise Cancellation": "აქტიური", "ბატარეა": "6 საათი (ANC on)", "დამუხტვის კორპუსი": "30 საათი", "წყალგამძლეობა": "IPX4", "ჩიპი": "H2" } },
@@ -478,6 +538,7 @@
     const isSamsungPhone = p.brand === "Samsung" && p.cat === "samsung";
     const isRefrigeratorWithoutPrice = p.cat === "refrigerators" && p.price === null;
     const isWashingContact = p.cat === "washing" && p.price === null;
+    const isTVContact = p.cat === "tvs" && p.price === null;
     
     return `
       <div class="card" onclick="openModal(${index})">
@@ -489,7 +550,7 @@
           <div class="price">
             ${isSamsungPhone 
               ? `<span class="now" style="font-size:15px;">ფასი კონფიგურაციის მიხედვით</span>`
-              : isRefrigeratorWithoutPrice || isWashingContact
+              : isRefrigeratorWithoutPrice || isWashingContact || isTVContact
                 ? `<span class="contact-price">შეამოწმე ფასი დამიწერე</span>`
                 : `<span class="now">₾${p.price}</span>${oldPrice ? `<span class="old">₾${oldPrice}</span>` : ''}`
             }
@@ -506,6 +567,7 @@
       samsung: document.getElementById('samsung-grid'),
       refrigerators: document.getElementById('refrigerators-grid'),
       washing: document.getElementById('washing-grid'),
+      tvs: document.getElementById('tvs-grid'),
       accessories: document.getElementById('accessories-grid')
     };
 
@@ -526,6 +588,7 @@
     const isSamsungPhone = product.brand === "Samsung" && product.cat === "samsung";
     const isRefrigeratorWithoutPrice = product.cat === "refrigerators" && product.price === null;
     const isWashingContact = product.cat === "washing" && product.price === null;
+    const isTVContact = product.cat === "tvs" && product.price === null;
     
     document.getElementById('modalTitle').textContent = product.title;
     document.getElementById('modalImage').src = product.image;
@@ -534,7 +597,7 @@
       document.getElementById('modalPrice').textContent = 'ფასი კონფიგურაციის მიხედვით';
       document.getElementById('modalPrice').style.fontSize = '18px';
       document.getElementById('modalOldPrice').textContent = '';
-    } else if (isRefrigeratorWithoutPrice || isWashingContact) {
+    } else if (isRefrigeratorWithoutPrice || isWashingContact || isTVContact) {
       document.getElementById('modalPrice').textContent = 'შეამოწმე ფასი დამიწერე';
       document.getElementById('modalPrice').style.fontSize = '16px';
       document.getElementById('modalPrice').style.color = 'var(--accent2)';
