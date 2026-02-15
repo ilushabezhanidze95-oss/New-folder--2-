@@ -296,6 +296,16 @@
       object-fit: contain;
     }
 
+    /* Modal slideshow */
+    .modal-slideshow-container { position: relative; width: 100%; max-height: 60vh; overflow: hidden; }
+    .modalSlide { display: none; width: 100%; height: 100%; }
+    .modalSlide img { width: 100%; height: 100%; object-fit: contain; }
+    .modal-prev, .modal-next { position: absolute; top: 50%; transform: translateY(-50%); padding: 10px; color: white; font-weight: bold; font-size: 20px; cursor: pointer; background: rgba(0,0,0,0.35); border-radius: 50%; z-index: 5; }
+    .modal-prev { left: 12px; }
+    .modal-next { right: 12px; }
+    .modal-thumbs img { width: 64px; height: 48px; object-fit: cover; border-radius: 6px; cursor: pointer; opacity: 0.8; border: 2px solid transparent; }
+    .modal-thumbs img.active-thumb { opacity: 1; border-color: var(--accent); }
+
     .close-modal {
       color: var(--muted);
       font-size: 35px;
@@ -454,8 +464,13 @@
     </div>
     <div class="modal-body">
       <div class="modal-image">
-        <img id="modalImage" src="" alt="">
-      </div>
+          <div class="modal-slideshow-container">
+            <!-- slides inserted here -->
+          </div>
+          <a class="prev modal-prev" onclick="modalPlusSlides(-1)">❮</a>
+          <a class="next modal-next" onclick="modalPlusSlides(1)">❯</a>
+          <div class="modal-thumbs" style="display:flex;gap:8px;justify-content:center;margin-top:12px;"></div>
+        </div>
       <div class="price" style="text-align: center; margin-bottom: 20px;">
         <span class="now" id="modalPrice"></span>
         <span class="old" id="modalOldPrice"></span>
@@ -489,7 +504,7 @@
     { brand: "Samsung", title: "Galaxy A56 8/128GB", price: 960, image: "https://tse1.mm.bing.net/th/id/OIP.wB3j4g4ssNCDXDe8vh5KWQHaJh?rs=1&pid=ImgDetMain&o=7&rm=3", color: "Awesome Iceblue", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "128GB", "RAM": "8GB", "ეკრანი": "6.7 inch Super AMOLED 120Hz", "პროცესორი": "Exynos 1580", "კამერა": "50MP OIS + 12MP Ultra Wide + 5MP Macro", "ბატარეა": "5000 mAh", "დატვირთვა": "45W", "წყალგამძლეობა": "IP67" } },
     { brand: "Samsung", title: "Galaxy A56 8/256GB", price: 1050, image: "https://shop.samsung.com/ie/images/products/30025/34799/600x600/SM-A566BZKCEUB.webp", color: "Awesome Navy", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "256GB", "RAM": "8GB", "ეკრანი": "6.7 inch Super AMOLED 120Hz", "პროცესორი": "Exynos 1580", "კამერა": "50MP OIS + 12MP Ultra Wide + 5MP Macro", "ბატარეა": "5000 mAh", "დატვირთვა": "45W", "წყალგამძლეობა": "IP67" } },
     { brand: "Samsung", title: "Galaxy S25 8/128GB", price: 1850, image: "https://media.secure-mobiles.com/product-images/SPA2512NAV.1.responsive-lg.centre.png", color: "Icyblue", sale: "5%", cat: "samsung", specs: { "მეხსიერება": "128GB", "RAM": "8GB", "ეკრანი": "6.2 inch Dynamic AMOLED 2X 120Hz", "პროცესორი": "Snapdragon 8 Elite", "კამერა": "50MP + 12MP Ultra Wide + 10MP Telephoto", "ბატარეა": "4000 mAh", "დატვირთვა": "25W", "წყალგამძლეობა": "IP68" } },
-    { brand: "Samsung", title: "Galaxy S24 Ultra 1TB", price: 3200, image: "https://tertech.ru/thumb/2/7SiBn-PAibdb00frsAabKg/400r400/d/dfsamsung s22 128gbGbheuy5475.jpg", color: "Titanium Black", sale: "10%", cat: "samsung", swhitepecs: { "მეხსიერება": "1TB", "RAM": "12GB", "ეკრანი": "6.8128 inch Dynamic A98MOLED 2X 120Hz", "პ1როცესორი": "Snapdragon 8 Ge90n 3", "კამერა": "200MP + 50MP Telephoto + 10MP Telephoto + 12MP Ultra Wide", "ბატარეა": "5000 mAh", "დატვირთვა": "45W", "S Pen": "დიახ", "წყალგამძლეობა": "IP68" } },
+    { brand: "Samsung", title: "Galaxy S24 Ultra 1TB", price: 3200, image: "https://i.ibb.co/HTJtrrhN/Samsung-Galaxy-S24-Ultra-Titanium-Violet-Smartphone-transparent-PNG-image-jpg-removebg-preview.png", color: "Titanium Black", sale: "10%", cat: "samsung", swhitepecs: { "მეხსიერება": "1TB", "RAM": "12GB", "ეკრანი": "6.8128 inch Dynamic A98MOLED 2X 120Hz", "პ1როცესორი": "Snapdragon 8 Ge90n 3", "კამერა": "200MP + 50MP Telephoto + 10MP Telephoto + 12MP Ultra Wide", "ბატარეა": "5000 mAh", "დატვირთვა": "45W", "S Pen": "დიახ", "წყალგამძლეობა": "IP68" } },
 
     // Refrigerators - ძველი მოდელები
     { brand: "Beko", title: "BEKO B3RCNK362HW ", price: null, image: "https://www.beko.com/content/dam/kazakhstan-kz-aem/kazakhstan-kz-aemProductCatalog/product-images/7387010001-B3RCNK362HW/7387010001-MDM2-LOW-2.png/jcr:content/renditions/original", color: "White", sale: null, cat: "refrigerators", specs: { "მოცულობა": "368 ლიტრი", "ფრიზერის მოცულობა": "100 ლიტრი", "მაცივრის მოცულობა": "268 ლიტრი", "ენერგო კლასი": "A+", "ზომები (სიმაღლე)": "186 სმ", "ზომები (სიგანე)": "59.5 სმ", "ზომები (სიღრმე)": "65 სმ", "წონა": "70.2 კგ", "No Frost": "დიახ (Dual Cooling)", "კარების რაოდენობა": "2 კარი", "ინვერტორული კომპრესორი": "დიახ" } },
@@ -642,7 +657,27 @@
     const isTVContact = product.cat === "tvs" && product.price === null;
     
     document.getElementById('modalTitle').textContent = product.title;
-    document.getElementById('modalImage').src = product.image;
+
+    // Build modal slideshow images. Support single-string image or array of images.
+    const images = Array.isArray(product.image) ? product.image : [product.image];
+    const slideshow = document.querySelector('.modal-slideshow-container');
+    const thumbs = document.querySelector('.modal-thumbs');
+    slideshow.innerHTML = '';
+    thumbs.innerHTML = '';
+    images.forEach((src, i) => {
+      const slide = document.createElement('div');
+      slide.className = 'modalSlide';
+      slide.innerHTML = `<img src="${src}" onerror="this.src='https://via.placeholder.com/400?text=No+Image'">`;
+      slideshow.appendChild(slide);
+
+      const t = document.createElement('img');
+      t.src = src;
+      t.addEventListener('click', () => { showModalSlides(i+1); });
+      thumbs.appendChild(t);
+    });
+    // start modal slideshow
+    window.modalSlideIndex = 1;
+    showModalSlides(window.modalSlideIndex);
     
     if (isSamsungPhone) {
       document.getElementById('modalPrice').textContent = 'ფასი კონფიგურაციის მიხედვით';
@@ -684,6 +719,20 @@
   function closeModal() {
     document.getElementById('productModal').style.display = 'none';
     document.body.style.overflow = 'auto';
+  }
+
+  // Modal slideshow controls
+  function modalPlusSlides(n) { showModalSlides(window.modalSlideIndex += n); }
+  function showModalSlides(n) {
+    const slides = document.getElementsByClassName('modalSlide');
+    const thumbs = document.querySelectorAll('.modal-thumbs img');
+    if (slides.length === 0) return;
+    if (n > slides.length) window.modalSlideIndex = 1;
+    if (n < 1) window.modalSlideIndex = slides.length;
+    for (let i = 0; i < slides.length; i++) slides[i].style.display = 'none';
+    for (let t = 0; t < thumbs.length; t++) thumbs[t].classList.remove('active-thumb');
+    slides[window.modalSlideIndex-1].style.display = 'block';
+    if(thumbs[window.modalSlideIndex-1]) thumbs[window.modalSlideIndex-1].classList.add('active-thumb');
   }
 
   document.querySelector('.close-modal').onclick = closeModal;
