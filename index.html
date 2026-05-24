@@ -464,7 +464,32 @@
       .banner-phones { display: none; }
       .footer-inner { grid-template-columns: repeat(2, 1fr); }
       .mobile-menu-btn { display: block; }
-      .nav-inner { transform: translateX(-100%); }
+
+      /* Slide-in nav panel for mobile */
+      .nav-inner {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 260px;
+        max-width: none;
+        padding: 80px 16px 20px 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+        align-items: flex-start;
+        background: var(--green);
+        transform: translateX(-110%);
+        z-index: 200;
+      }
+      .nav-inner a {
+        display: block;
+        padding: 14px 18px;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 15px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+      }
       nav.open .nav-inner { transform: translateX(0); }
     }
     @media (max-width: 560px) {
@@ -867,6 +892,12 @@
     const nav = document.querySelector('nav');
     nav.classList.remove('open');
   }
+  // close mobile nav when nav links are clicked (mobile)
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('nav .nav-inner a').forEach(a => {
+      a.addEventListener('click', function() { closeMobileNav(); });
+    });
+  });
   function filterBrand(btn, brand) {
     document.querySelectorAll('.brand-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
